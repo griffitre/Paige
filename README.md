@@ -23,11 +23,8 @@ This branch (which is `main` as of writing this) is the functional skeleton. It 
 | `main` | Functional skeleton (plain WPF controls) |
 | `ui-polish` | Redesigned UI built on top of the same backend |
 
-### Why
-Primarily a learning project to apply WPF and MVVM in practice. The `ui-polish` branch is where the actual visual design lives.
-
 ### Future Plans
-1. Implement a polished UI that looks nice :steamhappy:
+1. Implement a polished UI that looks nice on ui-polish branch, move plain program to new `legacy` branch, make ui-polish branch into main :steamhappy:
 2. After the UI is done, learn SQL, migrate the data from the JSON layer to an SQL layer.
 3. After SQL layer is done, make it cloud based, so that users can login and access their data across devices.
 4. Once the cloud-based version is complete, work on adding a "daily question" tab, where each day a pre-set question will be asked. The user can answer said question, and view past answers on the mood calendar.
