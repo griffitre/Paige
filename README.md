@@ -20,7 +20,7 @@ This branch (which is `main` as of writing this) is the functional skeleton. It 
 ### Branches
 | Branch | Description |
 |---|---|
-| `main` | Functional skeleton — plain WPF controls |
+| `main` | Functional skeleton (plain WPF controls) |
 | `ui-polish` | Redesigned UI built on top of the same backend |
 
 ### Why
