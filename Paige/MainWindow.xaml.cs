@@ -19,9 +19,8 @@ namespace Paige
     {
         public MainWindow()
         {
-            // Initialize and set data context to main menu view model by default
+            // Initialize
             InitializeComponent();
-            this.DataContext = new MainMenuViewModel();
         }
     }
 }
