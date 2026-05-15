@@ -14,27 +14,85 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <!-- Load logo (placeholder for now) in middle of top row -->
-        <Image Grid.Row="0" Height="100" Width="250" Source="/assets/LogoPlaceholderCat.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" />
+        <!-- Create cells used to keep size of logo consistent -->
+        <Grid Grid.Row="0">
 
-        <!-- Inner grid on second main grid row to store the buttons -->
-        <Grid Grid.Row="1">
-
-            <!-- Create four cells in the grid, one for each button (i.e. split the lower row into a grid with two rows and two columns) -->
+            <!-- Define the rows and columns used to pad logo -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
+                <RowDefinition Height="4*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Create the buttons and place them in the correct cells. Define custom widths + heights so the buttons dont fill the cell -->
-            <Button Grid.Row="0" Grid.Column="0" Height="50" Width="150" Content="Log" />
-            <Button Grid.Row="0" Grid.Column="1" Height="50" Width="150" Content="Calendar" />
-            <Button Grid.Row="1" Grid.Column="0" Height="50" Width="150" Content="Journal" />
-            <Button Grid.Row="1" Grid.Column="1" Height="50" Width="150" Content="Exit" />
+
+            <!-- Load logo (which is a placeholder for now) to the correct cell -->
+            <Image Grid.Row="1" Grid.Column="2" Stretch="Fill" Source="/assets/LogoPlaceholderCat.jpg" />
+
+        </Grid>
+
+        <!-- Inner grid on second main grid row to store the buttons -->
+        <Grid Grid.Row="1">
+
+            <!-- Split the bottom row into two columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+
+                <!-- Split up the first column to allow for proportional resizing of buttons -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Create the buttons at the desired location -->
+                <Button Grid.Row="1" Grid.Column="2" Content="Log" />
+                <Button Grid.Row="3" Grid.Column="2"  Content="Journal" />
+
+            </Grid>
+            
+            <Grid Grid.Column="1">
+
+                <!-- Split up the second column to allow for proportional resizing of buttons -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Create the buttons at the desired location -->
+                <Button Grid.Row="1" Grid.Column="2" Content="Calendar" />
+                <Button Grid.Row="3" Grid.Column="2" Content="Exit" />
+
+            </Grid>
 
         </Grid>
 
