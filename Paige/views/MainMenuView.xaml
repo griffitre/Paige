@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Paige.views.MainMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Paige.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+            
+        <!-- Split the grid into 2 parts -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Load logo (placeholder for now) in middle of top row -->
+        <Image Grid.Row="0" Height="100" Width="250" Source="/assets/LogoPlaceholderCat.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" />
+
+        <!-- Inner grid on second main grid row to store the buttons -->
+        <Grid Grid.Row="1">
+
+            <!-- Create four cells in the grid, one for each button (i.e. split the lower row into a grid with two rows and two columns) -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Create the buttons and place them in the correct cells. Define custom widths + heights so the buttons dont fill the cell -->
+            <Button Grid.Row="0" Grid.Column="0" Height="50" Width="150" Content="Log" />
+            <Button Grid.Row="0" Grid.Column="1" Height="50" Width="150" Content="Calendar" />
+            <Button Grid.Row="1" Grid.Column="0" Height="50" Width="150" Content="Journal" />
+            <Button Grid.Row="1" Grid.Column="1" Height="50" Width="150" Content="Exit" />
+
+        </Grid>
+
+    </Grid>
+</UserControl>
