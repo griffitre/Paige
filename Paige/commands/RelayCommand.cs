@@ -23,11 +23,7 @@ namespace Paige.commands
         // Returns true if the command is allowed to execute, defaults to true if no conditions are given (i.e. a button thats always available)
         public bool CanExecute(object parameter)
         {
-            if (_canExecute != null)
-            {
-                return _canExecute.Invoke();
-            }
-            return true;
+            return _canExecute?.Invoke() ?? true;
         }
 
         // Calls the action
