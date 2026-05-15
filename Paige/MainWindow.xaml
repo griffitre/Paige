@@ -4,9 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Paige"
+        xmlns:views="clr-namespace:Paige.views"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
+    
+    <!-- Display the current active menu (by default, main menu) -->
     <Grid>
 
+        <!-- Set up currentview binding - to be used in the future once navigation is set up 
+        <ContentControl Content="{Binding CurrentView}" />
+        -->
+        
+        <!-- For now, temporarily hardcode in MainMenuView -->
+        <views:MainMenuView />
+
     </Grid>
+    
 </Window>

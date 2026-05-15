@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Paige.viewmodels;
 
 namespace Paige
 {
@@ -18,7 +19,9 @@ namespace Paige
     {
         public MainWindow()
         {
+            // Initialize and set data context to main menu view model by default
             InitializeComponent();
+            this.DataContext = new MainMenuViewModel();
         }
     }
 }
