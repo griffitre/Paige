@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Paige.viewmodels;
 
 namespace Paige.views
 {
@@ -20,7 +21,9 @@ namespace Paige.views
     {
         public MainMenuView()
         {
+            // Initialize and set data context to the appropriate view model
             InitializeComponent();
+            DataContext = new MainMenuViewModel();
         }
     }
 }

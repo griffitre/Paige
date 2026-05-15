@@ -65,8 +65,8 @@
                 </Grid.RowDefinitions>
 
                 <!-- Create the buttons at the desired location -->
-                <Button Grid.Row="1" Grid.Column="2" Content="Log" />
-                <Button Grid.Row="3" Grid.Column="2"  Content="Journal" />
+                <Button Grid.Row="1" Grid.Column="2" Command="{Binding LogCommand}" Content="Log" />
+                <Button Grid.Row="3" Grid.Column="2" Command="{Binding JournalCommand}" Content="Journal" />
 
             </Grid>
             
@@ -89,8 +89,8 @@
                 </Grid.RowDefinitions>
 
                 <!-- Create the buttons at the desired location -->
-                <Button Grid.Row="1" Grid.Column="2" Content="Calendar" />
-                <Button Grid.Row="3" Grid.Column="2" Content="Exit" />
+                <Button Grid.Row="1" Grid.Column="2" Command="{Binding CalendarCommand}" Content="Calendar" />
+                <Button Grid.Row="3" Grid.Column="2" Command="{Binding ExitCommand}" Content="Exit" />
 
             </Grid>
 
