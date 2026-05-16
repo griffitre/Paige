@@ -13,6 +13,9 @@ namespace Paige.models
         // Overall field to store the user's mood from 1-5
         public int Overall { get; set; }
 
+        // User's current mood
+        public int CurrentMood { get; set; }
+
         // User's optional note
         public string? Note { get; set; }
     }
