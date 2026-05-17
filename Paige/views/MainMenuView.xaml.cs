@@ -14,9 +14,7 @@ using Paige.viewmodels;
 
 namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for MainMenuView.xaml
-    /// </summary>
+    // Basically just setting the data context to the appropriate viewmodel
     public partial class MainMenuView : UserControl
     {
         public MainMenuView()
