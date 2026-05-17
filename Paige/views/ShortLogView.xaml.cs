@@ -10,17 +10,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Paige.viewmodels;
+
 
 namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for ShortLogView.xaml
-    /// </summary>
+    // Basically just setting the data context to the appropriate viewmodel
     public partial class ShortLogView : UserControl
     {
         public ShortLogView()
         {
+            // Initialize and set data context to the appropriate viewmodel
             InitializeComponent();
+            DataContext = new ShortLogViewModel();
         }
     }
 }
