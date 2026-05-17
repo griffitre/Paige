@@ -59,6 +59,57 @@
         <Grid Grid.Column="1">
             
             <!-- Split the grid up -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            
+            <!-- In the top half of the grid, create another grid -->
+            <Grid Grid.Row="0">
+
+                <!-- Add padding rows to top and bottom, with 2 rows in the middle for prompt and options -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                
+                <!-- Prompt user to enter how good their day was -->
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="How was your day?" FontSize="20" />
+                
+                <!-- Wrap panel for buttons for user to enter -->
+                <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Content=" 1 " FontSize="25" Margin="5" />
+                    <Button Content=" 2 " FontSize="25" Margin="5" />
+                    <Button Content=" 3 " FontSize="25" Margin="5" />
+                    <Button Content=" 4 " FontSize="25" Margin="5" />
+                    <Button Content=" 5 " FontSize="25" Margin="5" />
+                    <Button Content=" 6 " FontSize="25" Margin="5" />
+                    <Button Content=" 7 " FontSize="25" Margin="5" />
+                    <Button Content=" 8 " FontSize="25" Margin="5" />
+                    <Button Content=" 9 " FontSize="25" Margin="5" />
+                    <Button Content="10" FontSize="25" Margin="5" />
+                </WrapPanel>
+
+            </Grid>
+
+            <!-- Yet ANOTHER grid for the prompt and the text box -->
+            <Grid Grid.Row="1">
+
+                <!-- Create the rows for the prompt and text box -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                
+                <!-- Prompt the user -->
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="What made me feel this way?" FontSize="20" />
+                
+                <!-- Text box for user input -->
+                <TextBox Grid.Row="1" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+            </Grid>
             
         </Grid>
         

@@ -10,10 +10,30 @@
 
   <ItemGroup>
     <None Remove="assets\LogoPlaceholderCat.jpg" />
+    <None Remove="assets\Mood1Placeholder.png" />
+    <None Remove="assets\Mood2Placeholder.png" />
+    <None Remove="assets\Mood3PlaceHolder.png" />
+    <None Remove="assets\Mood4Placeholder.png" />
+    <None Remove="assets\Mood5Placeholder.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="assets\LogoPlaceholderCat.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Mood1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Mood2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Mood3PlaceHolder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Mood4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Mood5Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
