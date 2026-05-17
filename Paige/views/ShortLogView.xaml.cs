@@ -12,7 +12,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Paige.viewmodels;
 
-
 namespace Paige.views
 {
     // Basically just setting the data context to the appropriate viewmodel
