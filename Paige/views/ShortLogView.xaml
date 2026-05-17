@@ -40,19 +40,19 @@
             <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="How are you feeling?" FontSize="20" />
 
             <!-- Add mood images to left column in the grid in the left column (idk how else you'd say that my bad if it's confusing) -->
-            <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+            <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood5Command}" Background="White">
                 <Image Source="/assets/Mood5Placeholder.png" />
             </Button>
-            <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+            <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood4Command}" Background="White">
                 <Image Source="/assets/Mood4Placeholder.png" />
             </Button>
-            <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+            <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood3Command}" Background="White">
                 <Image Source="/assets/Mood3Placeholder.png" />
             </Button>
-            <Button Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+            <Button Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood2Command}" Background="White">
                 <Image Source="/assets/Mood2Placeholder.png" />
             </Button>
-            <Button Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+            <Button Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood1Command}" Background="White">
                 <Image Source="/assets/Mood1Placeholder.png" />
             </Button>
 
@@ -90,22 +90,22 @@
 
                 <!-- Add a little done button at the top right that goes back to main menu and saves the user's inputs -->
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button Content="Back" Height="16" VerticalAlignment="Center" />
-                    <Button Content="Done" Height="16" VerticalAlignment="Center" />
+                    <Button Command="{Binding ExitCommand}" Content="Back" VerticalAlignment="Center" />
+                    <Button Command="{Binding DoneCommand}" Content="Done" VerticalAlignment="Center" />
                 </WrapPanel>
 
                 <!-- Wrap panel for buttons for user to enter -->
                 <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Content=" 1 " FontSize="25" Margin="5" />
-                    <Button Content=" 2 " FontSize="25" Margin="5" />
-                    <Button Content=" 3 " FontSize="25" Margin="5" />
-                    <Button Content=" 4 " FontSize="25" Margin="5" />
-                    <Button Content=" 5 " FontSize="25" Margin="5" />
-                    <Button Content=" 6 " FontSize="25" Margin="5" />
-                    <Button Content=" 7 " FontSize="25" Margin="5" />
-                    <Button Content=" 8 " FontSize="25" Margin="5" />
-                    <Button Content=" 9 " FontSize="25" Margin="5" />
-                    <Button Content="10" FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall1Command}" Content=" 1 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall2Command}" Content=" 2 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall3Command}" Content=" 3 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall4Command}" Content=" 4 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall5Command}" Content=" 5 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall6Command}" Content=" 6 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall7Command}" Content=" 7 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall8Command}" Content=" 8 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall9Command}" Content=" 9 " FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall10Command}" Content="10" FontSize="25" Margin="5" />
                 </WrapPanel>
 
             </Grid>
