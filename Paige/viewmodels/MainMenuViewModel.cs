@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.CompilerServices;
 using Paige.commands;
+using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
@@ -21,10 +22,10 @@ namespace Paige.viewmodels
         public RelayCommand ExitCommand { get; }
 
         // Define constructor
-        public MainMenuViewModel()
+        public MainMenuViewModel(ICommand updateViewCommand)
         {
             // Define LogCommand
-            LogCommand = new RelayCommand(() => { });
+            LogCommand = new RelayCommand(() => updateViewCommand.Execute("log"));
 
             // Define CalendarCommand
             CalendarCommand = new RelayCommand(() => { });

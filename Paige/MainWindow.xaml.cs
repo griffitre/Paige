@@ -12,15 +12,14 @@ using Paige.viewmodels;
 
 namespace Paige
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    // Basically just setting the data context to the appropriate viewmodel
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            // Initialize
+            // Initialize and set appropriate data context
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

@@ -2,8 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Paige"
+             xmlns:views="clr-namespace:Paige.views"
+             xmlns:viewmodels="clr-namespace:Paige.viewmodels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
+            <views:MainMenuView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ShortLogViewModel}">
+            <views:ShortLogView />
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

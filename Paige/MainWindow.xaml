@@ -7,16 +7,11 @@
         xmlns:views="clr-namespace:Paige.views"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
-    
+
     <!-- Display the current active menu (by default, main menu) -->
     <Grid>
-
-        <!-- Set up currentview binding - to be used in the future once navigation is set up 
-        <ContentControl Content="{Binding CurrentView}" />
-        -->
         
-        <!-- For now, temporarily hardcode in MainMenuView -->
-        <views:MainMenuView />
+        <ContentControl Grid.Row="0" Content="{Binding Path=ActiveMenu}" />
 
     </Grid>
     
