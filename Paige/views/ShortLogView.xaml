@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Paige.views.ShortLogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Paige.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+            
+        <!-- Split the grid into 2 columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Set up a grid in the left column -->
+        <Grid Grid.Column="0">
+
+            <!-- Split the left column into 6 rows using the grid (1 at the top for description, 5 for the mood options) -->
+            <!-- Also add padding rows to top and bottom -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!-- Split into 2 columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Prompt user to choose how they're currently feeling using column span to center -->
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="How are you feeling?" FontSize="20" />
+            
+            <!-- Add mood images to left column in the grid in the left column (idk how else you'd say that my bad if it's confusing) -->
+            <Image Grid.Column="0" Grid.Row="2" Source="/assets/Mood5Placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image Grid.Column="0" Grid.Row="3" Source="/assets/Mood4Placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image Grid.Column="0" Grid.Row="4" Source="/assets/Mood3Placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image Grid.Column="0" Grid.Row="5" Source="/assets/Mood2Placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image Grid.Column="0" Grid.Row="6" Source="/assets/Mood1Placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            
+            <!-- Add text that indicates what each option means -->
+            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Great" FontSize="20" />
+            <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Good" FontSize="20" />
+            <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Okay" FontSize="20" />
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Sad" FontSize="20" />
+            <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Awful" FontSize="20" />
+
+        </Grid>
+        
+        <!-- Create grid for second column -->
+        <Grid Grid.Column="1">
+            
+            <!-- Split the grid up -->
+            
+        </Grid>
+        
+    </Grid>
+</UserControl>
