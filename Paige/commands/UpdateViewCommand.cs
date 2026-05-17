@@ -32,7 +32,7 @@ namespace Paige.commands
             }
             if (parameter.ToString() == "log")
             {
-                _mainWindowViewModel.ActiveMenu = new ShortLogViewModel();
+                _mainWindowViewModel.ActiveMenu = new ShortLogViewModel(this);
             }
         }
     }

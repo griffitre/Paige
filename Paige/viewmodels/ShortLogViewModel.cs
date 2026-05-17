@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Paige.commands;
+using Paige.models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.CompilerServices;
-using Paige.commands;
-using Paige.models;
+using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
@@ -82,10 +83,10 @@ namespace Paige.viewmodels
 
 
         // Constructor
-        public ShortLogViewModel()
+        public ShortLogViewModel(ICommand updateViewCommand)
         {
             // Define Exit Command (placeholder for now, will implement once I set up navigation between menus)
-            ExitCommand = new RelayCommand(() => { });
+            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // Define Done Command (uses a placeholder method that just displays what is saved. The intended functionally wont be implemented until I add persistence)
             DoneCommand = new RelayCommand(() => DonePlaceHolder());
