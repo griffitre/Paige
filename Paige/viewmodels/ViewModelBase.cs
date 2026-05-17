@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace Paige.viewmodels
 {
-    // Base class for all view models
+    // Base class for all viewmodels
     public class ViewModelBase : INotifyPropertyChanged
     {
 
