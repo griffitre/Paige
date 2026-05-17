@@ -7,13 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-            
+
         <!-- Split the grid into 2 columns -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
-        
+
         <!-- Set up a grid in the left column -->
         <Grid Grid.Column="0">
 
@@ -29,16 +29,16 @@
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
             <!-- Split into 2 columns -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
+
             <!-- Prompt user to choose how they're currently feeling using column span to center -->
             <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="How are you feeling?" FontSize="20" />
-            
+
             <!-- Add mood images to left column in the grid in the left column (idk how else you'd say that my bad if it's confusing) -->
             <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
                 <Image Source="/assets/Mood5Placeholder.png" />
@@ -64,16 +64,16 @@
             <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Awful" FontSize="20" />
 
         </Grid>
-        
+
         <!-- Create grid for second column -->
         <Grid Grid.Column="1">
-            
+
             <!-- Split the grid up -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
                 <RowDefinition Height="3*" />
+                <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
-            
+
             <!-- In the top half of the grid, create another grid -->
             <Grid Grid.Row="0">
 
@@ -84,10 +84,16 @@
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
-                
+
                 <!-- Prompt user to enter how good their day was -->
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="How was your day?" FontSize="20" />
-                
+
+                <!-- Add a little done button at the top right that goes back to main menu and saves the user's inputs -->
+                <WrapPanel HorizontalAlignment="Right">
+                    <Button Content="Back" Height="16" VerticalAlignment="Center" />
+                    <Button Content="Done" Height="16" VerticalAlignment="Center" />
+                </WrapPanel>
+
                 <!-- Wrap panel for buttons for user to enter -->
                 <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button Content=" 1 " FontSize="25" Margin="5" />
@@ -112,16 +118,16 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
-                
+
                 <!-- Prompt the user -->
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="What made me feel this way?" FontSize="20" />
-                
+
                 <!-- Text box for user input -->
-                <TextBox Grid.Row="1" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBox Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
             </Grid>
-            
+
         </Grid>
-        
+
     </Grid>
 </UserControl>
