@@ -19,7 +19,7 @@ namespace Paige.views
     {
         public MainMenuView()
         {
-            // Initialize and set data context to the appropriate view model
+            // Initialize and set data context to the appropriate viewmodel
             InitializeComponent();
             DataContext = new MainMenuViewModel();
         }
