@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.IO;
 using Paige.models;
+using System.Diagnostics;
 
 namespace Paige.services
 {
@@ -26,7 +27,10 @@ namespace Paige.services
             Directory.CreateDirectory(direcPath);
 
             // Create the full file path
-            string _filepath = Path.Combine(roamPath, "entries.json");
+            _filePath = Path.Combine(direcPath, "entries.json");
+
+            Debug.WriteLine(_filePath);
+            
         }
 
         // Method to load logs from a json file

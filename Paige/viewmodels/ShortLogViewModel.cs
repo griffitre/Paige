@@ -1,5 +1,6 @@
 ﻿using Paige.commands;
 using Paige.models;
+using Paige.services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,10 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for the shortlog view
     public class ShortLogViewModel : ViewModelBase
     {
+
+        // DataService to save to json file
+        private readonly DataService _dataService = new DataService();
+
 
         // Commands
         // Declare command to go back to main menu
@@ -85,11 +90,12 @@ namespace Paige.viewmodels
         // Constructor
         public ShortLogViewModel(ICommand updateViewCommand)
         {
+
             // Define Exit Command (placeholder for now, will implement once I set up navigation between menus)
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // Define Done Command (uses a placeholder method that just displays what is saved. The intended functionally wont be implemented until I add persistence)
-            DoneCommand = new RelayCommand(() => DonePlaceHolder());
+            DoneCommand = new RelayCommand(() => Done());
 
             // Define mood commands to save their respective mood scores to the CurrentMood field
             Mood5Command = new RelayCommand(() => CurrentMood = 5);
@@ -113,26 +119,19 @@ namespace Paige.viewmodels
 
 
 
-        // Done Command placeholder method
-        public void DonePlaceHolder()
+        // Done method to save to the program's json file in app data
+        public void Done()
         {
-            // Print data normally
-            Debug.WriteLine("Current Mood: " +  CurrentMood);
-            Debug.WriteLine("Overall Rating: " + OverallRating);
-            Debug.WriteLine("Journal Note: " + JournalNote);
+            // Create an instance of ShortEntry to pass to data service to save
+            ShortEntry userEntry = new ShortEntry();
 
-            // Add it to a ShortEntry class
-            ShortEntry printEntry = new ShortEntry();
-            printEntry.CurrentMood = CurrentMood;
-            printEntry.Overall = OverallRating;
-            printEntry.Note = JournalNote;
+            // Assign the values
+            userEntry.CurrentMood = CurrentMood;
+            userEntry.Overall = OverallRating;
+            userEntry.Note = JournalNote;
 
-            // Try to print date and user inputs
-            Debug.WriteLine(System.Environment.NewLine);
-            Debug.WriteLine("Date: " + printEntry.Date);
-            Debug.WriteLine("Current Mood: " + printEntry.CurrentMood);
-            Debug.WriteLine("Overall: " + printEntry.Overall);
-            Debug.WriteLine("Note: " + printEntry.Note);
+            // Call data service to save it
+            _dataService.Save(userEntry);
         }
     }
 }
