@@ -18,5 +18,8 @@ namespace Paige.models
 
         // User's optional note
         public string? Note { get; set; }
+
+        // User's attached image path
+        public string? AttachedImagePath { get; set; }
     }
 }
