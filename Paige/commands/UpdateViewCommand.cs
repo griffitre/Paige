@@ -34,6 +34,10 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new ShortLogViewModel(this);
             }
+            if (parameter.ToString() == "logSelect")
+            {
+                _mainWindowViewModel.ActiveMenu = new LogSelectViewModel(this);
+            }
         }
     }
 }
