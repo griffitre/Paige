@@ -15,7 +15,10 @@
         <DataTemplate DataType="{x:Type viewmodels:ShortLogViewModel}">
             <views:ShortLogView />
         </DataTemplate>
-        
+        <DataTemplate DataType="{x:Type viewmodels:LogSelectViewModel}">
+            <views:LogSelectView />
+        </DataTemplate>
+
         <!-- Register converters -->
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
         <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter"/>
