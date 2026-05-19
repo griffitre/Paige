@@ -28,8 +28,6 @@ namespace Paige.services
 
             // Create the full file path
             _filePath = Path.Combine(direcPath, "entries.json");
-
-            Debug.WriteLine(_filePath);
             
         }
 
