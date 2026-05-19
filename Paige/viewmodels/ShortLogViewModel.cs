@@ -11,6 +11,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Paige.viewmodels
 {
@@ -47,6 +49,9 @@ namespace Paige.viewmodels
         public RelayCommand Overall3Command { get; }
         public RelayCommand Overall2Command { get; }
         public RelayCommand Overall1Command { get; }
+
+        // Declare command to attach an image
+        public RelayCommand AttachImageCommand { get; }
 
 
         // Properties to expose + make them bindable
@@ -86,6 +91,18 @@ namespace Paige.viewmodels
             }
         }
 
+        // AttachedImagePath
+        private string? _attachedImagePath;
+        public string? AttachedImagePath
+        {
+            get { return _attachedImagePath; }
+            set
+            {
+                _attachedImagePath = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         // Constructor
         public ShortLogViewModel(ICommand updateViewCommand)
@@ -115,12 +132,15 @@ namespace Paige.viewmodels
             Overall3Command = new RelayCommand(() => OverallRating = 3);
             Overall2Command = new RelayCommand(() => OverallRating = 2);
             Overall1Command = new RelayCommand(() => OverallRating = 1);
+
+            // Define Attach Image Command
+            AttachImageCommand = new RelayCommand(() => AttachImage());
         }
 
 
-
+        // Methods
         // Done method to save to the program's json file in app data
-        public void Done()
+        private void Done()
         {
             // Create an instance of ShortEntry to pass to data service to save
             ShortEntry userEntry = new ShortEntry();
@@ -132,6 +152,47 @@ namespace Paige.viewmodels
 
             // Call data service to save it
             _dataService.Save(userEntry);
+        }
+
+        // AttachImage method
+        private void AttachImage()
+        {
+            // Create a new open file dialogue
+            OpenFileDialog dialogue = new OpenFileDialog();
+
+            // Add an image filter
+            dialogue.Filter = "Image files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            // Set the initial directory to be the MyPictures folder
+            dialogue.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Open the dialogue
+            if (dialogue.ShowDialog() == true)
+            {
+                // Get the Paige folder location in app data
+                string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Paige");
+
+                // Create/ensure that the folder is created
+                Directory.CreateDirectory(appDataFolder);
+
+                // Get the images folder
+                string imageFolder = Path.Combine(appDataFolder, "Images");
+
+                // Also create/ensure that the folder is created
+                Directory.CreateDirectory(imageFolder);
+
+                // Get the file name
+                string fileName = Path.GetFileName(dialogue.FileName);
+
+                // Create the destination path
+                string destPath = Path.Combine(imageFolder, fileName);
+
+                // Copy the image to the destination with overwriting on
+                File.Copy(dialogue.FileName, destPath, overwrite: true);
+
+                // Set the AttachedImagePath field
+                AttachedImagePath = destPath;
+            }
         }
     }
 }
