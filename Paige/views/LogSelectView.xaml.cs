@@ -13,13 +13,12 @@ using System.Windows.Shapes;
 
 namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for LogSelectView.xaml
-    /// </summary>
+    // Basically just setting the data context to the appropriate viewmodel
     public partial class LogSelectView : UserControl
     {
         public LogSelectView()
         {
+            // Initialize
             InitializeComponent();
         }
     }

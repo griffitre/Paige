@@ -11,6 +11,7 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for
     public class MainWindowViewModel : ViewModelBase
     {
+
         // Declare the ActiveMenu object. Used to keep track of and change the current menu on screen, also make it bindable
         private object _activeMenu;
         public object ActiveMenu
