@@ -19,7 +19,7 @@ namespace Paige.views
     {
         public ShortLogView()
         {
-            // Initialize and set data context to the appropriate viewmodel
+            // Initialize
             InitializeComponent();
         }
     }
