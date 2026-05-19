@@ -4,15 +4,21 @@
              xmlns:local="clr-namespace:Paige"
              xmlns:views="clr-namespace:Paige.views"
              xmlns:viewmodels="clr-namespace:Paige.viewmodels"
+             xmlns:converters="clr-namespace:Paige.converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
+        
+        <!-- Assign data templates to the viewmodels -->
         <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
             <views:MainMenuView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:ShortLogViewModel}">
             <views:ShortLogView />
         </DataTemplate>
+        
+        <!-- Register converters -->
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+        <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter"/>
 
     </Application.Resources>
 </Application>
