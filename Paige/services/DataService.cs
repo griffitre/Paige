@@ -45,5 +45,21 @@ namespace Paige.services
             return JsonSerializer.Deserialize<List<ShortEntry>>(serializedString);
 
         }
+
+        // Method to save an entry to a json file
+        public void Save(ShortEntry givenEntry)
+        {
+            // Load the logs from the user's stored file
+            List<ShortEntry> loadedEntries = LoadAll();
+
+            // Append the given entry to the list
+            loadedEntries.Add(givenEntry);
+
+            // Serialize the list into a string, with WriteIndented = true so that it is easy to read
+            string entriesSerialized = JsonSerializer.Serialize(loadedEntries, new JsonSerializerOptions { WriteIndented=true });
+
+            // Write it to the file
+            File.WriteAllText(_filePath, entriesSerialized);
+        }
     }
 }
