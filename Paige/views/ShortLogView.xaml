@@ -132,8 +132,13 @@
                 <!-- Text box for user input -->
                 <TextBox Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
-                <!-- Add a button to allow the user to attach an image -->
-                <Button Command="{Binding AttachImageCommand}" Grid.Column="1" Grid.Row="1" Content="Attach an Image here" Margin="10,10,10,20" />
+                <!-- Add a button to allow the user to attach an image. Shown when no image has been attached yet -->
+                <Button Grid.Column="1" Grid.Row="1" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Content="Attach an Image here" Margin="10,10,10,20" />
+
+                <!-- If an image is selected, display it -->
+                <Button Grid.Column="1" Grid.Row="1" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="Transparent" Margin="10,10,10,20">
+                    <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
+                </Button>
 
             </Grid>
 
