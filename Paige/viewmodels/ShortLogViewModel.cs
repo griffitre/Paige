@@ -149,6 +149,7 @@ namespace Paige.viewmodels
             userEntry.CurrentMood = CurrentMood;
             userEntry.Overall = OverallRating;
             userEntry.Note = JournalNote;
+            userEntry.AttachedImagePath = AttachedImagePath;
 
             // Call data service to save it
             _dataService.Save(userEntry);
