@@ -59,7 +59,7 @@ namespace Paige.viewmodels
         private string? _journalNote;
         public string JournalNote
         {
-            get { return _journalNote ?? "Start here..."; }
+            get { return _journalNote ?? "Start here... (also optional though)"; }
             set
             {
                 _journalNote = value;
@@ -112,7 +112,7 @@ namespace Paige.viewmodels
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // Define Done Command (uses a placeholder method that just displays what is saved. The intended functionally wont be implemented until I add persistence)
-            DoneCommand = new RelayCommand(() => Done());
+            DoneCommand = new RelayCommand(() => Done(), () => CanSave());
 
             // Define mood commands to save their respective mood scores to the CurrentMood field
             Mood5Command = new RelayCommand(() => CurrentMood = 5);
@@ -194,6 +194,12 @@ namespace Paige.viewmodels
                 // Set the AttachedImagePath field
                 AttachedImagePath = destPath;
             }
+        }
+
+        // Method to check if the user has unentered options to prevent storing 0s in the int fields
+        private bool CanSave()
+        {
+            return CurrentMood != 0 && OverallRating != 0;
         }
     }
 }
