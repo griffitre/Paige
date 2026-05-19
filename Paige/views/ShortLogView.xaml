@@ -113,6 +113,13 @@
             <!-- Yet ANOTHER grid for the prompt and the text box -->
             <Grid Grid.Row="1">
 
+                <!-- Split the row into two parts, one for the note and one to attach an image -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Make yet another grid in the left column -->
                 <!-- Create the rows for the prompt and text box -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -120,10 +127,13 @@
                 </Grid.RowDefinitions>
 
                 <!-- Prompt the user -->
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="What made me feel this way?" FontSize="20" />
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="What made me feel this way?" FontSize="15" />
 
                 <!-- Text box for user input -->
                 <TextBox Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <!-- Add a button to allow the user to attach an image -->
+                <Button Command="{Binding AttachImageCommand}" Grid.Column="1" Grid.Row="1" Content="Attach an Image here" Margin="10,10,10,20" />
 
             </Grid>
 
