@@ -6,7 +6,65 @@
              xmlns:local="clr-namespace:Paige.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="White">
             
+        <!-- Split into two rows for a prompt and the buttons -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Prompt the user to choose which log to enter -->
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Which type of log would you like to enter? (Choose one)" FontSize="20" />
+
+        <!-- Set up grid in second row for the buttons -->
+        <Grid Grid.Row="1">
+
+            <!-- Split the grid into two columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Make the layout for the button in the left column -->
+            <Grid Grid.Column="0">
+
+                <!-- Split up the grid to size the button -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+
+                <!-- Create the button -->
+                <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Short Log" />
+
+            </Grid>
+
+            <!-- Make the layout for the button in the right column -->
+            <Grid Grid.Column="1">
+
+                <!-- Split up the grid to size the button -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+
+                <!-- Create the button -->
+                <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Full Log" />
+
+            </Grid>
+
+        </Grid>
+
     </Grid>
 </UserControl>
