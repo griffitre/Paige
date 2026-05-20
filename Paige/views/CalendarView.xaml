@@ -7,8 +7,48 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
+
+        <!-- Create a ListBox for the entries using a binding -->
+        <ListBox ItemsSource="{Binding Entries}" HorizontalContentAlignment="Stretch" >
             
-        
-        
+            <!-- Customize the container template to remove border and highlight, just show the button -->
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <ContentPresenter/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            
+            <!-- Customize the item template to customize how each entry is displayed -->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="30">
+
+                        <!-- Make each item a button to allow you to go to view the detailed look at the log. Use a stackpanel to summarize the info -->
+                        <!-- Viewing an entry currently isnt implemented, I'm doing that whenever I get the calendarview working -->
+                        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                            <Button.Content>
+                                <StackPanel HorizontalAlignment="Left">
+                                    <TextBlock FontWeight="Bold" Text="{Binding Date, StringFormat='Date: {0}'}" />
+                                    <TextBlock Text="{Binding Overall, StringFormat='Overall: {0}'}" />
+                                    <TextBlock Text="{Binding EntryType, StringFormat='Entry Type: {0}'}" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+
+        <!-- Create a back button -->
+        <Button Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
+
     </Grid>
 </UserControl>
