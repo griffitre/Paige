@@ -118,7 +118,7 @@
         </Grid>
             
         <!-- Add a back button at the top right -->
-        <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding BackCommand}" Content="Back" />
+        <Button Command="{Binding BackCommand}" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
 
     </Grid>
 </UserControl>
