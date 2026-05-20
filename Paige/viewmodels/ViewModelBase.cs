@@ -9,7 +9,6 @@ namespace Paige.viewmodels
     // Base class for all viewmodels
     public class ViewModelBase : INotifyPropertyChanged
     {
-
         // The event that is raised when a property's value changes
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -14,7 +14,6 @@ namespace Paige.viewmodels
     // Class for main menu view model
     public class MainMenuViewModel : ViewModelBase
     {
-
         // Declare commands
         public RelayCommand LogCommand { get; }
         public RelayCommand CalendarCommand { get; }

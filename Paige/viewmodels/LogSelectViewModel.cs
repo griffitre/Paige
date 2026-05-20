@@ -10,7 +10,6 @@ namespace Paige.viewmodels
     // Definition for LogSelectViewModel
     public class LogSelectViewModel : ViewModelBase
     {
-
         // Declare commands for the buttons
         public RelayCommand BackCommand { get; }
         public RelayCommand ShortLogCommand { get; }
