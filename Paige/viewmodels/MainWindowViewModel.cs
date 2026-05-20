@@ -16,7 +16,11 @@ namespace Paige.viewmodels
         public object ActiveMenu
         {
             get { return _activeMenu; }
-            set { _activeMenu = value; OnPropertyChanged(nameof(ActiveMenu)); }
+            set 
+            { 
+                _activeMenu = value;
+                OnPropertyChanged(nameof(ActiveMenu));
+            }
         }
 
         // Declare navigation command

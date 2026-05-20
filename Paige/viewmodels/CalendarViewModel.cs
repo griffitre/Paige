@@ -21,7 +21,11 @@ namespace Paige.viewmodels
 		public ObservableCollection<ShortEntry> Entries
 		{
 			get { return _entries; }
-			set { _entries = value; OnPropertyChanged(); }
+			set 
+            { 
+                _entries = value;
+                OnPropertyChanged();
+            }
 		}
 
 
