@@ -6,7 +6,119 @@
              xmlns:local="clr-namespace:Paige.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="White">
+        
+        <!-- Split the grid into two parts (one for the mood overview and one for the notes and image -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Grid in left column for the mood overview -->
+        <Grid Grid.Column="0">
             
+            <!-- Add padding columns/rows -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!-- Give the mood overview in the middle space -->
+            <!-- Create another grid -->
+            <Grid Grid.Row="1" Grid.Column="1">
+                
+                <!-- Split into rows to fit each part of the overview -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                
+                <!-- Show the date and set up the overview -->
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" FontSize="15" />
+                
+                <!-- Display the rating image from that day -->
+                <Image Grid.Row="1" HorizontalAlignment="Center" Source="{Binding TranslatedImage}" Stretch="Uniform" />
+
+                <!-- Display the rating for the mood at the time the log was made -->
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" FontSize="10" />
+                
+                <!-- Set up the overall rating reveal -->
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="And you gave your day the rating of:" FontSize="15" />
+
+                <!-- Display the overall rating -->
+                <TextBlock Grid.Row="4" HorizontalAlignment="Center" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" FontSize="20"/>
+
+            </Grid>
+
+        </Grid>
+        
+        <!-- Grid for the journal entry, short note, and attached photo (if applicable, for each) -->
+        <Grid Grid.Column="1">
+
+            <!-- Add padding columns/rows -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Create the notes and image space in the middle space -->
+            <!-- Create another grid -->
+            <Grid Grid.Row="1" Grid.Column="1">
+                
+                <!-- Split into 2 rows (with padding between the two rows -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                
+                <!-- Add a button to view that day's journal (NOT IMPLEMENTED YET) -->
+                <Button Grid.Row="0" Command="{Binding ViewJournalCommand}" Content="View today's Journal..." />
+                
+                <!-- Create another grid in the bottom row for the short note and attached photo -->
+                <Grid Grid.Row="3">
+                    
+                    <!-- Add padding between the short note and photo -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Display the short note in a scrollviewer, just incase you must scroll -->
+                    <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding SavedNote}" />
+                    </ScrollViewer>
+
+                    <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Text="No Image Attached!" />
+                    <Button Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Background="White">
+                        <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
+                    </Button>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+            
+        <!-- Add a back button at the top right -->
+        <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding BackCommand}" Content="Back" />
+
     </Grid>
 </UserControl>
