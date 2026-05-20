@@ -30,8 +30,7 @@
                     <StackPanel Margin="30">
 
                         <!-- Make each item a button to allow you to go to view the detailed look at the log. Use a stackpanel to summarize the info -->
-                        <!-- Viewing an entry currently isnt implemented, I'm doing that whenever I get the calendarview working -->
-                        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                        <Button Command="{Binding DataContext.ViewEntryCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                             <Button.Content>
                                 <StackPanel HorizontalAlignment="Left">
                                     <TextBlock FontWeight="Bold" Text="{Binding Date, StringFormat='Date: {0}'}" />
