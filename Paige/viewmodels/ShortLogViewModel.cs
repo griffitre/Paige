@@ -16,7 +16,7 @@ using System.IO;
 
 namespace Paige.viewmodels
 {
-    // Definition of the viewmodel for the shortlog view
+    // Definition of the viewmodel for the shortlogview
     public class ShortLogViewModel : ViewModelBase
     {
         // DataService to save to json file

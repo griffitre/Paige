@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 
 namespace Paige.viewmodels
 {
-    // Defintion of CalendarViewModel
+    // Definition of the viewmodel for calendarview
     public class CalendarViewModel : ViewModelBase
     {
         // Dataservice to load entries

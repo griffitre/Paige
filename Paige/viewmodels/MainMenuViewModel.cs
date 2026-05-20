@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
-    // Class for main menu view model
+    // Definition of the viewmodel for mainmenuview
     public class MainMenuViewModel : ViewModelBase
     {
         // Declare commands

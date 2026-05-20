@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
-    // Definition for LogSelectViewModel
+    // Definition of the viewmodel for logselectview
     public class LogSelectViewModel : ViewModelBase
     {
         // Declare commands for the buttons

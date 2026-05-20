@@ -8,7 +8,7 @@ using Paige.views;
 
 namespace Paige.viewmodels
 {
-    // Definition of the viewmodel for
+    // Definition of the viewmodel for mainwindowview
     public class MainWindowViewModel : ViewModelBase
     {
         // Declare the ActiveMenu object. Used to keep track of and change the current menu on screen, also make it bindable
