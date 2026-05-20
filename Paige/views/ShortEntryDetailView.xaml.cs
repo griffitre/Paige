@@ -13,13 +13,12 @@ using System.Windows.Shapes;
 
 namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for ShortEntryDetailView.xaml
-    /// </summary>
+    // Basically just setting the data context to the appropriate viewmodel
     public partial class ShortEntryDetailView : UserControl
     {
         public ShortEntryDetailView()
         {
+            // Initialize
             InitializeComponent();
         }
     }
