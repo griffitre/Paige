@@ -24,16 +24,16 @@ namespace Paige.viewmodels
         // Define constructor
         public MainMenuViewModel(ICommand updateViewCommand)
         {
-            // Define LogCommand
-            LogCommand = new RelayCommand(() => updateViewCommand.Execute("log"));
+            // If log is clicked, go to log select menu
+            LogCommand = new RelayCommand(() => updateViewCommand.Execute("logSelect"));
 
-            // Define CalendarCommand
+            // Define CalendarCommand (not implemented)
             CalendarCommand = new RelayCommand(() => { });
 
-            // Define JournalCommand
+            // Define JournalCommand (not implemented)
             JournalCommand = new RelayCommand(() => { });
 
-            // Define ExitCommand
+            // If exit is clicked, close the program
             ExitCommand = new RelayCommand(() => Application.Current.Shutdown());
         }
     }
