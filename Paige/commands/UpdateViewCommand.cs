@@ -1,8 +1,9 @@
-﻿using Paige.viewmodels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Paige.viewmodels;
+using Paige.models;
 
 namespace Paige.commands
 {
@@ -42,6 +43,12 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new CalendarViewModel(this);
             }
+        }
+
+        // Method to naviagate to an entry
+        public void NavigateToEntry(ShortEntry entry)
+        {
+            _mainWindowViewModel.ActiveMenu = new ShortEntryDetailViewModel(entry, this);
         }
     }
 }
