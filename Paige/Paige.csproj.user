@@ -11,6 +11,9 @@
     <Compile Update="views\MainMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="views\ShortEntryDetailView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="views\ShortLogView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
