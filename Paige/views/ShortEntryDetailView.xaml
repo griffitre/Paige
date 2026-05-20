@@ -116,9 +116,19 @@
             </Grid>
 
         </Grid>
+        
+        <!-- Wrappanel for buttons at top right -->
+        <WrapPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+
+            <!-- Add a back button at the top right to go back to the calendar -->
+            <Button Command="{Binding BackCommand}" Content="Back" />
+
+            <!-- Add a button to go back to the main menu at the top right as well -->
+            <Button Command="{Binding MainCommand}" Content="Main" />
+
+        </WrapPanel>
             
-        <!-- Add a back button at the top right -->
-        <Button Command="{Binding BackCommand}" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
+        
 
     </Grid>
 </UserControl>
