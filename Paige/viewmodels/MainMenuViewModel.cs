@@ -27,7 +27,7 @@ namespace Paige.viewmodels
             LogCommand = new RelayCommand(() => updateViewCommand.Execute("logSelect"));
 
             // Define CalendarCommand (not implemented)
-            CalendarCommand = new RelayCommand(() => { });
+            CalendarCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
 
             // Define JournalCommand (not implemented)
             JournalCommand = new RelayCommand(() => { });
