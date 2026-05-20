@@ -30,7 +30,7 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new MainMenuViewModel(this);
             }
-            if (parameter.ToString() == "log")
+            if (parameter.ToString() == "shortLog")
             {
                 _mainWindowViewModel.ActiveMenu = new ShortLogViewModel(this);
             }
