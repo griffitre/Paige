@@ -100,7 +100,7 @@
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
                     
-                    <!-- Display the short note in a scrollviewer, just incase you must scroll -->
+                    <!-- Display the short note in a scrollviewer, just incase you have to scroll to see it all -->
                     <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
                         <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding SavedNote}" />
                     </ScrollViewer>
