@@ -52,7 +52,7 @@
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" FontSize="10" />
                 
                 <!-- Set up the overall rating reveal -->
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="And you gave your day the rating of:" FontSize="15" />
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="And you gave your day a rating of:" FontSize="15" />
 
                 <!-- Display the overall rating -->
                 <TextBlock Grid.Row="4" HorizontalAlignment="Center" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" FontSize="20"/>
