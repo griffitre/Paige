@@ -107,7 +107,7 @@
 
                     <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
                     <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Text="No Image Attached!" />
-                    <Button Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Background="White">
+                    <Button Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="White">
                         <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                     </Button>
 
