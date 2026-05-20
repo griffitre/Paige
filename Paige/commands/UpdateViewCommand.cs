@@ -38,6 +38,10 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new LogSelectViewModel(this);
             }
+            if (parameter.ToString() == "calendar")
+            {
+                _mainWindowViewModel.ActiveMenu = new CalendarViewModel(this);
+            }
         }
     }
 }
