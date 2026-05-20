@@ -7,6 +7,9 @@ namespace Paige.models
     // Class for a short entry
     public class ShortEntry
     {
+        // Entry type field to keep track of what kind of entry the log is
+        public EntryType EntryType { get; set; } = EntryType.Short;
+
         // Date field to store the date it was logged. Automatically is set to the computer's current date
         public DateTime Date { get; set; } = DateTime.Now;
 
