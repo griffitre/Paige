@@ -27,7 +27,8 @@
 
         <!-- Register converters -->
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
-        <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter"/>
+        <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter" />
+        <converters:SelectedValueToColorConverter x:Key="SelectedValueToColorConverter" />
 
     </Application.Resources>
 </Application>
