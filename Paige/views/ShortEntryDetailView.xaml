@@ -43,19 +43,19 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Show the date and set up the overview -->
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" FontSize="15" />
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" FontSize="20" />
                 
                 <!-- Display the rating image from that day -->
                 <Image Grid.Row="1" HorizontalAlignment="Center" Source="{Binding TranslatedImage}" Stretch="Uniform" />
 
                 <!-- Display the rating for the mood at the time the log was made -->
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" FontSize="10" />
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" FontSize="15" />
                 
                 <!-- Set up the overall rating reveal -->
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="And you gave your day a rating of:" FontSize="15" />
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="And you gave your day a rating of:" FontSize="20" />
 
                 <!-- Display the overall rating -->
-                <TextBlock Grid.Row="4" HorizontalAlignment="Center" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" FontSize="20"/>
+                <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" FontSize="40"/>
 
             </Grid>
 
