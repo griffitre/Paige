@@ -96,16 +96,16 @@
 
                 <!-- Wrap panel for buttons for user to enter -->
                 <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Command="{Binding Overall1Command}" Content=" 1 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall2Command}" Content=" 2 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall3Command}" Content=" 3 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall4Command}" Content=" 4 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall5Command}" Content=" 5 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall6Command}" Content=" 6 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall7Command}" Content=" 7 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall8Command}" Content=" 8 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall9Command}" Content=" 9 " FontSize="25" Margin="5" />
-                    <Button Command="{Binding Overall10Command}" Content="10" FontSize="25" Margin="5" />
+                    <Button Command="{Binding Overall1Command}" Content=" 1 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}" />
+                    <Button Command="{Binding Overall2Command}" Content=" 2 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}" />
+                    <Button Command="{Binding Overall3Command}" Content=" 3 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}" />
+                    <Button Command="{Binding Overall4Command}" Content=" 4 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}" />
+                    <Button Command="{Binding Overall5Command}" Content=" 5 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}" />
+                    <Button Command="{Binding Overall6Command}" Content=" 6 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=6}" />
+                    <Button Command="{Binding Overall7Command}" Content=" 7 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=7}" />
+                    <Button Command="{Binding Overall8Command}" Content=" 8 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=8}" />
+                    <Button Command="{Binding Overall9Command}" Content=" 9 " FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=9}" />
+                    <Button Command="{Binding Overall10Command}" Content="10" FontSize="25" Margin="5" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=10}" />
                 </WrapPanel>
 
             </Grid>
