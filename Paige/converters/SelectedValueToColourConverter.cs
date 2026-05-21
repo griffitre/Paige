@@ -13,7 +13,7 @@ namespace Paige.converters
         // Convert method
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // If a button's value matches the selected value, return the highlight color
+            // If a button's value matches the selected value, return the highlight colour
             return value?.ToString() == parameter.ToString() ? new SolidColorBrush(Colors.LightGray) : new SolidColorBrush(Colors.White);
         }
 
