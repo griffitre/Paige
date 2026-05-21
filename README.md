@@ -1,4 +1,4 @@
-## dbmood
+## Paige
 
 A desktop mood tracker built with WPF and C#
 
