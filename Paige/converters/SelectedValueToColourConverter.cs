@@ -7,8 +7,8 @@ using System.Windows.Media;
 
 namespace Paige.converters
 {
-    // Definition of SelectedValueToColorConverter
-    public class SelectedValueToColorConverter : IValueConverter
+    // Definition of SelectedValueToColourConverter
+    public class SelectedValueToColourConverter : IValueConverter
     {
         // Convert method
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
