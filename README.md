@@ -2,7 +2,7 @@
 
 A desktop mood tracker built with WPF and C#
 
-This branch (which is `main` as of writing this) is the functional skeleton. It has all the core features work, but the UI is intentionally basic. It has no custom styling.
+This branch (which is `main` as of writing this) is the functional skeleton. It has all the core features, but the UI is intentionally basic. It has no custom styling.
 
 ### What it does
 - Allows a user to log their day in one of two ways:
