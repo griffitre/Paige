@@ -41,19 +41,19 @@
 
             <!-- Add mood images to left column in the grid in the left column (idk how else you'd say that my bad if it's confusing) -->
             <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood5Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
-                <Image Source="/assets/Mood5Placeholder.png" />
+                <Image Source="/assets/mood/Mood5Placeholder.png" />
             </Button>
             <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood4Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
-                <Image Source="/assets/Mood4Placeholder.png" />
+                <Image Source="/assets/mood/Mood4Placeholder.png" />
             </Button>
             <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood3Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
-                <Image Source="/assets/Mood3Placeholder.png" />
+                <Image Source="/assets/mood/Mood3Placeholder.png" />
             </Button>
             <Button Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood2Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
-                <Image Source="/assets/Mood2Placeholder.png" />
+                <Image Source="/assets/mood/Mood2Placeholder.png" />
             </Button>
             <Button Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Mood1Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
-                <Image Source="/assets/Mood1Placeholder.png" />
+                <Image Source="/assets/mood/Mood1Placeholder.png" />
             </Button>
 
             <!-- Add text that indicates what each option means -->
