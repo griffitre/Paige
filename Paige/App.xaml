@@ -29,6 +29,7 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
         <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter" />
         <converters:SelectedValueToColourConverter x:Key="SelectedValueToColourConverter" />
+        <converters:ListContainsConverter x:Key="ListContainsConverter" />
 
     </Application.Resources>
 </Application>
