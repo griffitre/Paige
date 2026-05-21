@@ -30,7 +30,7 @@ namespace Paige.helpers
             { 3, "Left Overs" },
             { 4, "Frozen Meals" },
             { 5, "Restaurant" },
-            { 6, "Snacks" },
+            { 6, "Snacks/Desserts" },
             { 7, "Takeout" }
         };
 
