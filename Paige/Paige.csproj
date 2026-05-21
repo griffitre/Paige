@@ -27,7 +27,7 @@
     <Resource Include="assets\Mood2Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Mood3PlaceHolder.png">
+    <Resource Include="assets\Mood3Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\Mood4Placeholder.png">
