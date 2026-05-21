@@ -127,7 +127,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- Prompt the user -->
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Text="What made me feel this way?" FontSize="15" />
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Text="What made me feel this way?" FontSize="20" />
 
                 <!-- Text box for user input -->
                 <TextBox Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
