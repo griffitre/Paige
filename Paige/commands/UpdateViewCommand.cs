@@ -43,6 +43,10 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new CalendarViewModel(this);
             }
+            if (parameter.ToString() == "fullLog")
+            {
+                _mainWindowViewModel.ActiveMenu = new FullLogViewModel(this);
+            }
         }
 
         // Method to naviagate to an entry
