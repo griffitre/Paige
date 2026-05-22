@@ -590,21 +590,21 @@
                     <!-- Grid for note and attaching an image -->
                     <Grid>
 
-                        <!-- Split into 4 cells, with the top row being sized automatically -->
+                        <!-- Split into 4 cells, with the top row being sized automatically, and the other row being sized statically -->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="600" />
                         </Grid.RowDefinitions>
 
                         <!-- Prompt the user to enter a note for the day, optionally -->
                         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Any notes? (Optional)" />
 
                         <!-- Textbox for the user to enter their note -->
-                        <TextBox Grid.Row="1" Grid.Column="0" Height="600" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                        <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
 
                         <!-- Prompt the user to add an image, also optionally -->
                         <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Attach an image below! (Also Optional)" />
@@ -613,9 +613,10 @@
                         <!-- Button for user to attach an image -->
                         <Button Grid.Row="1" Grid.Column="1" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Margin="10" />
 
-                        <!-- If an image is selected, display it in a button that they can click to change the image if theyd like -->
-                        <Button Grid.Row="1" Grid.Column="1" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="Transparent" Margin="10">
-                            <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
+                        <!-- If an image is selected, display it in a button that they can click to change the image if theyd like. Also, effectively remove the maxes by setting them to a huge number -->
+                        <Button Grid.Row="1" Grid.Column="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="Transparent" Margin="10">
+                            <!-- Also override styled image maxes with a huge number so its not a 50x50 image and there are virtually no maxes -->
+                            <Image MaxHeight="10000" MaxWidth="10000" Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                         </Button>
 
                     </Grid>
