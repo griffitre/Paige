@@ -24,8 +24,7 @@ namespace Paige.viewmodels
             ShortLogCommand = new RelayCommand(() => updateViewCommand.Execute("shortLog"));
 
             // Define FullLogCommand (not implemented)
-            FullLogCommand = new RelayCommand(() => { });
+            FullLogCommand = new RelayCommand(() => updateViewCommand.Execute("fullLog"));
         }
-
     }
 }
