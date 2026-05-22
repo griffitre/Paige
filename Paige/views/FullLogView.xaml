@@ -94,35 +94,35 @@
                         <!-- Each item in the wrappanel is a stackpanel, where the two items are the button/image and the caption text below it. It just lets me wrap two stacked items horizontally basically -->
                         <!-- I feel the need to comment this because its a pretty large piece of code (i also feel the need to comment almost everything for some reason) (this probably doesnt even need a comment tbh) -->
                         <StackPanel Margin="0,0,20,0">
-                            <Button Command="{Binding CurrentMood1Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
+                            <Button Command="{Binding Mood1Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
                                 <Image Source="/assets/mood/Mood1Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Awful" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Command="{Binding CurrentMood2Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
+                            <Button Command="{Binding Mood2Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
                                 <Image Source="/assets/mood/Mood2Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Sad" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Command="{Binding CurrentMood3Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
+                            <Button Command="{Binding Mood3Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
                                 <Image Source="/assets/mood/Mood3Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Okay" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Command="{Binding CurrentMood4Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
+                            <Button Command="{Binding Mood4Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
                                 <Image Source="/assets/mood/Mood4Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Good" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Command="{Binding CurrentMood5Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
+                            <Button Command="{Binding Mood5Command}" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
                                 <Image Source="/assets/mood/Mood5Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Great" />
