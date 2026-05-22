@@ -9,31 +9,223 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\chores\Chores1Placeholder.png" />
+    <None Remove="assets\chores\Chores2Placeholder.png" />
+    <None Remove="assets\chores\Chores3Placeholder.png" />
+    <None Remove="assets\chores\Chores4Placeholder.png" />
+    <None Remove="assets\chores\Chores5Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies10Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies1Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies2Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies3Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies4Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies5Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies6Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies7Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies8Placeholder.png" />
+    <None Remove="assets\hobbies\Hobbies9Placeholder.png" />
     <None Remove="assets\LogoPlaceholderCat.jpg" />
+    <None Remove="assets\meals\Meals1Placeholder.png" />
+    <None Remove="assets\meals\Meals2Placeholder.png" />
+    <None Remove="assets\meals\Meals3Placeholder.png" />
+    <None Remove="assets\meals\Meals4Placeholder.png" />
+    <None Remove="assets\meals\Meals5Placeholder.png" />
+    <None Remove="assets\meals\Meals6Placeholder.png" />
+    <None Remove="assets\meals\Meals7Placeholder.png" />
     <None Remove="assets\Mood1Placeholder.png" />
     <None Remove="assets\Mood2Placeholder.png" />
     <None Remove="assets\Mood3PlaceHolder.png" />
     <None Remove="assets\Mood4Placeholder.png" />
     <None Remove="assets\Mood5Placeholder.png" />
+    <None Remove="assets\recreationaluse\RecreationalUse1Placeholder.png" />
+    <None Remove="assets\recreationaluse\RecreationalUse2Placeholder.png" />
+    <None Remove="assets\recreationaluse\RecreationalUse3Placeholder.png" />
+    <None Remove="assets\recreationaluse\RecreationalUse4Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare1Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare2Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare3Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare4Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare5Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare6Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare7Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare8Placeholder.png" />
+    <None Remove="assets\selfcare\SelfCare9Placeholder.png" />
+    <None Remove="assets\social\Social1Placeholder.png" />
+    <None Remove="assets\social\Social2Placeholder.png" />
+    <None Remove="assets\social\Social3Placeholder.png" />
+    <None Remove="assets\social\Social4Placeholder.png" />
+    <None Remove="assets\social\Social5Placeholder.png" />
+    <None Remove="assets\weather\Weather1Placeholder.png" />
+    <None Remove="assets\weather\Weather2Placeholder.png" />
+    <None Remove="assets\weather\Weather3Placeholder.png" />
+    <None Remove="assets\weather\Weather4Placeholder.png" />
+    <None Remove="assets\weather\Weather5Placeholder.png" />
+    <None Remove="assets\weather\Weather6Placeholder.png" />
+    <None Remove="assets\weather\Weather7Placeholder.png" />
+    <None Remove="assets\weather\Weather8Placeholder.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="assets\LogoPlaceholderCat.jpg">
+    <Resource Include="assets\chores\Chores1Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Mood1Placeholder.png">
+    <Resource Include="assets\chores\Chores2Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Mood2Placeholder.png">
+    <Resource Include="assets\chores\Chores3Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Mood3Placeholder.png">
+    <Resource Include="assets\chores\Chores4Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Mood4Placeholder.png">
+    <Resource Include="assets\chores\Chores5Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Mood5Placeholder.png">
+    <Resource Include="assets\hobbies\Hobbies10Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies5Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies6Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies7Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies8Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\hobbies\Hobbies9Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\logo\LogoPlaceholderCat.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals5Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals6Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\meals\Meals7Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\mood\Mood1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\mood\Mood2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\mood\Mood3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\mood\Mood4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\mood\Mood5Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\recreationaluse\RecreationalUse1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\recreationaluse\RecreationalUse2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\recreationaluse\RecreationalUse3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\recreationaluse\RecreationalUse4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare5Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare6Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare7Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare8Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\selfcare\SelfCare9Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\social\Social1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\social\Social2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\social\Social3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\social\Social4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\social\Social5Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather1Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather2Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather3Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather4Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather5Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather6Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather7Placeholder.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\weather\Weather8Placeholder.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
