@@ -24,13 +24,13 @@
         <!-- Split main grid into two parts: one for the back/main buttons at the top, one for the content -->
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="15*" />
+            <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
         
         <!-- Create back and main buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button Command="{Binding BackCommand}" Content="Back" />
-            <Button Command="{Binding MainCommand}" Content="Main" />
+            <Button Command="{Binding DoneCommand}" Content="Done" />
         </WrapPanel>
         
         <!-- Create a scroll viewer in the second row to allow the user to scroll up and down to give inputs for all fields -->
