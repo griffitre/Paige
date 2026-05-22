@@ -120,16 +120,16 @@ namespace Paige.viewmodels
             Mood1Command = new RelayCommand(() => CurrentMood = 1);
 
             // Define overall day commands to save their respective day scores to the OverallRating field
-            Overall10Command = new RelayCommand(() => OverallRating = 10);
-            Overall9Command = new RelayCommand(() => OverallRating = 9);
-            Overall8Command = new RelayCommand(() => OverallRating = 8);
-            Overall7Command = new RelayCommand(() => OverallRating = 7);
-            Overall6Command = new RelayCommand(() => OverallRating = 6);
-            Overall5Command = new RelayCommand(() => OverallRating = 5);
-            Overall4Command = new RelayCommand(() => OverallRating = 4);
-            Overall3Command = new RelayCommand(() => OverallRating = 3);
-            Overall2Command = new RelayCommand(() => OverallRating = 2);
             Overall1Command = new RelayCommand(() => OverallRating = 1);
+            Overall2Command = new RelayCommand(() => OverallRating = 2);
+            Overall3Command = new RelayCommand(() => OverallRating = 3);
+            Overall4Command = new RelayCommand(() => OverallRating = 4);
+            Overall5Command = new RelayCommand(() => OverallRating = 5);
+            Overall6Command = new RelayCommand(() => OverallRating = 6);
+            Overall7Command = new RelayCommand(() => OverallRating = 7);
+            Overall8Command = new RelayCommand(() => OverallRating = 8);
+            Overall9Command = new RelayCommand(() => OverallRating = 9);
+            Overall10Command = new RelayCommand(() => OverallRating = 10);
 
             // Define Attach Image Command
             AttachImageCommand = new RelayCommand(() => AttachImage());
