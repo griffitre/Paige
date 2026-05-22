@@ -11,27 +11,27 @@ namespace Paige.helpers
         private static readonly Dictionary<int, string> HobbiesDict = new()
         {
             { 1, "Gaming" },
-            { 2, "Listening to Music" },
-            { 3, "Playing Instrument" },
-            { 4, "Watching Media" },
+            { 2, "Music" },
+            { 3, "Instruments" },
+            { 4, "TV/Movies" },
             { 5, "Art" },
             { 6, "Reading" },
             { 7, "Journaling" },
             { 8, "Cooking/Baking" },
             { 9, "Gardening" },
-            { 10, "Educational Activities" },
+            { 10, "Learning" },
         };
 
         // Meals dictionary to translate
         private static readonly Dictionary<int, string> MealsDict = new()
         {
-            { 1, "Home Cooked" },
+            { 1, "Homemade" },
             { 2, "Fast Food" },
-            { 3, "Left Overs" },
-            { 4, "Frozen Meals" },
+            { 3, "Leftovers" },
+            { 4, "Frozen" },
             { 5, "Restaurant" },
             { 6, "Snacks/Desserts" },
-            { 7, "Takeout" }
+            { 7, "Takeout/Delivery" }
         };
 
         // Chores dictionary to translate
@@ -40,22 +40,22 @@ namespace Paige.helpers
             { 1, "Dishes" },
             { 2, "Laundry" },
             { 3, "Cooking" },
-            { 4, "Housework (i.e. Vacuuming, Mopping, etc)" },
-            { 5, "Cleaning Room" }
+            { 4, "Housework" },
+            { 5, "Cleaning/Tidying up" }
         };
 
         // SelfCare dictionary to translate
         private static readonly Dictionary<int, string> SelfCareDict = new()
         {
             { 1, "Exercise" },
-            { 2, "Shower" },
+            { 2, "Shower/Bath" },
             { 3, "Yoga/Meditation" },
-            { 4, "Skin Care" },
-            { 5, "Massage" },
+            { 4, "Skincare" },
+            { 5, "Massage/Spa day" },
             { 6, "Outdoors" },
             { 7, "Nap" },
             { 8, "Pray" },
-            { 9, "Tried Something New" }
+            { 9, "Something new" }
         };
 
         // Social dictionary to translate
@@ -71,10 +71,10 @@ namespace Paige.helpers
         // RecreationalUse dictionary to translate
         private static readonly Dictionary<int, string> RecreationalUseDict = new()
         {
-            { 1, "Smoking" },
-            { 2, "Drinking" },
+            { 1, "Cigarettes/Cigars" },
+            { 2, "Alcohol" },
             { 3, "Cannabis" },
-            { 4, "Other" },
+            { 4, "Other substances" },
         };
 
         // Weather dictionary to translate
@@ -82,9 +82,9 @@ namespace Paige.helpers
         {
             { 1, "Sunny" },
             { 2, "Cloudy" },
-            { 3, "Rain/Hail" },
+            { 3, "Rainy/Hail" },
             { 4, "Stormy" },
-            { 5, "Snow" },
+            { 5, "Snowy" },
             { 6, "Windy" },
             { 7, "Cold" },
             { 8, "Hot/Humid" }
