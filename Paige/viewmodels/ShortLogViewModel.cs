@@ -38,16 +38,16 @@ namespace Paige.viewmodels
         public RelayCommand Mood1Command { get; }
 
         // Declare command for overall day buttons
-        public RelayCommand Overall10Command { get; }
-        public RelayCommand Overall9Command { get; }
-        public RelayCommand Overall8Command { get; }
-        public RelayCommand Overall7Command { get; }
-        public RelayCommand Overall6Command { get; }
-        public RelayCommand Overall5Command { get; }
-        public RelayCommand Overall4Command { get; }
-        public RelayCommand Overall3Command { get; }
-        public RelayCommand Overall2Command { get; }
         public RelayCommand Overall1Command { get; }
+        public RelayCommand Overall2Command { get; }
+        public RelayCommand Overall3Command { get; }
+        public RelayCommand Overall4Command { get; }
+        public RelayCommand Overall5Command { get; }
+        public RelayCommand Overall6Command { get; }
+        public RelayCommand Overall7Command { get; }
+        public RelayCommand Overall8Command { get; }
+        public RelayCommand Overall9Command { get; }
+        public RelayCommand Overall10Command { get; }
 
         // Declare command to attach an image
         public RelayCommand AttachImageCommand { get; }
