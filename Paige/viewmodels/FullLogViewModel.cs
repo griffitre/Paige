@@ -114,7 +114,7 @@ namespace Paige.viewmodels
         private string? _journalNote;
         public string JournalNote
         {
-            get { return _journalNote ?? "Start here... (also optional though)"; }
+            get { return _journalNote ?? ""; }
             set
             {
                 _journalNote = value;
