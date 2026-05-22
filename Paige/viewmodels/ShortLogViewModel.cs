@@ -106,11 +106,10 @@ namespace Paige.viewmodels
         // Constructor
         public ShortLogViewModel(ICommand updateViewCommand)
         {
-
-            // Define Exit Command (placeholder for now, will implement once I set up navigation between menus)
+            // Define Exit Command
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
-            // Define Done Command (uses a placeholder method that just displays what is saved. The intended functionally wont be implemented until I add persistence)
+            // Define Done Command
             DoneCommand = new RelayCommand(() => Done(), () => CanSave());
 
             // Define mood commands to save their respective mood scores to the CurrentMood field
