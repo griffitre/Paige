@@ -491,7 +491,7 @@
 
                         <!-- Same explanation as above -->
                         <StackPanel Margin="0,0,10,0">
-                            <Button Command="{Binding ToggleRecreational1Command}" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                            <Button Command="{Binding ToggleRecreational1Command}" Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse1Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cigarettes/" />
@@ -499,21 +499,21 @@
                         </StackPanel>
 
                         <StackPanel Margin="0,0,10,0">
-                            <Button Command="{Binding ToggleRecreational2Command}" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                            <Button Command="{Binding ToggleRecreational2Command}" Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse2Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Alcohol" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,10,0">
-                            <Button Command="{Binding ToggleRecreational3Command}" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                            <Button Command="{Binding ToggleRecreational3Command}" Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse3Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cannabis" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,10,0">
-                            <Button Command="{Binding ToggleRecreational4Command}" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                            <Button Command="{Binding ToggleRecreational4Command}" Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse4Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Other" />
@@ -604,7 +604,7 @@
                         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Any notes? (Optional)" />
 
                         <!-- Textbox for the user to enter their note -->
-                        <TextBox Grid.Row="1" Grid.Column="0" Height="300" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                        <TextBox Grid.Row="1" Grid.Column="0" Height="600" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
 
                         <!-- Prompt the user to add an image, also optionally -->
                         <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Attach an image below! (Also Optional)" />
