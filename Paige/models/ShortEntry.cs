@@ -4,6 +4,11 @@ using System.Text;
 
 namespace Paige.models
 {
+    // Inform json serializer of derived types so it can properly serialize and deserialize fullentries
+    using System.Text.Json.Serialization;
+    [JsonDerivedType(typeof(ShortEntry), typeDiscriminator: "Short")]
+    [JsonDerivedType(typeof(FullEntry), typeDiscriminator: "Full")]
+
     // Class for a short entry
     public class ShortEntry
     {

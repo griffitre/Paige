@@ -7,9 +7,6 @@ namespace Paige.models
     // Full mood entry class that inherits the first three fields from short entry class
     public class FullEntry : ShortEntry
     {
-        // Overwrite the inherited EntryType (just set it again, this time to full instead of short)
-        public EntryType EntryType { get; set; } = EntryType.Full;
-
         // Properties
         // Hobbies
         public List<int> Hobbies { get; set; } = new List<int>();
@@ -31,5 +28,12 @@ namespace Paige.models
 
         // Weather
         public List<int> Weather { get; set; } = new List<int>();
+
+        
+        // Constructor used to override the inherited EntryType
+        public FullEntry()
+        {
+            EntryType = EntryType.Full;
+        }
     }
 }
