@@ -20,7 +20,7 @@ namespace Paige.helpers
         // Method to get the respective image given the score. Default to neutral (mood 3) if not found (prevents crashes)
         public static string GetImage(int score)
         {
-            return MoodImages.TryGetValue(score, out string image) ? image : "/assets/Mood3Placeholder";
+            return MoodImages.TryGetValue(score, out string image) ? image : "/assets/mood/Mood3Placeholder";
         }
     }
 }
