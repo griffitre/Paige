@@ -13,13 +13,11 @@ using System.Windows.Shapes;
 
 namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for FullLogView.xaml
-    /// </summary>
     public partial class FullLogView : UserControl
     {
         public FullLogView()
         {
+            // Initialize
             InitializeComponent();
         }
     }
