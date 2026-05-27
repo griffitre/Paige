@@ -27,6 +27,9 @@
         <DataTemplate DataType="{x:Type viewmodels:FullLogViewModel}">
             <views:FullLogView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:FullEntryDetailViewModel}">
+            <views:FullEntryDetailView />
+        </DataTemplate>
 
         <!-- Register converters -->
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
