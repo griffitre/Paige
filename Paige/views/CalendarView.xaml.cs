@@ -13,7 +13,6 @@ using System.Windows.Shapes;
 
 namespace Paige.views
 {
-    // Basically just setting the data context to the appropriate viewmodel
     public partial class CalendarView : UserControl
     {
         public CalendarView()

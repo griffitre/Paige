@@ -14,7 +14,6 @@ using Paige.viewmodels;
 
 namespace Paige.views
 {
-    // Basically just setting the data context to the appropriate viewmodel
     public partial class MainMenuView : UserControl
     {
         public MainMenuView()
