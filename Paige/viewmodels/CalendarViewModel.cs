@@ -31,7 +31,7 @@ namespace Paige.viewmodels
 
         // Declare Commands
         public RelayCommand BackCommand { get; set; }
-        public RelayCommand<ShortEntry> ViewEntryCommand { get; set; }
+        public RelayCommand<ShortEntry> EntryButtonCommand { get; set; }
 
 
         // Constructor
@@ -44,7 +44,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // If the user clicks an entry in the listbox, switch to the menu and pass the entry
-            ViewEntryCommand = new RelayCommand<ShortEntry>(entry => (updateViewCommand as UpdateViewCommand)?.NavigateToEntry(entry));
+            EntryButtonCommand = new RelayCommand<ShortEntry>(entry => (updateViewCommand as UpdateViewCommand)?.NavigateTo(entry));
 		}
 	}
 }

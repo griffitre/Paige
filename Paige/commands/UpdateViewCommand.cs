@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Input;
 using Paige.viewmodels;
 using Paige.models;
+using Paige.views;
 
 namespace Paige.commands
 {
@@ -49,10 +50,19 @@ namespace Paige.commands
             }
         }
 
-        // Method to naviagate to an entry
-        public void NavigateToEntry(ShortEntry entry)
+        // Method to navigate to a given entry. Which viewmodel to select is determined in the method
+        public void NavigateTo(ShortEntry entry)
         {
-            _mainWindowViewModel.ActiveMenu = new ShortEntryDetailViewModel(entry, this);
+            // Check if the entry is of type FullEntry. If no, set the active viewmodel to fullentrydetailviewmodel, and cast entry to a type of FullEntry
+            if (entry is FullEntry)
+            {
+                _mainWindowViewModel.ActiveMenu = new FullEntryDetailViewModel((FullEntry)entry, this);
+            }
+            // Otherwise, set the active viewmodel to shortentrydetailviewmodel, and cast entry to a type of ShortEntry
+            else
+            {
+                _mainWindowViewModel.ActiveMenu = new ShortEntryDetailViewModel(entry, this);
+            }
         }
     }
 }
