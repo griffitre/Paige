@@ -6,7 +6,31 @@
              xmlns:local="clr-namespace:Paige.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+
+        <!-- Split the grid into 4 rows, one for a text block and one for the actual entry, and 2 at the top and bottom for padding -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Add padding columns to the sides -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Add a textblock informing the user that this is their journal for the day -->
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding JournalDay, StringFormat='Journal entry from {0}'}" />
+        
+        <!-- Textblock that has their journal entry -->
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText}" />
+
+        <!-- Back button -->
+        <Button Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Back" Command="{Binding BackCommand}" />
+
     </Grid>
 </UserControl>
