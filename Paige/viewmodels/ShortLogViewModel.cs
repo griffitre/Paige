@@ -180,13 +180,22 @@ namespace Paige.viewmodels
                 // Also create/ensure that the folder is created
                 Directory.CreateDirectory(imageFolder);
 
-                // Get the file name
-                string fileName = Path.GetFileName(dialogue.FileName);
+                // Get the current date and time
+                DateTime CurrentDateTime = DateTime.Now;
+
+                // Convert the DateTime item to a string and store it to fileName
+                string fileName = CurrentDateTime.ToString("dddd, dd MMMM yyyy HH-mm-ss-fff");
+
+                // Get the file extension
+                string fileExtension = Path.GetExtension(dialogue.FileName);
+
+                // Add the extension to the end of the file name
+                fileName = fileName + fileExtension;
 
                 // Create the destination path
                 string destPath = Path.Combine(imageFolder, fileName);
 
-                // Copy the image to the destination with overwriting on
+                // Copy the image to the destination with overwriting on (so that an error wont pop up if a user tries to click done button multiple times w/ same image)
                 File.Copy(dialogue.FileName, destPath, overwrite: true);
 
                 // Set the AttachedImagePath field
