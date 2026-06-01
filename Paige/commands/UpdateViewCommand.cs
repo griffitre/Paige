@@ -48,6 +48,14 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new FullLogViewModel(this);
             }
+            if (parameter.ToString() == "journalSelect")
+            {
+                _mainWindowViewModel.ActiveMenu = new JournalSelectViewModel(this);
+            }
+            if (parameter.ToString() == "journal")
+            {
+                _mainWindowViewModel.ActiveMenu = new JournalViewModel(this);
+            }
         }
 
         // Method to navigate to a given entry. Which viewmodel to select is determined in the method

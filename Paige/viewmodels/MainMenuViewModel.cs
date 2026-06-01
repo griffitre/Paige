@@ -30,7 +30,7 @@ namespace Paige.viewmodels
             CalendarCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
 
             // Define JournalCommand (not implemented)
-            JournalCommand = new RelayCommand(() => { });
+            JournalCommand = new RelayCommand(() => updateViewCommand.Execute("journalSelect"));
 
             // If exit is clicked, close the program
             ExitCommand = new RelayCommand(() => Application.Current.Shutdown());
