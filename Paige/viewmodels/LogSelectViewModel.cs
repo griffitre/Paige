@@ -20,10 +20,10 @@ namespace Paige.viewmodels
             // If back button is clicked, go to main menu
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
-            // If short log button is clicked, go to main menu
+            // If short log button is clicked, go to short log view
             ShortLogCommand = new RelayCommand(() => updateViewCommand.Execute("shortLog"));
 
-            // Define FullLogCommand (not implemented)
+            // If full log button is clicked, go to full log view
             FullLogCommand = new RelayCommand(() => updateViewCommand.Execute("fullLog"));
         }
     }
