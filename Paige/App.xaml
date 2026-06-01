@@ -30,6 +30,9 @@
         <DataTemplate DataType="{x:Type viewmodels:FullEntryDetailViewModel}">
             <views:FullEntryDetailView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:JournalDetailViewModel}">
+            <views:JournalDetailView />
+        </DataTemplate>
 
         <!-- Register converters -->
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
