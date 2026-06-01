@@ -33,6 +33,7 @@ namespace Paige.viewmodels
             {
                 _journalBody = value;
                 OnPropertyChanged();
+                System.Windows.Input.CommandManager.InvalidateRequerySuggested();
             }
         }
 

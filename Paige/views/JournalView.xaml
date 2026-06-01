@@ -35,7 +35,7 @@
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CurrentDate, StringFormat='Journal entry for {0}'}" FontSize="25" />
             
             <!-- Add a text box for the user to type in -->
-            <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalBody, UpdateSourceTrigger=PropertyChanged}" />
 
         </Grid>
         
