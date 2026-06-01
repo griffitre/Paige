@@ -37,6 +37,19 @@ namespace Paige.viewmodels
         }
 
 
+        // Expose CurrentDate and make it bindable
+        private string? _currentDate;
+        public string CurrentDate
+        {
+            get { return _currentDate; }
+            set
+            {
+                _currentDate = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         // Constructor
         public JournalViewModel(ICommand updateViewCommand)
         {
@@ -45,6 +58,12 @@ namespace Paige.viewmodels
 
             // Define DoneCommand
             DoneCommand = new RelayCommand(() => Done(), () => CanSave());
+
+            // Get the current date in DateTime
+            DateTime untranslatedDate = DateTime.Now;
+
+            // Convert date to string and save to currentDate
+            CurrentDate = untranslatedDate.ToString("MMMM dd, yyyy");
         }
 
 
