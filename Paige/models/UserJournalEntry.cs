@@ -5,7 +5,7 @@ using System.Text;
 namespace Paige.models
 {
     // Class for a journal entry
-    public class JournalEntry
+    public class UserJournalEntry
     {
         // Set the date
         public DateTime Date { get; set; } = DateTime.Now;
