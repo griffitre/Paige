@@ -6,7 +6,68 @@
              xmlns:local="clr-namespace:Paige.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+
+        <!-- Split into two rows for a prompt and the buttons -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Back button -->
+        <Button Grid.Row="0" Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
+
+        <!-- Prompt the user to choose if they want to see the journal calendar or to create a new entry -->
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Would you like to view the journal calendar or edit today's entry?" FontSize="20" />
+
+        <!-- Set up grid in second row for the buttons -->
+        <Grid Grid.Row="1">
+
+            <!-- Split the grid into two columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Make the layout for the button in the left column -->
+            <Grid Grid.Column="0">
+
+                <!-- Split up the grid to size the button -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+
+                <!-- Create the button -->
+                <Button Grid.Column="1" Command="{Binding CalendarCommand}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Calendar" />
+
+            </Grid>
+
+            <!-- Make the layout for the button in the right column -->
+            <Grid Grid.Column="1">
+
+                <!-- Split up the grid to size the button -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+
+                <!-- Create the button -->
+                <Button Grid.Column="1" Command="{Binding JournalCommand}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Edit Entry" />
+
+            </Grid>
+
+        </Grid>
+
     </Grid>
 </UserControl>
