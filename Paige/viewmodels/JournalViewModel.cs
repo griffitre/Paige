@@ -65,6 +65,15 @@ namespace Paige.viewmodels
 
             // Convert date to string and save to currentDate
             CurrentDate = untranslatedDate.ToString("MMMM dd, yyyy");
+
+            // Load today's entry (if it exists)
+            var existingEntry = _journalDataService.GetTodaysEntry();
+
+            // If exists, set journalbody to the existing entry
+            if (existingEntry != null)
+            {
+                _journalBody = existingEntry.JournalBody;
+            }
         }
 
 

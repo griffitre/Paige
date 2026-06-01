@@ -51,14 +51,32 @@ namespace Paige.services
             // Load the logs from the user's stored file
             List<UserJournalEntry> loadedEntries = LoadAll();
 
-            // Append the given entry to the list
-            loadedEntries.Add(givenEntry);
+            // Check if an entry for today already exists
+            var existing = loadedEntries.FirstOrDefault(j => j.Date.Date == givenEntry.Date.Date);
+
+            // If one does exist, overwrite that entry and replace it with the new one (that is just an extension of the old one)
+            if (existing != null)
+            {
+                loadedEntries[loadedEntries.IndexOf(existing)] = givenEntry;
+            }
+            // Otherwise, just append it to the end of the list
+            else
+            {
+                loadedEntries.Add(givenEntry);
+            }
 
             // Serialize the list into a string, with WriteIndented = true so that it is easy to read
             string entriesSerialized = JsonSerializer.Serialize(loadedEntries, new JsonSerializerOptions { WriteIndented = true });
 
             // Write it to the file
             File.WriteAllText(_filePath, entriesSerialized);
+        }
+
+        // Method to check if there already exists a journal entry from today
+        public UserJournalEntry? GetTodaysEntry()
+        {
+            // Return the entry of today's date (if found, returns null otherwise by default)
+            return LoadAll().FirstOrDefault(j => j.Date.Date == DateTime.Now.Date);
         }
     }
 }
