@@ -12,26 +12,29 @@
         <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
             <views:MainMenuView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:ShortLogViewModel}">
-            <views:ShortLogView />
-        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:LogSelectViewModel}">
             <views:LogSelectView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:CalendarViewModel}">
             <views:CalendarView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:ShortEntryDetailViewModel}">
-            <views:ShortEntryDetailView />
+        <DataTemplate DataType="{x:Type viewmodels:JournalSelectViewModel}">
+            <views:JournalSelectView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ShortLogViewModel}">
+            <views:ShortLogView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:FullLogViewModel}">
             <views:FullLogView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:FullEntryDetailViewModel}">
-            <views:FullEntryDetailView />
-        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:JournalViewModel}">
             <views:JournalView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ShortEntryDetailViewModel}">
+            <views:ShortEntryDetailView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:FullEntryDetailViewModel}">
+            <views:FullEntryDetailView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:JournalDetailViewModel}">
             <views:JournalDetailView />
