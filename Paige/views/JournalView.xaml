@@ -41,7 +41,7 @@
         
         <!-- Wrap panel for done and back buttons -->
         <WrapPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button Command="{Binding BackCommand}" Content="Back" />
+            <Button Command="{Binding ExitCommand}" Content="Exit" />
             <Button Command="{Binding DoneCommand}" Content="Done" />
         </WrapPanel>
 
