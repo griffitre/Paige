@@ -6,7 +6,44 @@
              xmlns:local="clr-namespace:Paige.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="White">
+
+        <!-- Split the grid into 3 rows, one for a text block and textbox, 2 at the top and bottom for padding -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="12*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Add a grid to the middle row -->
+        <Grid Grid.Row="1">
+
+            <!-- Add padding columns to the sides -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Split into two rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+
+            <!-- Add a textblock prompting the user to begin typing, also show the current date -->
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CurrentDate, StringFormat='Journal entry for {0}'}" />
             
+            <!-- Add a text box for the user to type in -->
+            <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText, UpdateSourceTrigger=PropertyChanged}" />
+
+        </Grid>
+        
+        <!-- Wrap panel for done and back buttons -->
+        <WrapPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button Command="{Binding BackCommand}" Content="Back" />
+            <Button Command="{Binding DoneCommand}" Content="Done" />
+        </WrapPanel>
+
     </Grid>
 </UserControl>

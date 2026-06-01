@@ -13,13 +13,11 @@ using System.Windows.Shapes;
 
 namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for JournalView.xaml
-    /// </summary>
     public partial class JournalView : UserControl
     {
         public JournalView()
         {
+            // Initialize
             InitializeComponent();
         }
     }
