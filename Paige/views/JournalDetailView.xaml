@@ -26,8 +26,8 @@
         <!-- Add a textblock informing the user that this is their journal for the day -->
         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding JournalDay, StringFormat='Journal entry from {0}'}" />
         
-        <!-- Textblock that has their journal entry -->
-        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText}" />
+        <!-- TextBox that has their journal entry -->
+        <TextBox Grid.Row="2" Grid.Column="1" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText}" />
 
         <!-- Back button -->
         <Button Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Back" Command="{Binding BackCommand}" />
