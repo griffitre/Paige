@@ -9,7 +9,7 @@ This branch (which is `main` as of writing this) is the functional skeleton. It 
   1. Quick entry: rate how their day was, and optionally add a short note and photo.
   2. Full entry: same first steps as quick entry, but there are other menus that ask about specifics, like what the user ate that day, what hobbies they partook in, etc. It also asks for the photo at the end.
 - A user can view past entries in a calendar-like view. Once they select a day, it shows all details of that entry, including the photo and the specifics (if applicable).
-- Optionally, users can wrote journals entries for each day. They can also view that day's journal entry through the mood calendar.
+- Optionally, users can wrote journals entries for each day. They can also view that day's journal entry through a separate journal calendar, as well as through the detailed view of a log from a given day.
 
 ### Tech Stack
 - WPF (.NET)
