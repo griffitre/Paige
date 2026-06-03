@@ -8,22 +8,31 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         
-        <!-- Assign data templates to the viewmodels -->
+        
+        <!-- Data template definitions -->
+        
+        <!-- Main menu data template -->
         <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
             <views:MainMenuView />
         </DataTemplate>
+        
+        <!-- Selection menu data templates -->
         <DataTemplate DataType="{x:Type viewmodels:LogSelectViewModel}">
             <views:LogSelectView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:JournalSelectViewModel}">
+            <views:JournalSelectView />
+        </DataTemplate>
+        
+        <!-- Calendar menu data templates -->
         <DataTemplate DataType="{x:Type viewmodels:CalendarViewModel}">
             <views:CalendarView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:JournalCalendarViewModel}">
             <views:JournalCalendarView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:JournalSelectViewModel}">
-            <views:JournalSelectView />
-        </DataTemplate>
+        
+        <!-- Entry creation menu data templates -->
         <DataTemplate DataType="{x:Type viewmodels:ShortLogViewModel}">
             <views:ShortLogView />
         </DataTemplate>
@@ -33,6 +42,8 @@
         <DataTemplate DataType="{x:Type viewmodels:JournalViewModel}">
             <views:JournalView />
         </DataTemplate>
+        
+        <!-- Detailed entry view data templates -->
         <DataTemplate DataType="{x:Type viewmodels:ShortEntryDetailViewModel}">
             <views:ShortEntryDetailView />
         </DataTemplate>
@@ -42,12 +53,16 @@
         <DataTemplate DataType="{x:Type viewmodels:JournalDetailViewModel}">
             <views:JournalDetailView />
         </DataTemplate>
+        
+        <!-- End of data template definitions -->
 
+        
         <!-- Register converters -->
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
         <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter" />
         <converters:SelectedValueToColourConverter x:Key="SelectedValueToColourConverter" />
         <converters:ListContainsConverter x:Key="ListContainsConverter" />
+        <!-- End of converter registration -->
 
     </Application.Resources>
 </Application>
