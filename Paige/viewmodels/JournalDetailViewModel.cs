@@ -14,16 +14,13 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for journaldetailview
     public class JournalDetailViewModel : ViewModelBase
     {
-        // Create a JournalEntry to be passed from the journal calendar view
-        
-
         // Declare BackCommand
         public RelayCommand BackCommand { get; }
 
 
-        // Expose all possible fields as read only
-        public string JournalDay { get; }
-        public string? JournalText { get; }
+        // Expose all possible fields
+        public string JournalDay { get; set; }
+        public string? JournalText { get; set; }
 
 
         // Constructor
