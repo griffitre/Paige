@@ -32,10 +32,6 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new MainMenuViewModel(this);
             }
-            if (parameter.ToString() == "shortLog")
-            {
-                _mainWindowViewModel.ActiveMenu = new ShortLogViewModel(this);
-            }
             if (parameter.ToString() == "logSelect")
             {
                 _mainWindowViewModel.ActiveMenu = new LogSelectViewModel(this);
@@ -43,6 +39,10 @@ namespace Paige.commands
             if (parameter.ToString() == "calendar")
             {
                 _mainWindowViewModel.ActiveMenu = new CalendarViewModel(this);
+            }
+            if (parameter.ToString() == "shortLog")
+            {
+                _mainWindowViewModel.ActiveMenu = new ShortLogViewModel(this);
             }
             if (parameter.ToString() == "fullLog")
             {
@@ -55,6 +55,10 @@ namespace Paige.commands
             if (parameter.ToString() == "journal")
             {
                 _mainWindowViewModel.ActiveMenu = new JournalViewModel(this);
+            }
+            if (parameter.ToString() == "journalCalendar")
+            {
+                _mainWindowViewModel.ActiveMenu = new JournalCalendarViewModel(this);
             }
         }
 
