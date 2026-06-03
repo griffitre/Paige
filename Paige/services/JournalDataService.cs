@@ -1,6 +1,7 @@
 ﻿using Paige.models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.Json;
@@ -82,7 +83,7 @@ namespace Paige.services
         // Method to find a journal entry given a date
         public UserJournalEntry? GetDatesEntry(DateTime date)
         {
-            return LoadAll().FirstOrDefault(j => j.Date.Date == date);
+            return LoadAll().FirstOrDefault(j => j.Date.Date.Equals(date.Date));
         }
     }
 }
