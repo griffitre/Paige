@@ -11,6 +11,9 @@
     <Compile Update="views\FullLogView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="views\JournalCalendarView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="views\JournalDetailView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
