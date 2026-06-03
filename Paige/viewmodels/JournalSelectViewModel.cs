@@ -20,8 +20,8 @@ namespace Paige.viewmodels
             // If back button is clicked, go to main menu
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
-            // If calendar button is clicked, go to journal calendar view (not yet implemented)
-            CalendarCommand = new RelayCommand(() => { });
+            // If calendar button is clicked, go to journal calendar view
+            CalendarCommand = new RelayCommand(() => updateViewCommand.Execute("journalCalendar");
 
             // If the edit button is clicked, go to the journal view
             JournalCommand = new RelayCommand(() => updateViewCommand.Execute("journal"));
