@@ -87,8 +87,8 @@
                     <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
                 
-                <!-- Add a button to view that day's journal (NOT IMPLEMENTED YET) -->
-                <Button Grid.Row="0" Command="{Binding ViewJournalCommand}" Content="View today's Journal..." />
+                <!-- Add a button to view that day's journal -->
+                <Button Grid.Row="0" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" Content="View today's Journal..." />
                 
                 <!-- Create another grid in the bottom row for the short note and attached photo -->
                 <Grid Grid.Row="3">

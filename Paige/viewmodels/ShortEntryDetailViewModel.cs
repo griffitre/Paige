@@ -7,16 +7,22 @@ using System.IO;
 using Paige.commands;
 using Paige.models;
 using Paige.helpers;
+using Paige.services;
 
 namespace Paige.viewmodels
 {
     // Definition of the viewmodel for the shortentrydetail view
     public class ShortEntryDetailViewModel : ViewModelBase
     {
+        // JournalDataService to load journal entries (used for the "view today's journal" button)
+        private readonly JournalDataService _journalDataService = new JournalDataService();
+
+
         // Declare commands
         public RelayCommand BackCommand { get; set; }
         public RelayCommand MainCommand { get; set; }
         public RelayCommand ViewImageCommand { get; set; }
+        public RelayCommand<UserJournalEntry> ViewJournalCommand { get; set; }
 
 
         // Properties to store data from a given entry
@@ -92,12 +98,27 @@ namespace Paige.viewmodels
             }
         }
 
+        // TodaysEntry
+        private UserJournalEntry? _todaysEntry;
+        public UserJournalEntry? TodaysEntry
+        {
+            get { return _todaysEntry; }
+            set
+            {
+                _todaysEntry = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         // Constructor
         public ShortEntryDetailViewModel(ShortEntry entry, ICommand updateViewCommand)
         {
             // Load the data from the passed entry
             LoadData(entry);
+
+            // Attempt to load the journal entry from the same day
+            TodaysEntry = _journalDataService.GetDatesEntry(entry.Date);
 
             // If the user clicks the back button, send the user back to the calendar menu
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
@@ -107,6 +128,9 @@ namespace Paige.viewmodels
 
             // If the user clicks the image, open the image in the user's default image viewer
             ViewImageCommand = new RelayCommand(() => OpenImage(AttachedImagePath));
+
+            // If the user clicks the "view today's journal" button, let them view that day's journal. Also use CanViewJournal to ensure that there exists a journal from that day
+            ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry), TodaysEntry => CanViewJournal(TodaysEntry));
         }
 
 
@@ -146,6 +170,12 @@ namespace Paige.viewmodels
                     UseShellExecute = true
                 });
             }
+        }
+
+        // Method to check if a returned journal is not null
+        private bool CanViewJournal(UserJournalEntry? journalEntry)
+        {
+            return journalEntry is not null;
         }
     }
 }
