@@ -78,5 +78,11 @@ namespace Paige.services
             // Return the entry of today's date (if found, returns null otherwise by default)
             return LoadAll().FirstOrDefault(j => j.Date.Date == DateTime.Now.Date);
         }
+
+        // Method to find a journal entry given a date
+        public UserJournalEntry? GetDatesEntry(DateTime date)
+        {
+            return LoadAll().FirstOrDefault(j => j.Date.Date == date);
+        }
     }
 }
