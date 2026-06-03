@@ -13,10 +13,6 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for the shortentrydetail view
     public class ShortEntryDetailViewModel : ViewModelBase
     {
-        // Create a short entry field to be passed from calendarview
-        public ShortEntry Entry { get; }
-
-
         // Declare commands
         public RelayCommand BackCommand { get; set; }
         public RelayCommand MainCommand { get; set; }
