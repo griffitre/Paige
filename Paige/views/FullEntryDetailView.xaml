@@ -27,8 +27,17 @@
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
 
-        <!-- Create back button to allow user to exit -->
-        <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding BackCommand}" Content="Back" />
+        <!-- Wrappanel for buttons at top right -->
+        <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+
+            <!-- Add a back button at the top right to go back to the calendar -->
+            <Button Command="{Binding BackCommand}" Content="Back" />
+
+            <!-- Add a button to go back to the main menu at the top right as well -->
+            <Button Command="{Binding MainCommand}" Content="Main" />
+
+        </WrapPanel>
+        
 
         <!-- Create a scroll viewer in the second row to allow the user to scroll through the entry -->
         <ScrollViewer Grid.Row="1">
@@ -132,52 +141,52 @@
 
                         <!-- Same explanation as above -->
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="1" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}" />
+                            <Button Content="1" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="1/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="2" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}" />
+                            <Button Content="2" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="2/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="3" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}" />
+                            <Button Content="3" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="3/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="4" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}" />
+                            <Button Content="4" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="4/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="5" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}" />
+                            <Button Content="5" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="5/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="6" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=6}" />
+                            <Button Content="6" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=6}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="6/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="7" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=7}" />
+                            <Button Content="7" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=7}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="7/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="8" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=8}" />
+                            <Button Content="8" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=8}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="8/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="9" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=9}" />
+                            <Button Content="9" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=9}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="9/10" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,20,0">
-                            <Button Content="10" FontSize="20" Background="{Binding OverallRating, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=10}" />
+                            <Button Content="10" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=10}" />
                             <TextBlock Style="{StaticResource TextButton}" Text="10/10" />
                         </StackPanel>
 
@@ -487,7 +496,7 @@
 
                         <!-- Same explanation as above -->
                         <StackPanel Margin="0,0,10,0">
-                            <Button Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse1Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cigarettes/" />
@@ -495,21 +504,21 @@
                         </StackPanel>
 
                         <StackPanel Margin="0,0,10,0">
-                            <Button Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse2Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Alcohol" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,10,0">
-                            <Button Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse3Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cannabis" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,10,0">
-                            <Button Background="{Binding Recreational, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse4Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Other" />
@@ -609,10 +618,10 @@
                             </Grid.RowDefinitions>
 
                             <!-- Add a button that allows the user to check that day's journal -->
-                            <Button Grid.Row="0" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Content="View today's Journal..." />
+                            <Button Grid.Row="0" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10" Content="View today's Journal..." />
 
                             <!-- Display the user's note in a read only textblock -->
-                            <TextBox Grid.Row="1" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                            <TextBox Grid.Row="1" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
                             
                         </Grid>
 
