@@ -21,7 +21,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // If calendar button is clicked, go to journal calendar view
-            CalendarCommand = new RelayCommand(() => updateViewCommand.Execute("journalCalendar");
+            CalendarCommand = new RelayCommand(() => updateViewCommand.Execute("journalCalendar"));
 
             // If the edit button is clicked, go to the journal view
             JournalCommand = new RelayCommand(() => updateViewCommand.Execute("journal"));
