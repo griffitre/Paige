@@ -15,12 +15,33 @@ namespace Paige.viewmodels
     public class JournalDetailViewModel : ViewModelBase
     {
         // Declare BackCommand
-        public RelayCommand BackCommand { get; }
+        public RelayCommand BackCommand { get; set; }
 
 
-        // Expose all possible fields
-        public string JournalDay { get; set; }
-        public string? JournalText { get; set; }
+        // Properties to store data from a given entry
+        // JournalDay
+        private string _journalDay;
+        public string JournalDay
+        {
+            get { return _journalDay; }
+            set
+            {
+                _journalDay = value;
+                OnPropertyChanged();
+            }
+        }
+
+        // JournalText
+        private string? _journalText;
+        public string? JournalText
+        {
+            get { return _journalText; }
+            set
+            {
+                _journalText = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         // Constructor
