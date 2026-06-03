@@ -72,5 +72,11 @@ namespace Paige.commands
                 _mainWindowViewModel.ActiveMenu = new ShortEntryDetailViewModel(entry, this);
             }
         }
+
+        // Method to navigate to a given journal entry
+        public void NavigateToJournal(UserJournalEntry entry)
+        {
+            _mainWindowViewModel.ActiveMenu = new JournalDetailViewModel(entry, this);
+        }
     }
 }
