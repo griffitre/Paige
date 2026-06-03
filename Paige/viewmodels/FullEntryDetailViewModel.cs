@@ -1,5 +1,6 @@
 ﻿using Paige.commands;
 using Paige.models;
+using Paige.services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,8 +10,13 @@ namespace Paige.viewmodels
 {
     public class FullEntryDetailViewModel : ViewModelBase
     {
-        // Declare BackCommand (the only command ill use here)
+        // JournalDataService to load journal entries (used for the "view today's journal" button)
+        private readonly JournalDataService _journalDataService = new JournalDataService();
+
+
+        // Declare BackCommand
         public RelayCommand BackCommand { get; }
+        public RelayCommand<UserJournalEntry> ViewJournalCommand { get; }
 
 
         // Expose all possible fields in an entry as read-only
@@ -25,14 +31,12 @@ namespace Paige.viewmodels
         public List<int> Social { get; }
         public List<int> RecreationalUse { get; }
         public List<int> Weather { get; }
+        public UserJournalEntry? TodaysEntry { get; }
 
 
         // Constructor
         public FullEntryDetailViewModel(FullEntry entry, ICommand updateViewCommand)
         {
-            // Define BackCommand
-            BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
-
             // Set all fields using the data from the passed entry
             CurrentMood = entry.CurrentMood;
             OverallRating = entry.Overall;
@@ -45,6 +49,21 @@ namespace Paige.viewmodels
             Social = entry.Social;
             RecreationalUse = entry.RecreationalUse;
             Weather = entry.Weather;
+            TodaysEntry = _journalDataService.GetDatesEntry(entry.Date);
+
+            // Define BackCommand
+            BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
+
+            // Define ViewJournalCommand
+            ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry), TodaysEntry => CanViewJournal(TodaysEntry));
+        }
+
+
+        // Methods
+        // Method to check if a returned journal is not null
+        private bool CanViewJournal(UserJournalEntry? journalEntry)
+        {
+            return journalEntry is not null;
         }
     }
 }

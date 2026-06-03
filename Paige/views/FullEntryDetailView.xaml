@@ -599,8 +599,22 @@
                         <!-- Display the note header -->
                         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Here was the note you left:" />
 
-                        <!-- Show the user's note as read only -->
-                        <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                        <!-- Another grid to layout the "view todays journal" button and the note textbox -->
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                            
+                            <!-- Split the grid into two rows -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Add a button that allows the user to check that day's journal -->
+                            <Button Grid.Row="0" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Content="View today's Journal..." />
+
+                            <!-- Display the user's note in a read only textblock -->
+                            <TextBox Grid.Row="1" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                            
+                        </Grid>
 
                         <!-- Display the image header -->
                         <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Here is the image you attached:" />
