@@ -1,10 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Paige.commands;
+using Paige.models;
+using Paige.services;
 
 namespace Paige.viewmodels
 {
-    internal class JournalCalendarViewModel
+    // Definition of the viewmodel for calendarview
+    public class JournalCalendarViewModel : ViewModelBase
     {
+        // JournalDataService to load journal entries
+        private readonly JournalDataService _journalDataService = new JournalDataService();
+
+
+        // Define the JournalEntries variable
+        private ObservableCollection<UserJournalEntry> _journalEntries;
+        public ObservableCollection<UserJournalEntry> JournalEntries
+        {
+            get {  return _journalEntries; }
+            set
+            {
+                _journalEntries = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        // Declare Commands
+        public RelayCommand BackCommand { get; set; }
+        public RelayCommand<UserJournalEntry> JournalEntryButtonCommand { get; set; }
+
+
+        // Constructor
+        public JournalCalendarViewModel(ICommand updateViewCommand)
+        {
+            // Load all journal entries, store them to the JournalEntries field
+            JournalEntries = new ObservableCollection<UserJournalEntry>(_journalDataService.LoadAll());
+
+            // If the user clicks the back button, send them back to the main menu
+            BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+
+            // If the user clicks an entry, call the navigate to journal method
+            JournalEntryButtonCommand = new RelayCommand<UserJournalEntry>(entry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(entry));
+        }
     }
 }
