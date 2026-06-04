@@ -617,12 +617,12 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
 
-                            <!-- Add a button that allows the user to check that day's journal -->
-                            <Button Grid.Row="0" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10" Content="View today's Journal..." />
-
                             <!-- Display the user's note in a read only textblock -->
-                            <TextBox Grid.Row="1" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-                            
+                            <TextBox Grid.Row="0" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+                            <!-- Add a button that allows the user to check that day's journal -->
+                            <Button Grid.Row="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0" Content="View today's Journal..." />
+
                         </Grid>
 
                         <!-- Display the image header -->
