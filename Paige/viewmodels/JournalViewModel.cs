@@ -51,6 +51,19 @@ namespace Paige.viewmodels
         }
 
 
+        // Create a field to store a loaded FirstEdited field to prevent overwriting
+        private DateTime _loadedFirstEdited;
+        public DateTime LoadedFirstEdited
+        {
+            get { return _loadedFirstEdited; }
+            set
+            {
+                _loadedFirstEdited = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         // Constructor
         public JournalViewModel(ICommand updateViewCommand)
         {
@@ -69,10 +82,16 @@ namespace Paige.viewmodels
             // Load today's entry (if it exists)
             var existingEntry = _journalDataService.GetTodaysEntry();
 
-            // If exists, set journalbody to the existing entry
+            // If exists, set journalbody to the existing entry, save the loaded FirstEdited field
             if (existingEntry != null)
             {
                 _journalBody = existingEntry.JournalBody;
+                LoadedFirstEdited = existingEntry.FirstEdited;
+            }
+            // Otherwise, just set LoadedFirstEdited to the current time, as existingEntry being null means theres no entry from today yet
+            else
+            {
+                LoadedFirstEdited = DateTime.Now;
             }
         }
 
@@ -86,6 +105,12 @@ namespace Paige.viewmodels
 
             // Set entry's body to be the user's entry that they wrote
             entry.JournalBody = JournalBody;
+
+            // Set the FirstEdited field to LoadedFirstEdited
+            entry.FirstEdited = LoadedFirstEdited;
+
+            // Set the last edited time
+            entry.LastEdited = DateTime.Now;
 
             // Save the entry
             _journalDataService.Save(entry);

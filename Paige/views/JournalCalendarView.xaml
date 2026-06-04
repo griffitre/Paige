@@ -34,6 +34,7 @@
                             <Button.Content>
                                 <StackPanel HorizontalAlignment="Left">
                                     <TextBlock FontWeight="Bold" Text="{Binding FirstEdited, StringFormat='Journal entry from {0:MMMM dd, yyyy}'}" />
+                                    <TextBlock Text="{Binding FirstEdited, StringFormat='First edited at {0:h:mm tt}'}" />
                                     <TextBlock Text="{Binding LastEdited, StringFormat='Last edited at {0:h:mm tt}'}" />
                                 </StackPanel>
                             </Button.Content>
