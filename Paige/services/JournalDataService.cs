@@ -53,7 +53,7 @@ namespace Paige.services
             List<UserJournalEntry> loadedEntries = LoadAll();
 
             // Check if an entry for today already exists
-            var existing = loadedEntries.FirstOrDefault(j => j.Date.Date == givenEntry.Date.Date);
+            var existing = loadedEntries.FirstOrDefault(j => j.FirstEdited.Date == givenEntry.FirstEdited.Date);
 
             // If one does exist, overwrite that entry and replace it with the new one (that is just an extension of the old one)
             if (existing != null)
@@ -77,13 +77,13 @@ namespace Paige.services
         public UserJournalEntry? GetTodaysEntry()
         {
             // Return the entry of today's date (if found, returns null otherwise by default)
-            return LoadAll().FirstOrDefault(j => j.Date.Date == DateTime.Now.Date);
+            return LoadAll().FirstOrDefault(j => j.FirstEdited.Date == DateTime.Now.Date);
         }
 
         // Method to find a journal entry given a date
         public UserJournalEntry? GetDatesEntry(DateTime date)
         {
-            return LoadAll().FirstOrDefault(j => j.Date.Date.Equals(date.Date));
+            return LoadAll().FirstOrDefault(j => j.FirstEdited.Date.Equals(date.Date));
         }
     }
 }
