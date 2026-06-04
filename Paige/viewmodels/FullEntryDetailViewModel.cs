@@ -170,19 +170,8 @@ namespace Paige.viewmodels
         // Constructor
         public FullEntryDetailViewModel(FullEntry entry, ICommand updateViewCommand)
         {
-            // Set all fields using the data from the passed entry
-            CurrentMood = entry.CurrentMood;
-            OverallRatingStored = entry.Overall;
-            SavedNote = entry.Note;
-            AttachedImagePath = entry.AttachedImagePath;
-            Hobbies = entry.Hobbies;
-            Meals = entry.Meals;
-            Chores = entry.Chores;
-            SelfCare = entry.SelfCare;
-            Social = entry.Social;
-            RecreationalUse = entry.RecreationalUse;
-            Weather = entry.Weather;
-            TodaysEntry = _journalDataService.GetDatesEntry(entry.Date);
+            // Load the data from the passed entry
+            LoadData(entry);
 
             // Define BackCommand
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
@@ -196,6 +185,24 @@ namespace Paige.viewmodels
 
 
         // Methods
+        // Method to load all data from a given entry
+        private void LoadData(FullEntry entry)
+        {
+            // Set all fields using the data from the passed entry
+            CurrentMood = entry.CurrentMood;
+            OverallRatingStored = entry.Overall;
+            SavedNote = entry.Note;
+            AttachedImagePath = entry.AttachedImagePath;
+            Hobbies = entry.Hobbies;
+            Meals = entry.Meals;
+            Chores = entry.Chores;
+            SelfCare = entry.SelfCare;
+            Social = entry.Social;
+            RecreationalUse = entry.RecreationalUse;
+            Weather = entry.Weather;
+            TodaysEntry = _journalDataService.GetDatesEntry(entry.Date);
+        }
+
         // Method to check if a returned journal is not null
         private bool CanViewJournal(UserJournalEntry? journalEntry)
         {
