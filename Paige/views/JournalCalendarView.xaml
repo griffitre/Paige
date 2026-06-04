@@ -33,7 +33,8 @@
                         <Button Command="{Binding DataContext.JournalEntryButtonCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                             <Button.Content>
                                 <StackPanel HorizontalAlignment="Left">
-                                    <TextBlock FontWeight="Bold" Text="{Binding Date, StringFormat='Journal entry from {0}'}" />
+                                    <TextBlock FontWeight="Bold" Text="{Binding FirstEdited, StringFormat='Journal entry from {0:MMMM dd, yyyy}'}" />
+                                    <TextBlock Text="{Binding LastEdited, StringFormat='Last edited at {0:h:mm tt}'}" />
                                 </StackPanel>
                             </Button.Content>
                         </Button>
