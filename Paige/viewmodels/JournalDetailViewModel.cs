@@ -51,7 +51,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // Set JournalDay
-            JournalDay = entry.Date.ToString("MMMM dd, yyyy");
+            JournalDay = entry.FirstEdited.ToString("MMMM dd, yyyy");
 
             // Set JournalText
             JournalText = entry.JournalBody;
