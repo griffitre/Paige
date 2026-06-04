@@ -47,9 +47,18 @@ namespace Paige.viewmodels
         // Constructor
         public JournalDetailViewModel(UserJournalEntry entry, ICommand updateViewCommand)
         {
+            // Load the data from the passed entry
+            LoadAll(entry);
+
             // Define BackCommand
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+        }
 
+
+        // Methods
+        // Method to load data
+        private void LoadAll(UserJournalEntry entry)
+        {
             // Set JournalDay
             JournalDay = entry.FirstEdited.ToString("MMMM dd, yyyy");
 
