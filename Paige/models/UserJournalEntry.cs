@@ -7,8 +7,11 @@ namespace Paige.models
     // Class for a journal entry
     public class UserJournalEntry
     {
-        // Set the date
-        public DateTime Date { get; set; } = DateTime.Now;
+        // Set the FirstEdited DateTime field
+        public DateTime FirstEdited { get; set; } = DateTime.Now;
+
+        // Create the LastEdited DateTime field
+        public DateTime LastEdited { get; set; } = DateTime.Now;
 
         // Create a string to store the user's journal entry
         public string? JournalBody { get; set; }
