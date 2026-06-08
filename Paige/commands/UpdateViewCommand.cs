@@ -8,24 +8,29 @@ using Paige.views;
 
 namespace Paige.commands
 {
-    // Command to handle navigation
-    class UpdateViewCommand : ICommand
+    // Command used to update the current active viewmodel
+    public class UpdateViewCommand : ICommand
     {
+        // Properties/Fields
+        // Declare the main window viewmodel property. Used to swap the current active viewmodel
         private MainWindowViewModel _mainWindowViewModel;
 
+
+        // Constructor
         public UpdateViewCommand(MainWindowViewModel mainWindowViewModel)
         {
             _mainWindowViewModel = mainWindowViewModel;
         }
 
-        // Default implementation of ICommand interface
-        public event EventHandler? CanExecuteChanged;
-
+        
+        // Interface implementations
+        // Returns true if the command is allowed to execute, defaults to true no conditions are given
         public bool CanExecute(object? parameter)
         {
             return true;
         }
 
+        // Changes the current active viewmodel based on the parameter
         public void Execute(object? parameter)
         {
             if (parameter.ToString() == "main")
@@ -62,6 +67,11 @@ namespace Paige.commands
             }
         }
 
+        // Default implementation of CanExecuteChanged from ICommand interface
+        public event EventHandler? CanExecuteChanged;
+
+
+        // Methods
         // Method to navigate to a given entry. Which viewmodel to select is determined in the method
         public void NavigateTo(ShortEntry entry)
         {

@@ -5,11 +5,13 @@ using System.Windows.Input;
 
 namespace Paige.commands
 {
+    // Command used to relay commands/run commands (used by/for buttons that are clicked)
     public class RelayCommand : ICommand
     {
-        // Define fields of class
+        // Properties/Fields
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
+
 
         // Constructor
         public RelayCommand(Action execute, Func<bool> canExecute = null)
@@ -19,7 +21,9 @@ namespace Paige.commands
             _canExecute = canExecute;
         }
 
-        // Returns true if the command is allowed to execute, defaults to true if no conditions are given (i.e. a button thats always available)
+
+        // Interface implementations
+        // Returns true if the command is allowed to execute, defaults to true if no conditions are given
         public bool CanExecute(object parameter)
         {
             return _canExecute?.Invoke() ?? true;
@@ -43,9 +47,10 @@ namespace Paige.commands
     // Definition of a generic relay command that can pass stuff
     public class RelayCommand<T> : ICommand
     {
-        // Define fields of class
+        // Declare fields of class
         private readonly Action<T> _execute;
         private readonly Func<T, bool> _canExecute;
+
 
         // Constructor
         public RelayCommand(Action<T> execute, Func<T, bool> canExecute = null)
@@ -55,6 +60,8 @@ namespace Paige.commands
             _canExecute = canExecute;
         }
 
+
+        // Interface implementations
         // Returns true if the command is allowed to execute, defaults to true if no conditions are given (i.e. a button thats always available)
         public bool CanExecute(object? parameter)
         {
