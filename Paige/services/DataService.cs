@@ -11,10 +11,12 @@ namespace Paige.services
     // Class that handles saving and loading data
     public class DataService
     {
-
+        // Properties/Fields
         // Create a private readonly string to store the filepath
         private readonly string _filePath;
 
+        
+        // Constructor
         public DataService()
         {
             // Get the path to the app data folder
@@ -28,10 +30,11 @@ namespace Paige.services
 
             // Create the full file path
             _filePath = Path.Combine(direcPath, "entries.json");
-            
         }
 
-        // Method to load logs from a json file
+
+        // Methods
+        // Method to load entries from a json file
         public List<ShortEntry> LoadAll()
         {
             // Check if the file exists. If it doesnt, just return an empty short entry list
@@ -45,13 +48,12 @@ namespace Paige.services
 
             // Then, return the deserialized version of it
             return JsonSerializer.Deserialize<List<ShortEntry>>(serializedString);
-
         }
 
         // Method to save an entry to a json file
         public void Save(ShortEntry givenEntry)
         {
-            // Load the logs from the user's stored file
+            // Load the entries from the user's stored file
             List<ShortEntry> loadedEntries = LoadAll();
 
             // Append the given entry to the list

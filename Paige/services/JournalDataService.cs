@@ -11,8 +11,10 @@ namespace Paige.services
     // Class that handles saving and loading journal entries
     public class JournalDataService
     {
+        // Properties/Fields
         // Create a readonly string to store the filepath
         private readonly string _filePath;
+
 
         // Constructor
         public JournalDataService()
@@ -30,6 +32,8 @@ namespace Paige.services
             _filePath = Path.Combine(direcPath, "journals.json");
         }
 
+
+        // Methods
         // Method to load all journal entries from a json file
         public List<UserJournalEntry> LoadAll()
         {
@@ -49,7 +53,7 @@ namespace Paige.services
         // Method to save a journal entry to a json file
         public void Save(UserJournalEntry givenEntry)
         {
-            // Load the logs from the user's stored file
+            // Load the entries from the user's stored file
             List<UserJournalEntry> loadedEntries = LoadAll();
 
             // Check if an entry for today already exists
