@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Paige.helpers
 {
-    // Definition for MoodRatingHelper
+    // Definition of MoodRatingHelper
     public static class MoodRatingHelper
     {
-        // Create the dictionary to translate mood scores to the respective rating
+        // MoodRatings dictionary to translate
         private static readonly Dictionary<int, string> MoodRatings = new()
         {
             { 1, "Awful" },
@@ -17,7 +17,9 @@ namespace Paige.helpers
             { 5, "Great" }
         };
 
-        // Method to get the respective rating given the score. Default to neutral (Okay) if not found (prevents crashes)
+
+        // Methods
+        // Method to get the respective rating given a score. Default to neutral (Okay) if not found (prevents crashes)
         public static string GetRating(int score)
         {
             return MoodRatings.TryGetValue(score, out string rating) ? rating : "Okay";

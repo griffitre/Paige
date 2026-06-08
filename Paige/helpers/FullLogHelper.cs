@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Paige.helpers
 {
-    // Definition for FullLogHelper
+    // Definition of FullLogHelper
     public static class FullLogHelper
     {
         // Hobbies dictionary to translate
@@ -90,13 +90,15 @@ namespace Paige.helpers
             { 8, "Hot/Humid" }
         };
 
+
+        // Methods
         // General method to take a dictionary and output the associated value
         private static string TranslateScore(Dictionary<int, string> dict, int score)
         {
             return dict.TryGetValue(score, out string value) ? value : "Unknown";
         }
 
-        // Methods to get respective string for each dict
+        // Methods to get respective string from each dict given a score, using the general method
         public static string GetHobby(int score) => TranslateScore(HobbiesDict, score);
         public static string GetMeals(int score) => TranslateScore(MealsDict, score);
         public static string GetChores(int score) => TranslateScore(ChoresDict, score);
