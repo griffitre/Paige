@@ -7,17 +7,16 @@ using System.Windows.Media;
 
 namespace Paige.converters
 {
-    // Definition of SelectedValueToColourConverter
+    // Converter to return the selected colour if a button's value matches the selected value stored
     public class SelectedValueToColourConverter : IValueConverter
     {
-        // Convert method
+        // Return the selected colour if a button's value matches the selected value, unselected colour if not
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // If a button's value matches the selected value, return the highlight colour
             return value?.ToString() == parameter.ToString() ? new SolidColorBrush(Colors.LightGray) : new SolidColorBrush(Colors.White);
         }
 
-        // Other method required by interface (unused)
+        // Other item of the interface (unneeded)
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

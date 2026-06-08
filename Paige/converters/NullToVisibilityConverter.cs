@@ -7,7 +7,7 @@ using System.Windows.Data;
 
 namespace Paige.converters
 {
-    // Definition of NullToVisibilityConverter
+    // Converter to determine whether or not a button/image should be visible at a given moment
     public class NullToVisibilityConverter : IValueConverter
     {
         // Return visible if value is null, collapsed if not
@@ -22,6 +22,7 @@ namespace Paige.converters
             throw new NotImplementedException();
         }
     }
+
 
     // Definition of NotNullToVisibilityConverter
     public class NotNullToVisibilityConverter : IValueConverter
