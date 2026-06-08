@@ -9,19 +9,25 @@ using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
+    // Definition of the viewmodel for fullentrydetail
     public class FullEntryDetailViewModel : ViewModelBase
     {
-        // JournalDataService to load journal entries (used for the "view today's journal" button)
+        // JournalDataService field to load journal entries (used for the "view today's journal" button)
         private readonly JournalDataService _journalDataService = new JournalDataService();
 
 
-        // Declare commands
-        public RelayCommand BackCommand { get; set; }
-        public RelayCommand MainCommand { get; set; }
-        public RelayCommand<UserJournalEntry> ViewJournalCommand { get; set; }
+        // Commands
+        // Declare command to go back
+        public RelayCommand BackCommand { get; }
+
+        // Declare command to go back to the main menu
+        public RelayCommand MainCommand { get; }
+        
+        // Declare command to view the journal from the entry's day
+        public RelayCommand<UserJournalEntry> ViewJournalCommand { get; }
 
 
-        // Properties to store data from a given entry
+        // Properties to expose + make them bindable
         // CurrentMood
         private int _currentMood;
         public int CurrentMood

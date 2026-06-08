@@ -12,19 +12,20 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for journalview
     public class JournalViewModel : ViewModelBase
     {
-        // JournalDataService to save journal entries
+        // JournalDataService field to save journal entries
         private readonly JournalDataService _journalDataService = new JournalDataService();
 
 
-        // Declare commands
-        // ExitCommand
+        // Commands
+        // Declare command to go back to the main menu
         public RelayCommand ExitCommand { get; }
 
-        // DoneCommand
+        // Declare command to save the entry
         public RelayCommand DoneCommand { get; }
 
 
-        // Expose JournalBody and make it bindable
+        // Properties to expose + make them bindable
+        // JournalBody
         private string? _journalBody;
         public string JournalBody
         {
@@ -37,8 +38,7 @@ namespace Paige.viewmodels
             }
         }
 
-
-        // Expose CurrentDate and make it bindable
+        // CurrentDate
         private string? _currentDate;
         public string CurrentDate
         {
@@ -50,8 +50,7 @@ namespace Paige.viewmodels
             }
         }
 
-
-        // Create a field to store a loaded FirstEdited field to prevent overwriting
+        // LoadedFirstEdited
         private DateTime _loadedFirstEdited;
         public DateTime LoadedFirstEdited
         {

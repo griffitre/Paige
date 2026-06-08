@@ -12,26 +12,30 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for calendarview
     public class CalendarViewModel : ViewModelBase
     {
-        // Dataservice to load entries
+        // Dataservice field to load entries
         private readonly DataService _dataService = new DataService();
 
 
-        // Define the Entries variable
+        // Commands
+        // Declare command to go back
+        public RelayCommand BackCommand { get; }
+
+        // Delcare command to go to view an entry
+        public RelayCommand<ShortEntry> EntryButtonCommand { get; }
+
+
+        // Properties to expose + make them bindable
+        // Entries
         private ObservableCollection<ShortEntry> _entries;
-		public ObservableCollection<ShortEntry> Entries
-		{
-			get { return _entries; }
-			set 
-            { 
+        public ObservableCollection<ShortEntry> Entries
+        {
+            get { return _entries; }
+            set
+            {
                 _entries = value;
                 OnPropertyChanged();
             }
-		}
-
-
-        // Declare Commands
-        public RelayCommand BackCommand { get; set; }
-        public RelayCommand<ShortEntry> EntryButtonCommand { get; set; }
+        }
 
 
         // Constructor

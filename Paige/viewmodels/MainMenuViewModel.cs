@@ -14,13 +14,21 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for mainmenuview
     public class MainMenuViewModel : ViewModelBase
     {
-        // Declare commands
+        // Commands
+        // Declare command to go to the log select menu
         public RelayCommand LogCommand { get; }
+
+        // Declare command to go to the calendar menu
         public RelayCommand CalendarCommand { get; }
+
+        // Declare command to go to the journal select menu
         public RelayCommand JournalCommand { get; }
+
+        // Delcare command to exit the program
         public RelayCommand ExitCommand { get; }
 
-        // Define constructor
+
+        // Constructor
         public MainMenuViewModel(ICommand updateViewCommand)
         {
             // If log is clicked, go to log select menu

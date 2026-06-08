@@ -12,11 +12,20 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for calendarview
     public class JournalCalendarViewModel : ViewModelBase
     {
-        // JournalDataService to load journal entries
+        // JournalDataService field to load journal entries
         private readonly JournalDataService _journalDataService = new JournalDataService();
 
 
-        // Define the JournalEntries variable
+        // Commands
+        // Declare command to go back
+        public RelayCommand BackCommand { get; }
+
+        // Declare command to view a journal entry
+        public RelayCommand<UserJournalEntry> JournalEntryButtonCommand { get; }
+
+
+        // Properties to expose + make them bindable
+        // JournalEntries
         private ObservableCollection<UserJournalEntry> _journalEntries;
         public ObservableCollection<UserJournalEntry> JournalEntries
         {
@@ -27,11 +36,6 @@ namespace Paige.viewmodels
                 OnPropertyChanged();
             }
         }
-
-
-        // Declare Commands
-        public RelayCommand BackCommand { get; set; }
-        public RelayCommand<UserJournalEntry> JournalEntryButtonCommand { get; set; }
 
 
         // Constructor

@@ -11,22 +11,29 @@ using Paige.services;
 
 namespace Paige.viewmodels
 {
-    // Definition of the viewmodel for the shortentrydetail view
+    // Definition of the viewmodel for shortentrydetail view
     public class ShortEntryDetailViewModel : ViewModelBase
     {
-        // JournalDataService to load journal entries (used for the "view today's journal" button)
+        // JournalDataService field to load journal entries (used for the "view today's journal" button)
         private readonly JournalDataService _journalDataService = new JournalDataService();
 
 
-        // Declare commands
-        public RelayCommand BackCommand { get; set; }
-        public RelayCommand MainCommand { get; set; }
-        public RelayCommand ViewImageCommand { get; set; }
-        public RelayCommand<UserJournalEntry> ViewJournalCommand { get; set; }
+        // Commands
+        // Declare command to go back
+        public RelayCommand BackCommand { get; }
+
+        // Declare command to go back to the main menu
+        public RelayCommand MainCommand { get; }
+
+        // Declare command to view the attached image
+        public RelayCommand ViewImageCommand { get; }
+
+        // Declare command to view the journal from the entry's day
+        public RelayCommand<UserJournalEntry> ViewJournalCommand { get; }
 
 
-        // Properties to store data from a given entry
-        // Translated date
+        // Properties to expose + make them bindable
+        // TranslatedDate
         private string _translatedDate;
         public string TranslatedDate
         {
@@ -38,7 +45,7 @@ namespace Paige.viewmodels
             }
         }
 
-        // Translated image
+        // TranslatedImage
         private string _translatedImage;
         public string TranslatedImage
         {
@@ -50,7 +57,7 @@ namespace Paige.viewmodels
             }
         }
 
-        // Translated rating
+        // TranslatedRating
         private string _translatedRating;
         public string TranslatedRating
         {
@@ -62,7 +69,7 @@ namespace Paige.viewmodels
             }
         }
 
-        // Overall rating stored
+        // OverallRatingStored
         private int _overallRatingStored;
         public int OverallRatingStored
         {
@@ -86,7 +93,7 @@ namespace Paige.viewmodels
             }
         }
 
-        // Attached image path
+        // AttachedImagePath
         private string _attachedImagePath;
         public string AttachedImagePath
         {

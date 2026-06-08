@@ -14,11 +14,12 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for journaldetailview
     public class JournalDetailViewModel : ViewModelBase
     {
-        // Declare BackCommand
-        public RelayCommand BackCommand { get; set; }
+        // Commands
+        // Declare command to go back
+        public RelayCommand BackCommand { get; }
 
 
-        // Properties to store data from a given entry
+        // Properties to expose + make them bindable
         // JournalDay
         private string _journalDay;
         public string JournalDay

@@ -10,10 +10,10 @@ using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
-    // Definition of FullLogViewModel
+    // Definition of the viewmodel for fulllogview
     public class FullLogViewModel : ViewModelBase
     {
-        // Dataservice to save to json file
+        // Dataservice field to save to json file
         private readonly DataService _dataService = new DataService();
 
 
@@ -109,7 +109,7 @@ namespace Paige.viewmodels
         public RelayCommand AttachImageCommand { get; }
 
 
-        // String/int properties to expose + make them bindable
+        // Properties to expose + make them bindable
         // JournalNote
         private string? _journalNote;
         public string JournalNote
@@ -158,8 +158,6 @@ namespace Paige.viewmodels
             }
         }
 
-
-        // List properties to expose + make them bindable
         // Hobbies
         private List<int> _hobbies = new List<int>();
         public List<int> Hobbies

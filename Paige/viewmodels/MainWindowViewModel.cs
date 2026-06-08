@@ -11,7 +11,13 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for mainwindowview
     public class MainWindowViewModel : ViewModelBase
     {
-        // Declare the ActiveMenu object. Used to keep track of and change the current menu on screen, also make it bindable
+        // Commands
+        // Declare navigation command
+        public ICommand UpdateViewCommand { get; }
+
+
+        // Properties to expose + make them bindable
+        // ActiveMenu. Used to keep track of and change the current menu on screen, also make it bindable
         private object _activeMenu;
         public object ActiveMenu
         {
@@ -22,9 +28,7 @@ namespace Paige.viewmodels
                 OnPropertyChanged(nameof(ActiveMenu));
             }
         }
-
-        // Declare navigation command
-        public ICommand UpdateViewCommand { get; set; }
+        
 
         // Constructor. Sets the main menu to the active menu by default
         public MainWindowViewModel() 

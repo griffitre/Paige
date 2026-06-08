@@ -19,7 +19,7 @@ namespace Paige.viewmodels
     // Definition of the viewmodel for shortlogview
     public class ShortLogViewModel : ViewModelBase
     {
-        // DataService to save to json file
+        // DataService field to save to json file
         private readonly DataService _dataService = new DataService();
 
 
