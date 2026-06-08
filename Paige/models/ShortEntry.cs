@@ -9,25 +9,26 @@ namespace Paige.models
     [JsonDerivedType(typeof(ShortEntry), typeDiscriminator: "Short")]
     [JsonDerivedType(typeof(FullEntry), typeDiscriminator: "Full")]
 
-    // Class for a short entry
+    // Short mood entry class to store ratings about the user's day, as well as an image and a note
     public class ShortEntry
     {
-        // Entry type field to keep track of what kind of entry the log is
+        // Properties/Fields
+        // EntryType EntryType to keep track of what kind of entry the entry is
         public EntryType EntryType { get; set; } = EntryType.Short;
 
-        // Date field to store the date it was logged. Automatically is set to the computer's current date
+        // Date DateTime to store the date it was logged. Automatically is set to the computer's current date
         public DateTime Date { get; set; } = DateTime.Now;
 
-        // Overall field to store the user's mood from 1-5
+        // Overall int to store the user's overall day rating from 1-10
         public int Overall { get; set; }
 
-        // User's current mood
+        // CurrentMood int to store the user's current mood from 1-5
         public int CurrentMood { get; set; }
 
-        // User's optional note
+        // Optional nullable string to store the user's note for the day
         public string? Note { get; set; }
 
-        // User's attached image path
+        // Optional nullable string to store the user's attached image path string
         public string? AttachedImagePath { get; set; }
     }
 }

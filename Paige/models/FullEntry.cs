@@ -7,26 +7,26 @@ namespace Paige.models
     // Full mood entry class that inherits the first three fields from short entry class
     public class FullEntry : ShortEntry
     {
-        // Properties
-        // Hobbies
+        // Properties/Fields
+        // Hobbies list to store which hobbies the user did
         public List<int> Hobbies { get; set; } = new List<int>();
 
-        // Meals
+        // Meals list to store which meals the user ate
         public List<int> Meals { get; set; } = new List<int>();
 
-        // Chores
+        // Chores list to store which chores the user did
         public List<int> Chores { get; set; } = new List<int>();
 
-        // SelfCare
+        // SelfCare list to store which selfcare activities the user partook in
         public List<int> SelfCare { get; set; } = new List<int>();
 
-        // Social
+        // Social list to store which social activities the user partook in
         public List<int> Social { get; set; } = new List<int>();
 
-        // RecreationalUse
+        // RecreationalUse list to store which recreational substances the user took
         public List<int> RecreationalUse { get; set; } = new List<int>();
 
-        // Weather
+        // Weather list to store the weather for the day
         public List<int> Weather { get; set; } = new List<int>();
 
         
