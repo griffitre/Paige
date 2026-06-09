@@ -27,7 +27,7 @@
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
         
-        <!-- Create back and Done buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
+        <!-- Create Back and Done buttons to allow user to exit/save. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button Command="{Binding BackCommand}" Content="Back" />
             <Button Command="{Binding DoneCommand}" Content="Done" />

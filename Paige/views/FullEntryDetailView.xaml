@@ -27,15 +27,10 @@
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
 
-        <!-- Wrappanel for buttons at top right -->
+        <!-- Create Back and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-
-            <!-- Add a back button at the top right to go back to the calendar -->
             <Button Command="{Binding BackCommand}" Content="Back" />
-
-            <!-- Add a button to go back to the main menu at the top right as well -->
             <Button Command="{Binding ExitCommand}" Content="Exit" />
-
         </WrapPanel>
         
 
