@@ -45,7 +45,7 @@ namespace Paige.viewmodels
             JournalEntries = new ObservableCollection<UserJournalEntry>(_journalDataService.LoadAll());
 
             // If the user clicks the back button, send them back to the main menu
-            BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+            BackCommand = new RelayCommand(() => updateViewCommand.Execute("journalSelect"));
 
             // If the user clicks an entry, call the navigate to journal method
             JournalEntryButtonCommand = new RelayCommand<UserJournalEntry>(entry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(entry));
