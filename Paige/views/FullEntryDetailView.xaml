@@ -23,7 +23,7 @@
 
         <!-- Split main grid into two parts: one for the back button at the top, one for the content -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
 
