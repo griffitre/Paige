@@ -1,6 +1,6 @@
-﻿using System.Windows.Data;
+﻿using System.Globalization;
+using System.Windows.Data;
 using System.Windows.Media;
-using System.Globalization;
 
 namespace Paige.converters
 {
