@@ -23,7 +23,7 @@ namespace Paige.viewmodels
         public RelayCommand BackCommand { get; }
 
         // Declare command to go back to the main menu
-        public RelayCommand MainCommand { get; }
+        public RelayCommand ExitCommand { get; }
 
         // Declare command to view the attached image
         public RelayCommand ViewImageCommand { get; }
@@ -131,7 +131,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
 
             // If the user clicks the main button, send the user back to the main menu
-            MainCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // If the user clicks the image, open the image in the user's default image viewer
             ViewImageCommand = new RelayCommand(() => OpenImage(AttachedImagePath));
