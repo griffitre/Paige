@@ -13,7 +13,7 @@ namespace Paige.converters
         // Return visible if value is null, collapsed if not
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value == null ? Visibility.Visible : Visibility.Collapsed;
+            return string.IsNullOrEmpty(value?.ToString()) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         // Other item of the interface (unneeded)
