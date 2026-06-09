@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Paige.models
+﻿namespace Paige.models
 {
     // Journal entry class used to store a user's journal entry, as well as when it was first edited and when it was last edited
     public class UserJournalEntry

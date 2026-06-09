@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Paige.models
+﻿namespace Paige.models
 {
     // Inform json serializer of derived types so it can properly serialize and deserialize fullentries
     using System.Text.Json.Serialization;

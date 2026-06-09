@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Paige.models
+﻿namespace Paige.models
 {
     // Full mood entry class that inherits the first three fields from short entry class
     public class FullEntry : ShortEntry
