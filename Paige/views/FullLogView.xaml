@@ -29,7 +29,7 @@
         
         <!-- Create back and main buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Button Command="{Binding Exit}" Content="Exit" />
+            <Button Command="{Binding ExitCommand}" Content="Exit" />
             <Button Command="{Binding DoneCommand}" Content="Done" />
         </WrapPanel>
         
@@ -603,8 +603,11 @@
                         <!-- Prompt the user to enter a note for the day, optionally -->
                         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Any notes? (Optional)" />
 
-                        <!-- Textbox for the user to enter their note -->
-                        <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                        <!-- Textbox for user input, Textblock overlayed over top of the Textbox to act like a hint -->
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <TextBox Name="NoteBox" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" />
+                            <TextBlock Margin="14,10,10,20" VerticalAlignment="Top" Visibility="{Binding ElementName=NoteBox, Path=Text, Converter={StaticResource NullToVisibilityConverter}}" Foreground="Gray" FontSize="12" IsHitTestVisible="False" Text="Start here..." />
+                        </Grid>
 
                         <!-- Prompt the user to add an image, also optionally -->
                         <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Attach an image below! (Also Optional)" />

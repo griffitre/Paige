@@ -129,7 +129,7 @@
                 <!-- Prompt the user -->
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Text="What made me feel this way?" FontSize="20" />
 
-                <!-- Textbox for user input, Textblock overlayed over top of the Textbox to act like a hint. Use a grid to achieve this -->
+                <!-- Textbox for user input, Textblock overlayed over top of the Textbox to act like a hint -->
                 <Grid Grid.Row="1">
                     <TextBox Name="NoteBox" Margin="10,10,10,20" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="14,10,10,20" VerticalAlignment="Top" Visibility="{Binding ElementName=NoteBox, Path=Text, Converter={StaticResource NullToVisibilityConverter}}" IsHitTestVisible="False" Foreground="Gray" Text="Start Here..." />
