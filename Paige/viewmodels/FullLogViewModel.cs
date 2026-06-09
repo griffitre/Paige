@@ -112,7 +112,7 @@ namespace Paige.viewmodels
         // Properties to expose + make them bindable
         // JournalNote
         private string? _journalNote;
-        public string JournalNote
+        public string? JournalNote
         {
             get { return _journalNote ?? ""; }
             set
