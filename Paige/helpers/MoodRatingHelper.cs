@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Paige.helpers
+﻿namespace Paige.helpers
 {
     // Definition of MoodRatingHelper
     public static class MoodRatingHelper
