@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
-using Paige.viewmodels;
 using Paige.models;
+using Paige.viewmodels;
 
 namespace Paige.commands
 {
