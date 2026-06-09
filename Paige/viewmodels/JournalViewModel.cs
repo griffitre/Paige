@@ -70,7 +70,7 @@ namespace Paige.viewmodels
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
             // Define DoneCommand
-            DoneCommand = new RelayCommand(() => Done(), () => CanSave());
+            DoneCommand = new RelayCommand(() => Done(updateViewCommand), () => CanSave());
 
             // Get the current date in DateTime
             DateTime untranslatedDate = DateTime.Now;
@@ -97,7 +97,7 @@ namespace Paige.viewmodels
 
         // Methods
         // Method to save entry to json file
-        private void Done()
+        private void Done(ICommand updateViewCommand)
         {
             // Create a journal entry instance
             UserJournalEntry entry = new UserJournalEntry();
@@ -113,6 +113,9 @@ namespace Paige.viewmodels
 
             // Save the entry
             _journalDataService.Save(entry);
+
+            // Send the user back to the main menu
+            updateViewCommand.Execute("main");
         }
 
         // Method to check if the user has entered anything for the entry

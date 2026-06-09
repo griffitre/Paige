@@ -110,7 +110,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("logSelect"));
 
             // Define Done Command
-            DoneCommand = new RelayCommand(() => Done(), () => CanSave());
+            DoneCommand = new RelayCommand(() => Done(updateViewCommand), () => CanSave());
 
             // Define mood commands to save their respective mood scores to the CurrentMood field
             Mood5Command = new RelayCommand(() => CurrentMood = 5);
@@ -138,7 +138,7 @@ namespace Paige.viewmodels
 
         // Methods
         // Done method to save to the program's json file in app data
-        private void Done()
+        private void Done(ICommand updateViewCommand)
         {
             // Create an instance of ShortEntry to pass to data service to save
             ShortEntry userEntry = new ShortEntry();
@@ -151,6 +151,9 @@ namespace Paige.viewmodels
 
             // Call data service to save it
             _dataService.Save(userEntry);
+
+            // Send the user back to the main menu
+            updateViewCommand.Execute("main");
         }
 
         // AttachImage method
