@@ -88,9 +88,9 @@
                 <!-- Prompt user to enter how good their day was -->
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="How was your day?" FontSize="20" />
 
-                <!-- Add a little done button at the top right that goes back to main menu and saves the user's inputs -->
+                <!-- Create back and Done buttons to allow user to exit/save. Put them in a wrappanel to align them at the top right -->
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button Command="{Binding ExitCommand}" Content="Exit" VerticalAlignment="Center" />
+                    <Button Command="{Binding BackCommand}" Content="Back" VerticalAlignment="Center" />
                     <Button Command="{Binding DoneCommand}" Content="Done" VerticalAlignment="Center" />
                 </WrapPanel>
 

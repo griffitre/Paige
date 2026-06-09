@@ -19,7 +19,7 @@ namespace Paige.viewmodels
 
         // Commands
         // Declare command to go back to main menu
-        public RelayCommand ExitCommand { get; }
+        public RelayCommand BackCommand { get; }
 
         // Declare command to save entry
         public RelayCommand DoneCommand { get; }
@@ -247,7 +247,7 @@ namespace Paige.viewmodels
         public FullLogViewModel(ICommand updateViewCommand)
         {
             // Define Exit Command
-            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+            BackCommand = new RelayCommand(() => updateViewCommand.Execute("logSelect"));
 
             // Define Done Command
             DoneCommand = new RelayCommand(() => Done(), () => CanSave());

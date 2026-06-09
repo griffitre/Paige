@@ -23,13 +23,13 @@
         
         <!-- Split main grid into two parts: one for the back/main buttons at the top, one for the content -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
         
-        <!-- Create back and main buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
+        <!-- Create back and Done buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Button Command="{Binding ExitCommand}" Content="Exit" />
+            <Button Command="{Binding BackCommand}" Content="Back" />
             <Button Command="{Binding DoneCommand}" Content="Done" />
         </WrapPanel>
         
