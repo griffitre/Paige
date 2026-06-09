@@ -124,7 +124,7 @@
             <Button Command="{Binding BackCommand}" Content="Back" />
 
             <!-- Add a button to go back to the main menu at the top right as well -->
-            <Button Command="{Binding MainCommand}" Content="Main" />
+            <Button Command="{Binding MainCommand}" Content="Exit" />
 
         </WrapPanel>
             

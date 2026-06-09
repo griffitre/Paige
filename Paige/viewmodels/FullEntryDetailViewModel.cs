@@ -21,7 +21,7 @@ namespace Paige.viewmodels
         public RelayCommand BackCommand { get; }
 
         // Declare command to go back to the main menu
-        public RelayCommand MainCommand { get; }
+        public RelayCommand ExitCommand { get; }
         
         // Declare command to view the journal from the entry's day
         public RelayCommand<UserJournalEntry> ViewJournalCommand { get; }
@@ -183,7 +183,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
 
             // Define MainCommand
-            MainCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
             
             // Define ViewJournalCommand
             ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry), TodaysEntry => CanViewJournal(TodaysEntry));

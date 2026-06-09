@@ -82,7 +82,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="4*" />
                     <RowDefinition Height="5*" />
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!-- Prompt user to enter how good their day was -->
@@ -90,7 +90,7 @@
 
                 <!-- Add a little done button at the top right that goes back to main menu and saves the user's inputs -->
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button Command="{Binding ExitCommand}" Content="Back" VerticalAlignment="Center" />
+                    <Button Command="{Binding ExitCommand}" Content="Exit" VerticalAlignment="Center" />
                     <Button Command="{Binding DoneCommand}" Content="Done" VerticalAlignment="Center" />
                 </WrapPanel>
 
