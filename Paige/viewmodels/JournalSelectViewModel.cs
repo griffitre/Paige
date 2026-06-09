@@ -1,9 +1,5 @@
-﻿using System;
-using System.Windows;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Windows.Input;
 using Paige.commands;
-using System.Windows.Input;
 
 namespace Paige.viewmodels
 {

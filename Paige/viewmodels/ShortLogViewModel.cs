@@ -1,18 +1,9 @@
-﻿using Paige.commands;
+﻿using Microsoft.Win32;
+using System.IO;
+using System.Windows.Input;
+using Paige.commands;
 using Paige.models;
 using Paige.services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
-using Microsoft.Win32;
-using System.IO;
 
 namespace Paige.viewmodels
 {

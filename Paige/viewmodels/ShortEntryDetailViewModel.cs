@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
-using System.Windows.Input;
+﻿using System.Diagnostics;
 using System.IO;
+using System.Windows.Input;
 using Paige.commands;
-using Paige.models;
 using Paige.helpers;
+using Paige.models;
 using Paige.services;
 
 namespace Paige.viewmodels

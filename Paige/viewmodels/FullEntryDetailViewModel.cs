@@ -1,11 +1,7 @@
-﻿using Paige.commands;
+﻿using System.Windows.Input;
+using Paige.commands;
 using Paige.models;
 using Paige.services;
-using System;
-using System.Collections.Generic;
-using System.DirectoryServices;
-using System.Text;
-using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
