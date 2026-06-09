@@ -49,13 +49,23 @@ namespace Paige.viewmodels
 
 
         // Constructor
-        public JournalDetailViewModel(UserJournalEntry entry, ICommand updateViewCommand)
+        public JournalDetailViewModel(UserJournalEntry entry, ICommand updateViewCommand, Action returnAction = null)
         {
             // Load the data from the passed entry
             LoadAll(entry);
 
-            // Define BackCommand
-            BackCommand = new RelayCommand(() => updateViewCommand.Execute("journalCalendar"));
+            // Define BackCommand to run return action, defaulting to main if return action is not specified
+            BackCommand = new RelayCommand(() => 
+            {
+                if (returnAction != null)
+                {
+                    returnAction();
+                }
+                else
+                {
+                    updateViewCommand.Execute("main");
+                }
+            });
 
             // Define ExitCommand
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));

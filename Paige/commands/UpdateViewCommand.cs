@@ -88,9 +88,9 @@ namespace Paige.commands
         }
 
         // Method to navigate to a given journal entry
-        public void NavigateToJournal(UserJournalEntry entry)
+        public void NavigateToJournal(UserJournalEntry entry, Action returnAction)
         {
-            _mainWindowViewModel.ActiveMenu = new JournalDetailViewModel(entry, this);
+            _mainWindowViewModel.ActiveMenu = new JournalDetailViewModel(entry, this, returnAction);
         }
     }
 }

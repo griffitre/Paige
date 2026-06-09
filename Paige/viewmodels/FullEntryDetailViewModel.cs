@@ -186,7 +186,7 @@ namespace Paige.viewmodels
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
             
             // Define ViewJournalCommand
-            ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry), TodaysEntry => CanViewJournal(TodaysEntry));
+            ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry, () => (updateViewCommand as UpdateViewCommand)?.NavigateTo(entry)), TodaysEntry => CanViewJournal(TodaysEntry));
         }
 
 

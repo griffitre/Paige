@@ -137,7 +137,7 @@ namespace Paige.viewmodels
             ViewImageCommand = new RelayCommand(() => OpenImage(AttachedImagePath));
 
             // If the user clicks the "view today's journal" button, let them view that day's journal. Also use CanViewJournal to ensure that there exists a journal from that day
-            ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry), TodaysEntry => CanViewJournal(TodaysEntry));
+            ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry, () => (updateViewCommand as UpdateViewCommand)?.NavigateTo(entry)), TodaysEntry => CanViewJournal(TodaysEntry));
         }
 
 

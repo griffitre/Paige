@@ -48,7 +48,7 @@ namespace Paige.viewmodels
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("journalSelect"));
 
             // If the user clicks an entry, call the navigate to journal method
-            JournalEntryButtonCommand = new RelayCommand<UserJournalEntry>(entry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(entry));
+            JournalEntryButtonCommand = new RelayCommand<UserJournalEntry>(entry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(entry, () => (updateViewCommand as UpdateViewCommand)?.Execute("journalCalendar")));
         }
     }
 }
