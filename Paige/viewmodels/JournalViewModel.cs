@@ -26,10 +26,10 @@ namespace Paige.viewmodels
 
         // Properties to expose + make them bindable
         // JournalBody
-        private string? _journalBody;
+        private string _journalBody;
         public string JournalBody
         {
-            get { return _journalBody ?? "Start here..."; }
+            get { return _journalBody; }
             set
             {
                 _journalBody = value;
@@ -39,7 +39,7 @@ namespace Paige.viewmodels
         }
 
         // CurrentDate
-        private string? _currentDate;
+        private string _currentDate;
         public string CurrentDate
         {
             get { return _currentDate; }
