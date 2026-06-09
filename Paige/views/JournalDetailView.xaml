@@ -11,26 +11,39 @@
         <!-- Split the grid into 4 rows, one for a text block and one for the actual entry, and 2 at the top and bottom for padding -->
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="10*" />
+            <RowDefinition Height="12*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <!-- Add padding columns to the sides -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <!-- Add a textblock informing the user that this is their journal for the day -->
-        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding JournalDay, StringFormat='Journal entry from {0}'}" />
-        
-        <!-- TextBox that has their journal entry -->
-        <TextBox Grid.Row="2" Grid.Column="1" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText}" />
+        <!-- Grid in the middle row for the jounrnal -->
+        <Grid Grid.Row="1">
 
-        <!-- Back button -->
-        <Button Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Back" Command="{Binding BackCommand}" />
+            <!-- Split the grid into two rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+
+            <!-- Add padding columns to the sides -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Add a textblock informing the user that this is their journal for the day -->
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding JournalDay, StringFormat='Journal entry from {0}'}" />
+
+            <!-- TextBox that has their journal entry -->
+            <TextBox Grid.Row="1" Grid.Column="1" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding JournalText}" />
+
+        </Grid>
+        
+        <!-- Create Back and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
+        <WrapPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Command="{Binding BackCommand}" Content="Back" />
+            <Button Command="{Binding ExitCommand}" Content="Exit" />
+        </WrapPanel>
 
     </Grid>
 </UserControl>

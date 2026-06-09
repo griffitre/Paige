@@ -18,6 +18,9 @@ namespace Paige.viewmodels
         // Declare command to go back
         public RelayCommand BackCommand { get; }
 
+        // Declare command to go back to the main menu
+        public RelayCommand ExitCommand { get; }
+
 
         // Properties to expose + make them bindable
         // JournalDay
@@ -52,7 +55,10 @@ namespace Paige.viewmodels
             LoadAll(entry);
 
             // Define BackCommand
-            BackCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+            BackCommand = new RelayCommand(() => updateViewCommand.Execute("journalCalendar"));
+
+            // Define ExitCommand
+            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
         }
 
 
