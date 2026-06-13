@@ -61,5 +61,25 @@ namespace Paige.services
             // Write it to the file
             File.WriteAllText(_filePath, entriesSerialized);
         }
+
+        // Method to delete an entry
+        public void Delete(ShortEntry entry)
+        {
+            // Load all entries
+            List<ShortEntry> entries = LoadAll();
+
+            // Find the entry to remove
+            ShortEntry? toRemove = entries.FirstOrDefault(e => e == entry);
+
+            // Check if entry was found. If so, remove it
+            if (toRemove != null)
+            {
+                entries.Remove(toRemove);
+            }
+
+            // Re-serialize and write back to the file
+            string jsonString = JsonSerializer.Serialize(entries, new JsonSerializerOptions { WriteIndented=true });
+            File.WriteAllText(_filePath, jsonString);
+        }
     }
 }
