@@ -85,5 +85,25 @@ namespace Paige.services
         {
             return LoadAll().FirstOrDefault(j => j.FirstEdited.Date.Equals(date.Date));
         }
+
+        // Method to delete a journal entry
+        public void Delete(UserJournalEntry givenEntry)
+        {
+            // Load all entries
+            List<UserJournalEntry> loadedEntries = LoadAll();
+
+            // Find the entry to remove
+            UserJournalEntry? toRemove = loadedEntries.FirstOrDefault(e => e.FirstEdited == givenEntry.FirstEdited);
+
+            // Check if entry was found. If so, remove it
+            if (toRemove != null)
+            {
+                loadedEntries.Remove(toRemove);
+            }
+
+            // Re-serialize and write back to the file
+            string jsonString = JsonSerializer.Serialize(loadedEntries, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, jsonString);
+        }
     }
 }
