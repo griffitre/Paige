@@ -69,7 +69,7 @@ namespace Paige.services
             List<ShortEntry> loadedEntries = LoadAll();
 
             // Find the entry to remove
-            ShortEntry? toRemove = loadedEntries.FirstOrDefault(e => e == givenEntry);
+            ShortEntry? toRemove = loadedEntries.FirstOrDefault(e => e.Date == givenEntry.Date);
 
             // Check if entry was found. If so, remove it
             if (toRemove != null)
