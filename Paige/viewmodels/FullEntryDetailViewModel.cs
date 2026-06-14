@@ -1,7 +1,9 @@
-﻿using System.Windows.Input;
-using Paige.commands;
+﻿using Paige.commands;
 using Paige.models;
 using Paige.services;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Input;
 
 namespace Paige.viewmodels
 {
@@ -21,7 +23,10 @@ namespace Paige.viewmodels
 
         // Declare command to go back to the main menu
         public RelayCommand ExitCommand { get; }
-        
+
+        // Declare command to view the attached image
+        public RelayCommand ViewImageCommand { get; }
+
         // Declare command to view the journal from the entry's day
         public RelayCommand<UserJournalEntry> ViewJournalCommand { get; }
 
@@ -186,7 +191,10 @@ namespace Paige.viewmodels
 
             // Define MainCommand
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
-            
+
+            // Define ViewImageCommand
+            ViewImageCommand = new RelayCommand(() => OpenImage(AttachedImagePath));
+
             // Define ViewJournalCommand
             ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry, () => (updateViewCommand as UpdateViewCommand)?.NavigateTo(entry)), TodaysEntry => CanViewJournal(TodaysEntry));
 
@@ -228,6 +236,21 @@ namespace Paige.viewmodels
 
             // Send the user back to the calendar
             updateViewCommand.Execute("calendar");
+        }
+
+        // Method to open the attached image in the user's default image viewer (as long as an image was attached, aka path != null)
+        private void OpenImage(string path)
+        {
+            // If a photo was attached
+            if (path != null)
+            {
+                // Attempt to start the process
+                Process.Start(new ProcessStartInfo(Path.GetFullPath(path))
+                {
+                    // Use shell execute so that it opens in the default viewer
+                    UseShellExecute = true
+                });
+            }
         }
     }
 }
