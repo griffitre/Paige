@@ -625,8 +625,8 @@
                         <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Here is the image you attached:" />
 
                         <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
-                        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Text="No Image Attached!" />
-                        <Button Grid.Row="1"  Grid.Column="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="White">
+                        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Margin="10" Text="No Image Attached!" />
+                        <Button Grid.Row="1"  Grid.Column="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Margin="10" Background="White">
                             <Image MaxHeight="10000" MaxWidth="10000" Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                         </Button>
 

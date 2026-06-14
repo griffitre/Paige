@@ -16,10 +16,13 @@
         
         <!-- Back button -->
         <Button Grid.Row="0" Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
-        
-        <!-- Prompt the user to choose which log to enter -->
-        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Which type of log would you like to enter? (Choose one)" FontSize="20" />
 
+        <!-- Prompt the user to choose which log to enter -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Which type of log would you like to enter?" FontSize="20" />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="(Choose one)" FontSize="20" />
+        </StackPanel>
+        
         <!-- Set up grid in second row for the buttons -->
         <Grid Grid.Row="1">
 

@@ -123,11 +123,20 @@
                 <!-- Create the rows for the prompt and text box -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="4*" />
                 </Grid.RowDefinitions>
 
-                <!-- Prompt the user -->
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Text="What made me feel this way?" FontSize="20" />
+                <!-- Prompt the user to enter a short note -->
+                <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Add a short note below" FontSize="15" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="(Optional)" FontSize="10" />
+                </StackPanel>
+                
+                <!-- Prompt the user to attach an image -->
+                <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Attach an image below" FontSize="15" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="(Also optional)" FontSize="10" />
+                </StackPanel>
 
                 <!-- Textbox for user input, Textblock overlayed over top of the Textbox to act like a hint -->
                 <Grid Grid.Row="1">
@@ -136,7 +145,7 @@
                 </Grid>
 
                 <!-- Add a button to allow the user to attach an image. Shown when no image has been attached yet -->
-                <Button Grid.Column="1" Grid.Row="1" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Content="Attach an Image here (optional)" Margin="10,10,10,20" />
+                <Button Grid.Column="1" Grid.Row="1" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Margin="10,10,10,20" />
 
                 <!-- If an image is selected, display it -->
                 <Button Grid.Column="1" Grid.Row="1" Command="{Binding AttachImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="Transparent" Margin="10,10,10,20">

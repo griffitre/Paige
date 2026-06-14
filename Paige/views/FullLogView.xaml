@@ -601,7 +601,10 @@
                         </Grid.RowDefinitions>
 
                         <!-- Prompt the user to enter a note for the day, optionally -->
-                        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Any notes? (Optional)" />
+                        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+                            <TextBlock HorizontalAlignment="Center" Text="Any notes?" />
+                            <TextBlock HorizontalAlignment="Center" Text="(Optional)" FontSize="15" />
+                        </StackPanel>
 
                         <!-- Textbox for user input, Textblock overlayed over top of the Textbox to act like a hint -->
                         <Grid Grid.Row="1" Grid.Column="0">
@@ -610,7 +613,10 @@
                         </Grid>
 
                         <!-- Prompt the user to add an image, also optionally -->
-                        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Attach an image below! (Also Optional)" />
+                        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+                            <TextBlock HorizontalAlignment="Center" Text="Attach an image below!" />
+                            <TextBlock HorizontalAlignment="Center" Text="(Also Optional)" FontSize="15" />
+                        </StackPanel>
 
                         <!-- For the following two buttons, override the button dimensions defined in the stackpanel resources -->
                         <!-- Button for user to attach an image -->
