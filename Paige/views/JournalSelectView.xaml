@@ -18,7 +18,10 @@
         <Button Grid.Row="0" Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
 
         <!-- Prompt the user to choose if they want to see the journal calendar or to create a new entry -->
-        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Would you like to view the journal calendar or edit today's entry?" FontSize="20" />
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Would you like to view the journal calendar or edit today's entry?" FontSize="20" />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="(Choose one)" FontSize="20" />
+        </StackPanel>
 
         <!-- Set up grid in second row for the buttons -->
         <Grid Grid.Row="1">
@@ -70,4 +73,5 @@
         </Grid>
 
     </Grid>
+    
 </UserControl>
