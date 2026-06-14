@@ -127,19 +127,16 @@ namespace Paige.viewmodels
             // Load the data from the passed entry
             LoadData(entry);
 
-            // Attempt to load the journal entry from the same day
-            TodaysEntry = _journalDataService.GetDatesEntry(entry.Date);
-
-            // If the user clicks the back button, send the user back to the calendar menu
+            // Define BackCommand
             BackCommand = new RelayCommand(() => updateViewCommand.Execute("calendar"));
 
-            // If the user clicks the main button, send the user back to the main menu
+            // Define ExitCommand
             ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
 
-            // If the user clicks the image, open the image in the user's default image viewer
+            // Define ViewImageCommand
             ViewImageCommand = new RelayCommand(() => OpenImage(AttachedImagePath));
 
-            // If the user clicks the "view today's journal" button, let them view that day's journal. Also use CanViewJournal to ensure that there exists a journal from that day
+            // Define ViewJournalCommand
             ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry, () => (updateViewCommand as UpdateViewCommand)?.NavigateTo(entry)), TodaysEntry => CanViewJournal(TodaysEntry));
 
             // Define DeleteCommand
@@ -151,23 +148,14 @@ namespace Paige.viewmodels
         // Method to load data from a given entry, as well as setting the viewmodel's properties
         private void LoadData(ShortEntry entry)
         {
-            // Translate the stored date and set TranslatedDate
+            // Set all fields using the data from the passed entry
             TranslatedDate = entry.Date.ToString("dddd, MMMM dd, yyyy");
-
-            // Translate the saved current mood to the appropriate image and set TranslatedImage
             TranslatedImage = MoodImageHelper.GetImage(entry.CurrentMood);
-
-            // Translate the saved current mood to the appropriate string and set TranslatedRating
             TranslatedRating = MoodRatingHelper.GetRating(entry.CurrentMood);
-
-            // Set OverallRatingStored
             OverallRatingStored = entry.Overall;
-
-            // Set SavedNote
             SavedNote = entry.Note;
-
-            // Set AttachedImagePath
             AttachedImagePath = entry.AttachedImagePath;
+            TodaysEntry = _journalDataService.GetDatesEntry(entry.Date);
         }
 
         // Method to open the attached image in the user's default image viewer (as long as an image was attached, aka path != null)
