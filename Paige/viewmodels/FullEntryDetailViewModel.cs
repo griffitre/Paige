@@ -11,6 +11,9 @@ namespace Paige.viewmodels
         // JournalDataService field to load journal entries (used for the "view today's journal" button)
         private readonly JournalDataService _journalDataService = new JournalDataService();
 
+        // DataService field to delete the entry thats being viewed
+        private readonly DataService _dataService = new DataService();
+
 
         // Commands
         // Declare command to go back
@@ -21,6 +24,9 @@ namespace Paige.viewmodels
         
         // Declare command to view the journal from the entry's day
         public RelayCommand<UserJournalEntry> ViewJournalCommand { get; }
+
+        // Declare command to delete the entry thats being viewed
+        public RelayCommand DeleteCommand { get; }
 
 
         // Properties to expose + make them bindable
@@ -183,6 +189,9 @@ namespace Paige.viewmodels
             
             // Define ViewJournalCommand
             ViewJournalCommand = new RelayCommand<UserJournalEntry>(TodaysEntry => (updateViewCommand as UpdateViewCommand)?.NavigateToJournal(TodaysEntry, () => (updateViewCommand as UpdateViewCommand)?.NavigateTo(entry)), TodaysEntry => CanViewJournal(TodaysEntry));
+
+            // Define DeleteCommand
+            DeleteCommand = new RelayCommand(() => DeleteEntry(entry, updateViewCommand));
         }
 
 
@@ -209,6 +218,16 @@ namespace Paige.viewmodels
         private bool CanViewJournal(UserJournalEntry? journalEntry)
         {
             return journalEntry is not null;
+        }
+
+        // Method to delete the entry thats being viewed
+        private void DeleteEntry(ShortEntry entry, ICommand updateViewCommand)
+        {
+            // Delete the entry
+            _dataService.Delete(entry);
+
+            // Send the user back to the calendar
+            updateViewCommand.Execute("calendar");
         }
     }
 }
