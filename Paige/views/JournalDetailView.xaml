@@ -41,6 +41,7 @@
         
         <!-- Create Back and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Command="{Binding DeleteCommand}" Content="Delete" />
             <Button Command="{Binding BackCommand}" Content="Back" />
             <Button Command="{Binding ExitCommand}" Content="Exit" />
         </WrapPanel>
