@@ -117,8 +117,9 @@
 
         </Grid>
 
-        <!-- Create Back and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
+        <!-- Create Delete, Back, and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Command="{Binding DeleteCommand}" Content="Delete" />
             <Button Command="{Binding BackCommand}" Content="Back" />
             <Button Command="{Binding ExitCommand}" Content="Exit" />
         </WrapPanel>
