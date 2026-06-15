@@ -62,7 +62,27 @@
         <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter" />
         <converters:SelectedValueToColourConverter x:Key="SelectedValueToColourConverter" />
         <converters:ListContainsConverter x:Key="ListContainsConverter" />
+        <converters:FontSizeConverter x:Key="FontSizeConverter" />
         <!-- End of converter registration -->
+        
+        
+        <!-- Global style definitions -->
+        
+        <!-- Styles for TextBlock to apply dynamic font size, as well as multiple kinds of texts (ex: header 1, header 2, etc) -->
+        <Style x:Key="HeaderText1" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.02}" />
+        </Style>
+        <Style x:Key="HeaderText2" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.015}" />
+        </Style>
+        <Style x:Key="NormalText" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.01}" />
+        </Style>
+        <Style x:Key="Subtext" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource FontSizeConverter}, ConverterParameter=0.05}" />
+        </Style>
+
+        <!-- End of global style definitions -->
 
     </Application.Resources>
 </Application>
