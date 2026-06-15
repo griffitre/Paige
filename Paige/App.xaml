@@ -85,6 +85,20 @@
             <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource SubtextConverter}, ConverterParameter=0.005}" />
         </Style>
 
+        <!-- Styles for TextBox to apply dynamic font size, as well as multiple kinds of texts (ex: header 1, header 2, etc) -->
+        <Style x:Key="HeaderTextBox1" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource HeaderText1Converter}, ConverterParameter=0.02}" />
+        </Style>
+        <Style x:Key="HeaderTextBox2" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource HeaderText2Converter}, ConverterParameter=0.0125}" />
+        </Style>
+        <Style x:Key="NormalTextBox" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource NormalTextConverter}, ConverterParameter=0.0075}" />
+        </Style>
+        <Style x:Key="SubtextBox" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource SubtextConverter}, ConverterParameter=0.005}" />
+        </Style>
+
         <!-- End of global style definitions -->
 
     </Application.Resources>
