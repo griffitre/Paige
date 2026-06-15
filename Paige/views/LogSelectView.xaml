@@ -15,12 +15,16 @@
         </Grid.RowDefinitions>
         
         <!-- Back button -->
-        <Button Grid.Row="0" Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
+        <Button Grid.Row="0" Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button.Content>
+                <TextBlock Style="{StaticResource NormalText}" Text="Back" />
+            </Button.Content>
+        </Button>
 
         <!-- Prompt the user to choose which log to enter -->
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Which type of log would you like to enter?" FontSize="20" />
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="(Choose one)" FontSize="20" />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10" Style="{StaticResource HeaderText1}" Text="Which type of log would you like to enter?" />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="(Choose one)" />
         </StackPanel>
         
         <!-- Set up grid in second row for the buttons -->
@@ -47,7 +51,11 @@
                 </Grid.RowDefinitions>
 
                 <!-- Create the button -->
-                <Button Grid.Column="1" Command="{Binding ShortLogCommand}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Short Log" />
+                <Button Grid.Column="1" Command="{Binding ShortLogCommand}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="Short Log" />
+                    </Button.Content>
+                </Button>
 
             </Grid>
 
@@ -66,7 +74,11 @@
                 </Grid.RowDefinitions>
 
                 <!-- Create the button -->
-                <Button Grid.Column="1" Command="{Binding FullLogCommand}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Full Log" />
+                <Button Grid.Column="1" Command="{Binding FullLogCommand}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="Full Log" />
+                    </Button.Content>
+                </Button>
 
             </Grid>
 
