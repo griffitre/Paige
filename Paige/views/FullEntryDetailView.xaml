@@ -79,12 +79,6 @@
                             <Setter Property="Margin" Value="0,0,0,5" />
                         </Style>
 
-                        <!-- Define styling for normal TextBlocks -->
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Margin" Value="0,0,0,5" />
-                            <Setter Property="FontSize" Value="20" />
-                        </Style>
-
                         <!-- Define styling for wrappanels -->
                         <Style TargetType="WrapPanel">
                             <Setter Property="Margin" Value="0,0,0,50" />
