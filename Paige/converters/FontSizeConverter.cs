@@ -60,8 +60,8 @@ namespace Paige.converters
             // Get the returned value from FontSizeConverter
             double returnedSize = (double)base.Convert(value, targetType, parameter, culture);
 
-            // Return either 15 or the returned size
-            return Math.Max(15, returnedSize);
+            // Return either 13 or the returned size
+            return Math.Max(13, returnedSize);
         }
     }
 
