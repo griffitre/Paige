@@ -82,7 +82,7 @@
             <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource NormalTextConverter}, ConverterParameter=0.0075}" />
         </Style>
         <Style x:Key="Subtext" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource SubtextConverter}, ConverterParameter=0.006}" />
+            <Setter Property="FontSize" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource SubtextConverter}, ConverterParameter=0.005}" />
         </Style>
 
         <!-- End of global style definitions -->
