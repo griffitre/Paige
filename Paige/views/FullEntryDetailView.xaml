@@ -29,9 +29,21 @@
 
         <!-- Create Delete, Back, and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Button Command="{Binding DeleteCommand}" Content="Delete" />
-            <Button Command="{Binding BackCommand}" Content="Back" />
-            <Button Command="{Binding ExitCommand}" Content="Exit" />
+            <Button Command="{Binding DeleteCommand}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource NormalText}" Text="Delete" />
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding BackCommand}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource NormalText}" Text="Back" />
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding ExitCommand}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource NormalText}" Text="Exit" />
+                </Button.Content>
+            </Button>
         </WrapPanel>
         
 
@@ -55,12 +67,16 @@
                     <StackPanel.Resources>
 
                         <!-- Define a custom style of text to go underneath buttons, kind of like a caption -->
-                        <Style x:Key="TextButton" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-                            <Setter Property="FontSize" Value="9" />
+                        <Style x:Key="TextButton" TargetType="TextBlock" BasedOn="{StaticResource Subtext}">
                             <Setter Property="TextWrapping" Value="Wrap" />
                             <Setter Property="HorizontalAlignment" Value="Center" />
                             <Setter Property="VerticalAlignment" Value="Center" />
                             <Setter Property="MaxWidth" Value="60" />
+                        </Style>
+                        
+                        <!-- Define a custom style for header text -->
+                        <Style x:Key="FullLogHeaderText" TargetType="TextBlock" BasedOn="{StaticResource HeaderText2}">
+                            <Setter Property="Margin" Value="0,0,0,5" />
                         </Style>
 
                         <!-- Define styling for normal TextBlocks -->
@@ -89,7 +105,7 @@
                     </StackPanel.Resources>
 
                     <!-- Display the user's current mood -->
-                    <TextBlock Text="At the time of writing, you felt:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="At the time of writing, you felt:" />
                     <WrapPanel>
 
                         <!-- Each item in the wrappanel is a stackpanel, where the two items are the button/image and the caption text below it -->
@@ -132,7 +148,7 @@
                     </WrapPanel>
 
                     <!-- Display the user's overall day rating -->
-                    <TextBlock Text="You gave your day a:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You gave your day a:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
@@ -189,7 +205,7 @@
                     </WrapPanel>
 
                     <!-- Display the hobbies the user partook in -->
-                    <TextBlock Text="You partook in these hobbies:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You partook in these hobbies:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
@@ -268,7 +284,7 @@
                     </WrapPanel>
 
                     <!-- Display the meals the user ate -->
-                    <TextBlock Text="You ate these meals:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You ate these meals:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
@@ -326,7 +342,7 @@
                     </WrapPanel>
 
                     <!-- Display the chores the user did -->
-                    <TextBlock Text="You did these chores:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You did these chores:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
@@ -370,7 +386,7 @@
                     </WrapPanel>
 
                     <!-- Display the self-care activities the user partook in -->
-                    <TextBlock Text="You partook in these self-care activities:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You partook in these self-care activities:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
@@ -444,7 +460,7 @@
                     </WrapPanel>
 
                     <!-- Display the social activities the user participated in -->
-                    <TextBlock Text="You did these social things:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You did these social things:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
@@ -487,11 +503,11 @@
                     </WrapPanel>
 
                     <!-- Display the recreational substances the user used -->
-                    <TextBlock Text="You used these recreational substances:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You used these recreational substances:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse1Placeholder.png" />
                             </Button>
@@ -499,21 +515,21 @@
                             <TextBlock Style="{StaticResource TextButton}" Text="Cigars" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse2Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Alcohol" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse3Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cannabis" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
                                 <Image Source="/assets/recreationaluse/RecreationalUse4Placeholder.png" />
                             </Button>
@@ -524,25 +540,25 @@
                     </WrapPanel>
 
                     <!-- Display the weather for the day -->
-                    <TextBlock Text="The weather was:" />
+                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="The weather was:" />
                     <WrapPanel>
 
                         <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
                                 <Image Source="/assets/weather/Weather1Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Sunny" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
                                 <Image Source="/assets/weather/Weather2Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cloudy" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
                                 <Image Source="/assets/weather/Weather3Placeholder.png" />
                             </Button>
@@ -550,35 +566,35 @@
                             <TextBlock Style="{StaticResource TextButton}" Text="Hail" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
                                 <Image Source="/assets/weather/Weather4Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Stormy" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
                                 <Image Source="/assets/weather/Weather5Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Snowy" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
                                 <Image Source="/assets/weather/Weather6Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Windy" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
                                 <Image Source="/assets/weather/Weather7Placeholder.png" />
                             </Button>
                             <TextBlock Style="{StaticResource TextButton}" Text="Cold" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,10,0">
+                        <StackPanel Margin="0,0,20,0">
                             <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
                                 <Image Source="/assets/weather/Weather8Placeholder.png" />
                             </Button>
@@ -602,7 +618,7 @@
                         </Grid.RowDefinitions>
 
                         <!-- Display the note header -->
-                        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Here was the note you left:" />
+                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Here was the note you left:" />
 
                         <!-- Another grid to layout the "view todays journal" button and the note textbox -->
                         <Grid Grid.Row="1" Grid.Column="0" Margin="10">
@@ -614,18 +630,22 @@
                             </Grid.RowDefinitions>
 
                             <!-- Display the user's note in a read only textblock -->
-                            <TextBox Grid.Row="0" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+                            <TextBox Grid.Row="0" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Style="{StaticResource NormalTextBox}" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
 
                             <!-- Add a button that allows the user to check that day's journal -->
-                            <Button Grid.Row="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0" Content="View today's Journal..." />
+                            <Button Grid.Row="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0">
+                                <Button.Content>
+                                    <TextBlock Style="{StaticResource HeaderText2}" Text="View today's journal..." />
+                                </Button.Content>
+                            </Button>
 
                         </Grid>
 
                         <!-- Display the image header -->
-                        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Here is the image you attached:" />
+                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Here is the image you attached:" />
 
                         <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
-                        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Margin="10" Text="No Image Attached!" />
+                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Margin="10" Text="No Image Attached!" />
                         <Button Grid.Row="1"  Grid.Column="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Margin="10" Background="White">
                             <Image MaxHeight="10000" MaxWidth="10000" Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                         </Button>
