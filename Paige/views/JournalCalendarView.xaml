@@ -33,9 +33,9 @@
                         <Button Command="{Binding DataContext.JournalEntryButtonCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                             <Button.Content>
                                 <StackPanel HorizontalAlignment="Left">
-                                    <TextBlock FontWeight="Bold" Text="{Binding FirstEdited, StringFormat='Journal entry from {0:MMMM dd, yyyy}'}" />
-                                    <TextBlock Text="{Binding FirstEdited, StringFormat='First edited at {0:h:mm tt}'}" />
-                                    <TextBlock Text="{Binding LastEdited, StringFormat='Last edited at {0:h:mm tt}'}" />
+                                    <TextBlock Style="{StaticResource NormalText}" FontWeight="Bold" Text="{Binding FirstEdited, StringFormat='Journal entry from {0:MMMM dd, yyyy}'}" />
+                                    <TextBlock Style="{StaticResource NormalText}" Text="{Binding FirstEdited, StringFormat='First edited at {0:h:mm tt}'}" />
+                                    <TextBlock Style="{StaticResource NormalText}" Text="{Binding LastEdited, StringFormat='Last edited at {0:h:mm tt}'}" />
                                 </StackPanel>
                             </Button.Content>
                         </Button>
@@ -47,7 +47,11 @@
         </ListBox>
 
         <!-- Create a back button -->
-        <Button Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Back" />
+        <Button Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button.Content>
+                <TextBlock Style="{StaticResource NormalText}" Text="Back" />
+            </Button.Content>
+        </Button>
 
     </Grid>
 </UserControl>
