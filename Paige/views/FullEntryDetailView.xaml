@@ -612,7 +612,7 @@
                         </Grid.RowDefinitions>
 
                         <!-- Display the note header -->
-                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Here was the note you left:" />
+                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Here is the note you left:" />
 
                         <!-- Another grid to layout the "view todays journal" button and the note textbox -->
                         <Grid Grid.Row="1" Grid.Column="0" Margin="10">
