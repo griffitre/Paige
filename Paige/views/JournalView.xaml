@@ -35,7 +35,10 @@
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText1}" Text="{Binding CurrentDate, StringFormat='Journal entry for {0}'}" />
             
             <!-- Add a text box for the user to type in -->
-            <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource NormalTextBox}" Text="{Binding JournalBody, UpdateSourceTrigger=PropertyChanged}" />
+            <Grid Grid.Row="1" Grid.Column="1">
+                <TextBox Name="NoteBox" BorderBrush="LightGray" BorderThickness="2" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource NormalTextBox}" Text="{Binding JournalBody, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="4,2,0,0" VerticalAlignment="Top" Visibility="{Binding ElementName=NoteBox, Path=Text, Converter={StaticResource NullToVisibilityConverter}}" IsHitTestVisible="False" Foreground="Gray" Style="{StaticResource NormalText}" Text="Start Here..." />
+            </Grid>
 
         </Grid>
         
