@@ -10,8 +10,8 @@
         
         <!-- Split the grid into two parts (one for the mood overview and one for the notes and image -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
         <!-- Grid in left column for the mood overview -->
@@ -20,12 +20,12 @@
             <!-- Add padding columns/rows -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="8*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="12*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             
@@ -43,16 +43,16 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Show the date and set up the overview -->
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" />
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" />
                 
                 <!-- Display the rating image from that day -->
                 <Image Grid.Row="1" HorizontalAlignment="Center" Source="{Binding TranslatedImage}" Stretch="Uniform" />
 
                 <!-- Display the rating for the mood at the time the log was made -->
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{StaticResource Subtext}" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" />
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{StaticResource NormalText}" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" />
                 
                 <!-- Set up the overall rating reveal -->
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="And you gave your day a rating of:" />
+                <TextBlock Grid.Row="3" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="And you gave your day a rating of:" />
 
                 <!-- Display the overall rating -->
                 <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText1}" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" />
@@ -67,12 +67,12 @@
             <!-- Add padding columns/rows -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="9*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="10*" />
+                <RowDefinition Height="12*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -104,14 +104,26 @@
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
                     
+                    <!-- Create 2 rows, one for the title/prompt and one for the actual content (i.e. the saved note/attached image) -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="4*" />
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Inform the user that their saved note is being displayed -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="Here is the note you left:" />
+
                     <!-- Display the short note in a scrollviewer, just incase you have to scroll to see it all -->
-                    <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Style="{StaticResource NormalText}" Text="{Binding SavedNote}" />
+                    <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalScrollBarVisibility="Auto">
+                        <TextBlock TextWrapping="Wrap" Style="{StaticResource NormalText}" Text="{Binding SavedNote}" />
                     </ScrollViewer>
 
+                    <!-- Inform the user that the image they attached is being displayed -->
+                    <TextBlock Grid.Row="0" Grid.Column="2" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="Here is the image you attached:" />
+
                     <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
-                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Style="{StaticResource NormalText}" Text="No Image Attached!" />
-                    <Button Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="White">
+                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Style="{StaticResource NormalText}" Text="No Image Attached!" />
+                    <Button Grid.Row="1" Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="White">
                         <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                     </Button>
 
