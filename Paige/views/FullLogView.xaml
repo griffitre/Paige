@@ -619,7 +619,7 @@
 
                         <!-- Textbox for user input, Textblock overlayed over top of the Textbox to act like a hint -->
                         <Grid Grid.Row="1" Grid.Column="0">
-                            <TextBox Name="NoteBox" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Style="{StaticResource NormalTextBox}" />
+                            <TextBox Name="NoteBox" BorderBrush="LightGray" BorderThickness="2" Text="{Binding JournalNote, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Style="{StaticResource NormalTextBox}" />
                             <TextBlock Margin="14,10,10,20" VerticalAlignment="Top" Visibility="{Binding ElementName=NoteBox, Path=Text, Converter={StaticResource NullToVisibilityConverter}}" Foreground="Gray" IsHitTestVisible="False" Style="{StaticResource FullLogNormalText}" Text="Start here..." />
                         </Grid>
 

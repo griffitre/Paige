@@ -114,15 +114,19 @@
                     <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="Here is the note you left:" />
 
                     <!-- Display the short note in a scrollviewer, just incase you have to scroll to see it all -->
-                    <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalScrollBarVisibility="Auto">
-                        <TextBlock TextWrapping="Wrap" Style="{StaticResource NormalText}" Text="{Binding SavedNote}" />
-                    </ScrollViewer>
-
+                    <Border Grid.Row="1" Grid.Column="0" BorderBrush="LightGray" BorderThickness="2">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <TextBlock TextWrapping="Wrap" Margin="2,0,0,0" Style="{StaticResource NormalText}" Text="{Binding SavedNote}" />
+                        </ScrollViewer>
+                    </Border>
+                    
                     <!-- Inform the user that the image they attached is being displayed -->
                     <TextBlock Grid.Row="0" Grid.Column="2" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="Here is the image you attached:" />
 
                     <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
-                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Style="{StaticResource NormalText}" Text="No Image Attached!" />
+                    <Border Grid.Row="1" Grid.Column="2" BorderBrush="LightGray" BorderThickness="2">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Style="{StaticResource NormalText}" Text="No Image Attached!" />
+                    </Border>
                     <Button Grid.Row="1" Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="White">
                         <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                     </Button>

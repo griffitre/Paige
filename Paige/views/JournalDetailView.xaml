@@ -35,7 +35,7 @@
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText1}" Text="{Binding JournalDay, StringFormat='Journal entry from {0}'}" />
 
             <!-- TextBox that has their journal entry -->
-            <TextBox Grid.Row="1" Grid.Column="1" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource NormalTextBox}" Text="{Binding JournalText}" />
+            <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource NormalTextBox}" Text="{Binding JournalText}" />
 
         </Grid>
         
