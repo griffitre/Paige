@@ -65,8 +65,16 @@
                 </Grid.RowDefinitions>
 
                 <!-- Create the buttons at the desired location -->
-                <Button Grid.Row="1" Grid.Column="2" Command="{Binding LogCommand}" Content="Log" />
-                <Button Grid.Row="3" Grid.Column="2" Command="{Binding JournalCommand}" Content="Journal" />
+                <Button Grid.Row="1" Grid.Column="2" Command="{Binding LogCommand}">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="Log" />
+                    </Button.Content>
+                </Button>
+                <Button Grid.Row="3" Grid.Column="2" Command="{Binding JournalCommand}">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="Journal" />
+                    </Button.Content>
+                </Button>
 
             </Grid>
             
@@ -89,8 +97,16 @@
                 </Grid.RowDefinitions>
 
                 <!-- Create the buttons at the desired location -->
-                <Button Grid.Row="1" Grid.Column="2" Command="{Binding CalendarCommand}" Content="Calendar" />
-                <Button Grid.Row="3" Grid.Column="2" Command="{Binding ExitCommand}" Content="Exit" />
+                <Button Grid.Row="1" Grid.Column="2" Command="{Binding CalendarCommand}">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="Calendar" />
+                    </Button.Content>
+                </Button>
+                <Button Grid.Row="3" Grid.Column="2" Command="{Binding ExitCommand}">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="Exit" />
+                    </Button.Content>
+                </Button>
 
             </Grid>
 
