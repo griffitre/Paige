@@ -34,8 +34,8 @@ namespace Paige.converters
             // Get the returned value from FontSizeConverter
             double returnedSize = (double)base.Convert(value, targetType, parameter, culture);
 
-            // Return either 25 or the returned size
-            return Math.Max(25, returnedSize);
+            // Return either 20 or the returned size
+            return Math.Max(20, returnedSize);
         }
     }
 
@@ -47,8 +47,8 @@ namespace Paige.converters
             // Get the returned value from FontSizeConverter
             double returnedSize = (double)base.Convert(value, targetType, parameter, culture);
 
-            // Return either 20 or the returned size
-            return Math.Max(20, returnedSize);
+            // Return either 16 or the returned size
+            return Math.Max(16, returnedSize);
         }
     }
 
