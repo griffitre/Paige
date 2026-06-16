@@ -8,9 +8,23 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
 
+        <!-- Create a padding column on the left and two actual columns on the right, with one of size auto (for the button -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Same thing as above, but with rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
         <!-- Create a ListBox for the entries using a binding -->
-        <ListBox ItemsSource="{Binding Entries}" HorizontalContentAlignment="Stretch" >
-            
+        <ListBox Grid.Row="1" Grid.Column="1" BorderBrush="Transparent" ItemsSource="{Binding Entries}" HorizontalContentAlignment="Stretch" >
+
             <!-- Customize the container template to remove border and highlight, just show the button -->
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
@@ -23,14 +37,20 @@
                     </Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
-            
+
             <!-- Customize the item template to customize how each entry is displayed -->
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="30">
+                    <Grid>
+
+                        <!-- Add two rows, one for content and one for padding -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
                         <!-- Make each item a button to allow you to go to view the detailed look at the log. Use a stackpanel to summarize the info -->
-                        <Button Command="{Binding DataContext.EntryButtonCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                        <Button Grid.Row="0" Command="{Binding DataContext.EntryButtonCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                             <Button.Content>
                                 <StackPanel HorizontalAlignment="Left">
                                     <TextBlock Style="{StaticResource NormalText}" FontWeight="Bold" Text="{Binding Date, StringFormat='Date: {0}'}" />
@@ -39,15 +59,18 @@
                                 </StackPanel>
                             </Button.Content>
                         </Button>
-                        
-                    </StackPanel>
+
+                        <!-- Make an invisible textblock for the padding using text that scales with window size -->
+                        <TextBlock Grid.Row="1" Opacity="0" Style="{StaticResource HeaderText1}" Text="hi :33" />
+
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            
+
         </ListBox>
 
         <!-- Create a back button -->
-        <Button Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Button Grid.Row="0" Grid.Column="2" Command="{Binding BackCommand}" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button.Content>
                 <TextBlock Style="{StaticResource NormalText}" Text="Back" />
             </Button.Content>
