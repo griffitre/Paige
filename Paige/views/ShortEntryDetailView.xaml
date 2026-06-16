@@ -43,19 +43,19 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Show the date and set up the overview -->
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" FontSize="20" />
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="{Binding TranslatedDate, StringFormat='On {0}, at the time of writing, you felt:'}" />
                 
                 <!-- Display the rating image from that day -->
                 <Image Grid.Row="1" HorizontalAlignment="Center" Source="{Binding TranslatedImage}" Stretch="Uniform" />
 
                 <!-- Display the rating for the mood at the time the log was made -->
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" FontSize="15" />
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{StaticResource Subtext}" Text="{Binding TranslatedRating, StringFormat=' {0}! '}" />
                 
                 <!-- Set up the overall rating reveal -->
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="And you gave your day a rating of:" FontSize="20" />
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText2}" Text="And you gave your day a rating of:" />
 
                 <!-- Display the overall rating -->
-                <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" FontSize="40"/>
+                <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText1}" Text="{Binding OverallRatingStored, StringFormat=' {0}/10! '}" />
 
             </Grid>
 
@@ -88,7 +88,11 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Add a button to view that day's journal -->
-                <Button Grid.Row="0" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" Content="View today's Journal..." />
+                <Button Grid.Row="0" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}">
+                    <Button.Content>
+                        <TextBlock Style="{StaticResource HeaderText2}" Text="View today's journal..." />
+                    </Button.Content>
+                </Button>
                 
                 <!-- Create another grid in the bottom row for the short note and attached photo -->
                 <Grid Grid.Row="3">
@@ -102,11 +106,11 @@
                     
                     <!-- Display the short note in a scrollviewer, just incase you have to scroll to see it all -->
                     <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding SavedNote}" />
+                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Style="{StaticResource NormalText}" Text="{Binding SavedNote}" />
                     </ScrollViewer>
 
                     <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
-                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Text="No Image Attached!" />
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Style="{StaticResource NormalText}" Text="No Image Attached!" />
                     <Button Grid.Column="2" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Background="White">
                         <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
                     </Button>
@@ -119,9 +123,21 @@
 
         <!-- Create Delete, Back, and Exit buttons to allow user to exit. Put them in a wrappanel to align them at the top right -->
         <WrapPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Button Command="{Binding DeleteCommand}" Content="Delete" />
-            <Button Command="{Binding BackCommand}" Content="Back" />
-            <Button Command="{Binding ExitCommand}" Content="Exit" />
+            <Button Command="{Binding DeleteCommand}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource NormalText}" Text="Delete" />
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding BackCommand}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource NormalText}" Text="Back" />
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding ExitCommand}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource NormalText}" Text="Exit" />
+                </Button.Content>
+            </Button>
         </WrapPanel>
             
         
