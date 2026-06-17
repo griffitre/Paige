@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="Paige" Height="1080" Width="1920"
         MinHeight="700" MinWidth="700"
+        WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
 
     <!-- Display the current active menu (by default, main menu) -->
