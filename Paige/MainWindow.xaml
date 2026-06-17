@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Paige"
         xmlns:views="clr-namespace:Paige.views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920"
+        Title="Paige" Height="1080" Width="1920"
         MinHeight="700" MinWidth="700"
         WindowState="Maximized">
 
