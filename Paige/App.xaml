@@ -66,6 +66,7 @@
         <converters:HeaderText2Converter x:Key="HeaderText2Converter" />
         <converters:NormalTextConverter x:Key="NormalTextConverter" />
         <converters:SubtextConverter x:Key="SubtextConverter" />
+        <converters:DimensionSizeConverter x:Key="DimensionSizeConverter" />
         <!-- End of converter registration -->
         
         
