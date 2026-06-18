@@ -67,6 +67,7 @@
         <converters:NormalTextConverter x:Key="NormalTextConverter" />
         <converters:SubtextConverter x:Key="SubtextConverter" />
         <converters:DimensionSizeConverter x:Key="DimensionSizeConverter" />
+        <converters:GridLengthSizeConverter x:Key="GridLengthSizeConverter" />
         <!-- End of converter registration -->
         
         
