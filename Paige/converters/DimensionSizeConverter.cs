@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 
 namespace Paige.converters
@@ -8,7 +10,7 @@ namespace Paige.converters
     {
         // Returns either a minimum size or a calculated size OR a max size, depending on whether or not the calculated size is larger than the minimum
         // Primarily used to determine row/column sizes in a grid
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        public virtual object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             // Get the passed value
             double givenValue = (double)values[0];
@@ -33,6 +35,17 @@ namespace Paige.converters
         public object[] ConvertBack(object value, Type[] targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    // Converter to convert the returned double to a gridlength
+    public class GridLengthSizeConverter : DimensionSizeConverter
+    {
+        public override object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            double finalLength = (double)base.Convert(values, targetType, parameter, culture);
+
+            return new GridLength(finalLength);
         }
     }
 }
