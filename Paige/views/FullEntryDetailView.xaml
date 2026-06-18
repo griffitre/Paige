@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/extension/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="2000" d:DesignWidth="800">
 
@@ -59,596 +60,1189 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Stackpanel to display the entry details -->
-                <StackPanel Grid.Column="1">
+                <!-- Grid to layout/display the entry details -->
+                <Grid Grid.Column="1">
 
                     <!-- Define resources/styles -->
-                    <StackPanel.Resources>
+                    <Grid.Resources>
 
                         <!-- Define a custom style of text to go underneath buttons, kind of like a caption -->
                         <Style x:Key="TextButton" TargetType="TextBlock" BasedOn="{StaticResource Subtext}">
                             <Setter Property="TextWrapping" Value="Wrap" />
+                            <Setter Property="TextAlignment" Value="Center" />
                             <Setter Property="HorizontalAlignment" Value="Center" />
                             <Setter Property="VerticalAlignment" Value="Center" />
-                            <Setter Property="MaxWidth" Value="60" />
                         </Style>
-                        
+
                         <!-- Define a custom style for header text -->
                         <Style x:Key="FullLogHeaderText" TargetType="TextBlock" BasedOn="{StaticResource HeaderText2}">
                             <Setter Property="Margin" Value="0,0,0,5" />
                         </Style>
 
-                        <!-- Define styling for wrappanels -->
-                        <Style TargetType="WrapPanel">
-                            <Setter Property="Margin" Value="0,0,0,50" />
-                        </Style>
-
-                        <!-- Define styling for images -->
-                        <Style TargetType="Image">
-                            <Setter Property="MaxWidth" Value="50" />
-                            <Setter Property="MaxHeight" Value="50" />
-                        </Style>
-
-                        <!-- Define styling for buttons -->
-                        <Style TargetType="Button">
-                            <Setter Property="Width" Value="55" />
-                            <Setter Property="Height" Value="55" />
-                        </Style>
-
-                    </StackPanel.Resources>
-
-                    <!-- Display the user's current mood -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="At the time of writing, you felt:" />
-                    <WrapPanel>
-
-                        <!-- Each item in the wrappanel is a stackpanel, where the two items are the button/image and the caption text below it -->
-                        <!-- It just lets me wrap two stacked items horizontally -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/mood/Mood1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Awful" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/mood/Mood2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Sad" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/mood/Mood3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Okay" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/mood/Mood4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Good" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/mood/Mood5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Great" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the user's overall day rating -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You gave your day a:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="1" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="1/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="2" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="2/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="3" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="3/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="4" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="4/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="5" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="5/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="6" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=6}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="6/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="7" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=7}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="7/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="8" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=8}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="8/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="9" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=9}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="9/10" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Content="10" FontSize="20" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=10}" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="10/10" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the hobbies the user partook in -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You partook in these hobbies:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/hobbies/Hobbies1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Gaming" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/hobbies/Hobbies2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Music" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/hobbies/Hobbies3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Instruments" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/hobbies/Hobbies4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="TV/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Movies" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/hobbies/Hobbies5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Art" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
-                                <Image Source="/assets/hobbies/Hobbies6Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Reading" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
-                                <Image Source="/assets/hobbies/Hobbies7Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Journaling" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
-                                <Image Source="/assets/hobbies/Hobbies8Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cooking/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Baking" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=9}">
-                                <Image Source="/assets/hobbies/Hobbies9Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Gardening" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=10}">
-                                <Image Source="/assets/hobbies/Hobbies10Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Learning" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the meals the user ate -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You ate these meals:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/meals/Meals1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Homemade" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/meals/Meals2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Fast Food" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/meals/Meals3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Leftovers" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/meals/Meals4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Frozen" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/meals/Meals5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Restaurant" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
-                                <Image Source="/assets/meals/Meals6Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Snacks/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Desserts" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
-                                <Image Source="/assets/meals/Meals7Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Takeout/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Delivery" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the chores the user did -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You did these chores:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/chores/Chores1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Dishes" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/chores/Chores2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Laundry" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/chores/Chores3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cooking" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/chores/Chores4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Housework" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="(ex: dusting)" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/chores/Chores5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cleaning/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Tidying up" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the self-care activities the user partook in -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You partook in these self-care activities:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/selfcare/SelfCare1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Exercise" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/selfcare/SelfCare2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Shower/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Bath" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/selfcare/SelfCare3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Yoga/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Meditation" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/selfcare/SelfCare4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Skincare" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/selfcare/SelfCare5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Massage/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Spa day" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
-                                <Image Source="/assets/selfcare/SelfCare6Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Outdoors" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
-                                <Image Source="/assets/selfcare/SelfCare7Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Nap" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
-                                <Image Source="/assets/selfcare/SelfCare8Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Pray" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=9}">
-                                <Image Source="/assets/selfcare/SelfCare9Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Something" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="new" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the social activities the user participated in -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You did these social things:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/social/Social1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Friends" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/social/Social2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Family" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/social/Social3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Relationship" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/social/Social4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Work/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="School" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/social/Social5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Volunteering" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the recreational substances the user used -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="You used these recreational substances:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/recreationaluse/RecreationalUse1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cigarettes/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cigars" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/recreationaluse/RecreationalUse2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Alcohol" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/recreationaluse/RecreationalUse3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cannabis" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/recreationaluse/RecreationalUse4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Other" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="substances" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the weather for the day -->
-                    <TextBlock Style="{StaticResource FullLogHeaderText}" Text="The weather was:" />
-                    <WrapPanel>
-
-                        <!-- Same explanation as above -->
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
-                                <Image Source="/assets/weather/Weather1Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Sunny" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
-                                <Image Source="/assets/weather/Weather2Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cloudy" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
-                                <Image Source="/assets/weather/Weather3Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Rainy/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Hail" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
-                                <Image Source="/assets/weather/Weather4Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Stormy" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
-                                <Image Source="/assets/weather/Weather5Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Snowy" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
-                                <Image Source="/assets/weather/Weather6Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Windy" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
-                                <Image Source="/assets/weather/Weather7Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Cold" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,20,0">
-                            <Button Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
-                                <Image Source="/assets/weather/Weather8Placeholder.png" />
-                            </Button>
-                            <TextBlock Style="{StaticResource TextButton}" Text="Hot/" />
-                            <TextBlock Style="{StaticResource TextButton}" Text="Humid" />
-                        </StackPanel>
-
-                    </WrapPanel>
-
-                    <!-- Display the note the user left -->
-                    <Grid>
-
-                        <!-- Split into 4 cells, with the top row being sized automatically, and the other row being sized statically -->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="600" />
-                        </Grid.RowDefinitions>
-
-                        <!-- Display the note header -->
-                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Here is the note you left:" />
-
-                        <!-- Another grid to layout the "view todays journal" button and the note textbox -->
-                        <Grid Grid.Row="1" Grid.Column="0" Margin="10">
-                            
-                            <!-- Split the grid into two rows -->
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-
-                            <!-- Display the user's note in a read only textblock -->
-                            <TextBox Grid.Row="0" BorderBrush="LightGray" BorderThickness="2" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Style="{StaticResource NormalTextBox}" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
-
-                            <!-- Add a button that allows the user to check that day's journal -->
-                            <Button Grid.Row="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0">
-                                <Button.Content>
-                                    <TextBlock Style="{StaticResource HeaderText2}" Text="View today's journal..." />
-                                </Button.Content>
-                            </Button>
-
-                        </Grid>
-
-                        <!-- Display the image header -->
-                        <TextBlock Style="{StaticResource FullLogHeaderText}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Here is the image you attached:" />
-
-                        <!-- Display the attached image as a button so that the user can click it to see the full image. Have a textblock behind to show that no image was attached if applicable -->
-                        <Border Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="10">
-                            <TextBlock Style="{StaticResource FullLogHeaderText}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Text="No Image Attached!" />
-                        </Border>
-                        <Button Grid.Row="1"  Grid.Column="1" MaxHeight="10000" MaxWidth="10000" Height="Auto" Width="Auto" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Margin="10" Background="White">
-                            <Image MaxHeight="10000" MaxWidth="10000" Source="{Binding AttachedImagePath}" Stretch="Uniform" />
-                        </Button>
-
-
-                    </Grid>
-
-                </StackPanel>
+                    </Grid.Resources>
+
+                    <!-- Define the grid rows to layout/display each part of the entry and different texts associated with them -->
+                    <Grid.RowDefinitions>
+
+                        <!-- Current Mood -->
+                        <!-- Rows 0, 1, and 2 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 3 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Overall Rating -->
+                        <!-- Rows 4, 5, and 6 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 7 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Hobbies -->
+                        <!-- Rows 8, 9, and 10 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 11 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Meals -->
+                        <!-- Rows 12, 13, and 14 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 15 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Chores -->
+                        <!-- Rows 16, 17, and 18 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 19 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- SelfCare -->
+                        <!-- Rows 20, 21, and 22 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 23 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Social -->
+                        <!-- Rows 24, 25, and 26 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 27 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Recreational -->
+                        <!-- Rows 28, 29, and 30 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 31 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <!-- Weather -->
+                        <!-- Rows 32, 33, and 34 -->
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+
+                        <!-- Padding Row -->
+                        <!-- Row 35 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        
+                        <!-- Note/Image Headers -->
+                        <!-- Row 36 -->
+                        <RowDefinition Height="Auto" />
+                        
+                        <!-- Note/Image Content -->
+                        <!-- Row 37 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.3" >
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>300</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>600</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        
+                        <!-- Journal Button Row -->
+                        <!-- Row 38 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.09">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>100</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>200</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+                        
+                        <!-- Bottom Padding Row -->
+                        <!-- Row 39 -->
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>20</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+                    <!-- Define the grid columns for the buttons + padding -->
+                    <Grid.ColumnDefinitions>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Padding -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.01">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>15</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>25</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+
+                        <!-- Button -->
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <MultiBinding Converter="{StaticResource GridLengthSizeConverter}" ConverterParameter="0.05">
+                                    <Binding RelativeSource="{RelativeSource AncestorType=Window}" Path="ActualWidth" />
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>50</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                    <Binding>
+                                        <Binding.Source>
+                                            <sys:Double>75</sys:Double>
+                                        </Binding.Source>
+                                    </Binding>
+                                </MultiBinding>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
+                        
+                        <!-- Column to take up all remaining space -->
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Put all text in their respective rows, make them span columns so the text doesnt cut off -->
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="At the time of writing, you felt:" />
+                    <TextBlock Grid.Row="4" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You gave your day a:" />
+                    <TextBlock Grid.Row="8" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You partook in these hobbies:" />
+                    <TextBlock Grid.Row="12" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You ate these meals:" />
+                    <TextBlock Grid.Row="16" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You did these chores:" />
+                    <TextBlock Grid.Row="20" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You partook in these self-care activies:" />
+                    <TextBlock Grid.Row="24" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You did these social things:" />
+                    <TextBlock Grid.Row="28" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="You used these recreational substances:" />
+                    <TextBlock Grid.Row="32" Grid.ColumnSpan="10" Style="{StaticResource FullLogHeaderText}" Text="The weather was:" />
+
+                    <!-- Put all subtext in their respective rows -->
+                    <!-- Current Mood -->
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextButton}" Text="Awful" />
+                    <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource TextButton}" Text="Sad" />
+                    <TextBlock Grid.Row="2" Grid.Column="4" Style="{StaticResource TextButton}" Text="Okay" />
+                    <TextBlock Grid.Row="2" Grid.Column="6" Style="{StaticResource TextButton}" Text="Good" />
+                    <TextBlock Grid.Row="2" Grid.Column="8" Style="{StaticResource TextButton}" Text="Great" />
+                    <TextBlock Grid.Row="2" Grid.Column="8" Style="{StaticResource TextButton}" Text="Great" />
+                    
+                    <!-- Overall Rating -->
+                    <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource TextButton}" Text="1/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource TextButton}" Text="2/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="4" Style="{StaticResource TextButton}" Text="3/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="6" Style="{StaticResource TextButton}" Text="4/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="8" Style="{StaticResource TextButton}" Text="5/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="10" Style="{StaticResource TextButton}" Text="6/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="12" Style="{StaticResource TextButton}" Text="7/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="14" Style="{StaticResource TextButton}" Text="8/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="16" Style="{StaticResource TextButton}" Text="9/10" />
+                    <TextBlock Grid.Row="6" Grid.Column="18" Style="{StaticResource TextButton}" Text="10/10" />
+                    
+                    <!-- Hobbies -->
+                    <TextBlock Grid.Row="10" Grid.Column="0" Style="{StaticResource TextButton}" Text="Gaming" />
+                    <TextBlock Grid.Row="10" Grid.Column="2" Style="{StaticResource TextButton}" Text="Music" />
+                    <TextBlock Grid.Row="10" Grid.Column="4" Style="{StaticResource TextButton}" Text="Instruments" />
+                    <TextBlock Grid.Row="10" Grid.Column="6" Style="{StaticResource TextButton}" Text="TV/Movies" />
+                    <TextBlock Grid.Row="10" Grid.Column="8" Style="{StaticResource TextButton}" Text="Art" />
+                    <TextBlock Grid.Row="10" Grid.Column="10" Style="{StaticResource TextButton}" Text="Reading" />
+                    <TextBlock Grid.Row="10" Grid.Column="12" Style="{StaticResource TextButton}" Text="Journaling" />
+                    <TextBlock Grid.Row="10" Grid.Column="14" Style="{StaticResource TextButton}" Text="Cooking/Baking" />
+                    <TextBlock Grid.Row="10" Grid.Column="16" Style="{StaticResource TextButton}" Text="Gardening" />
+                    <TextBlock Grid.Row="10" Grid.Column="18" Style="{StaticResource TextButton}" Text="Learning" />
+                    
+                    <!-- Meals -->
+                    <TextBlock Grid.Row="14" Grid.Column="0" Style="{StaticResource TextButton}" Text="Homemade" />
+                    <TextBlock Grid.Row="14" Grid.Column="2" Style="{StaticResource TextButton}" Text="Fast Food" />
+                    <TextBlock Grid.Row="14" Grid.Column="4" Style="{StaticResource TextButton}" Text="Leftovers" />
+                    <TextBlock Grid.Row="14" Grid.Column="6" Style="{StaticResource TextButton}" Text="Frozen" />
+                    <TextBlock Grid.Row="14" Grid.Column="8" Style="{StaticResource TextButton}" Text="Restaurant" />
+                    <TextBlock Grid.Row="14" Grid.Column="10" Style="{StaticResource TextButton}" Text="Snacks/Deserts" />
+                    <TextBlock Grid.Row="14" Grid.Column="12" Style="{StaticResource TextButton}" Text="Takeout/Delivery" />
+
+                    <!-- Chores -->
+                    <TextBlock Grid.Row="18" Grid.Column="0" Style="{StaticResource TextButton}" Text="Dishes" />
+                    <TextBlock Grid.Row="18" Grid.Column="2" Style="{StaticResource TextButton}" Text="Laundry" />
+                    <TextBlock Grid.Row="18" Grid.Column="4" Style="{StaticResource TextButton}" Text="Cooking" />
+                    <TextBlock Grid.Row="18" Grid.Column="6" Style="{StaticResource TextButton}" Text="Housework (ex: dusting)" />
+                    <TextBlock Grid.Row="18" Grid.Column="8" Style="{StaticResource TextButton}" Text="Cleaning/Tidying up" />
+                    
+                    <!-- SelfCare -->
+                    <TextBlock Grid.Row="22" Grid.Column="0" Style="{StaticResource TextButton}" Text="Exercise" />
+                    <TextBlock Grid.Row="22" Grid.Column="2" Style="{StaticResource TextButton}" Text="Shower/Bath" />
+                    <TextBlock Grid.Row="22" Grid.Column="4" Style="{StaticResource TextButton}" Text="Yoga/Meditation" />
+                    <TextBlock Grid.Row="22" Grid.Column="6" Style="{StaticResource TextButton}" Text="Skincare" />
+                    <TextBlock Grid.Row="22" Grid.Column="8" Style="{StaticResource TextButton}" Text="Massage/Spa day" />
+                    <TextBlock Grid.Row="22" Grid.Column="10" Style="{StaticResource TextButton}" Text="Outdoors" />
+                    <TextBlock Grid.Row="22" Grid.Column="12" Style="{StaticResource TextButton}" Text="Nap" />
+                    <TextBlock Grid.Row="22" Grid.Column="14" Style="{StaticResource TextButton}" Text="Pray" />
+                    <TextBlock Grid.Row="22" Grid.Column="16" Style="{StaticResource TextButton}" Text="Something new" />
+                    
+                    <!-- Social -->
+                    <TextBlock Grid.Row="26" Grid.Column="0" Style="{StaticResource TextButton}" Text="Friends" />
+                    <TextBlock Grid.Row="26" Grid.Column="2" Style="{StaticResource TextButton}" Text="Family" />
+                    <TextBlock Grid.Row="26" Grid.Column="4" Style="{StaticResource TextButton}" Text="Relationship" />
+                    <TextBlock Grid.Row="26" Grid.Column="6" Style="{StaticResource TextButton}" Text="Work/School" />
+                    <TextBlock Grid.Row="26" Grid.Column="8" Style="{StaticResource TextButton}" Text="Volunteering" />
+                    
+                    <!-- Recreational -->
+                    <TextBlock Grid.Row="30" Grid.Column="0" Style="{StaticResource TextButton}" Text="Cigarettes/Cigars" />
+                    <TextBlock Grid.Row="30" Grid.Column="2" Style="{StaticResource TextButton}" Text="Alcohol" />
+                    <TextBlock Grid.Row="30" Grid.Column="4" Style="{StaticResource TextButton}" Text="Cannabis" />
+                    <TextBlock Grid.Row="30" Grid.Column="6" Style="{StaticResource TextButton}" Text="Other substances" />
+                    
+                    <!-- Weather -->
+                    <TextBlock Grid.Row="34" Grid.Column="0" Style="{StaticResource TextButton}" Text="Sunny" />
+                    <TextBlock Grid.Row="34" Grid.Column="2" Style="{StaticResource TextButton}" Text="Cloudy" />
+                    <TextBlock Grid.Row="34" Grid.Column="4" Style="{StaticResource TextButton}" Text="Rainy/Hail" />
+                    <TextBlock Grid.Row="34" Grid.Column="6" Style="{StaticResource TextButton}" Text="Stormy" />
+                    <TextBlock Grid.Row="34" Grid.Column="8" Style="{StaticResource TextButton}" Text="Snowy" />
+                    <TextBlock Grid.Row="34" Grid.Column="10" Style="{StaticResource TextButton}" Text="Windy" />
+                    <TextBlock Grid.Row="34" Grid.Column="12" Style="{StaticResource TextButton}" Text="Cold" />
+                    <TextBlock Grid.Row="34" Grid.Column="14" Style="{StaticResource TextButton}" Text="Hot/Humid" />
+
+                    <!-- Place all buttons in their respective rows -->
+                    <!-- Current Mood Buttons -->
+                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/mood/Mood1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="2" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/mood/Mood2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="4" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/mood/Mood3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="6" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/mood/Mood4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="8" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/mood/Mood5Placeholder.png" />
+                    </Button>
+
+                    <!-- Overall Rating Buttons -->
+                    <Button Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="1" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="2" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="3" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="4" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="5" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=6}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="6" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=7}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="7" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=8}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="8" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="16" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=9}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="9" />
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Row="5" Grid.Column="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding OverallRatingStored, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=10}">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="10" />
+                        </Button.Content>
+                    </Button>
+                    
+                    <!-- Hobbies Buttons -->
+                    <Button Grid.Row="9" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/hobbies/Hobbies1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/hobbies/Hobbies2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/hobbies/Hobbies3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/hobbies/Hobbies4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/hobbies/Hobbies5Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
+                        <Image Source="/assets/hobbies/Hobbies6Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
+                        <Image Source="/assets/hobbies/Hobbies7Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
+                        <Image Source="/assets/hobbies/Hobbies8Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="16" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=9}">
+                        <Image Source="/assets/hobbies/Hobbies9Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="9" Grid.Column="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Hobbies, Converter={StaticResource ListContainsConverter}, ConverterParameter=10}">
+                        <Image Source="/assets/hobbies/Hobbies10Placeholder.png" />
+                    </Button>
+
+                    <!-- Meals Buttons -->
+                    <Button Grid.Row="13" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/meals/Meals1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="13" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/meals/Meals2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="13" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/meals/Meals3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="13" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/meals/Meals4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="13" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/meals/Meals5Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="13" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
+                        <Image Source="/assets/meals/Meals6Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="13" Grid.Column="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Meals, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
+                        <Image Source="/assets/meals/Meals7Placeholder.png" />
+                    </Button>
+                    
+                    <!-- Chores Buttons -->
+                    <Button Grid.Row="17" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/chores/Chores1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="17" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/chores/Chores2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/chores/Chores3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="17" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/chores/Chores4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="17" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Chores, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/chores/Chores5Placeholder.png" />
+                    </Button>
+
+                    <!-- SelfCare Buttons -->
+                    <Button Grid.Row="21" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/selfcare/SelfCare1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/selfcare/SelfCare2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/selfcare/SelfCare3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/selfcare/SelfCare4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/selfcare/SelfCare5Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
+                        <Image Source="/assets/selfcare/SelfCare6Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
+                        <Image Source="/assets/selfcare/SelfCare7Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
+                        <Image Source="/assets/selfcare/SelfCare8Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="21" Grid.Column="16" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding SelfCare, Converter={StaticResource ListContainsConverter}, ConverterParameter=9}">
+                        <Image Source="/assets/selfcare/SelfCare9Placeholder.png" />
+                    </Button>
+
+                    <!-- Social Buttons -->
+                    <Button Grid.Row="25" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/social/Social1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="25" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/social/Social2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="25" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/social/Social3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="25" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/social/Social4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="25" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Social, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/social/Social5Placeholder.png" />
+                    </Button>
+
+                    <!-- Recreational Buttons -->
+                    <Button Grid.Row="29" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/recreationaluse/RecreationalUse1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="29" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/recreationaluse/RecreationalUse2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="29" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/recreationaluse/RecreationalUse3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="29" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding RecreationalUse, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/recreationaluse/RecreationalUse4Placeholder.png" />
+                    </Button>
+
+                    <!-- Weather Buttons -->
+                    <Button Grid.Row="33" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=1}">
+                        <Image Source="/assets/weather/Weather1Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=2}">
+                        <Image Source="/assets/weather/Weather2Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=3}">
+                        <Image Source="/assets/weather/Weather3Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=4}">
+                        <Image Source="/assets/weather/Weather4Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=5}">
+                        <Image Source="/assets/weather/Weather5Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=6}">
+                        <Image Source="/assets/weather/Weather6Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=7}">
+                        <Image Source="/assets/weather/Weather7Placeholder.png" />
+                    </Button>
+                    <Button Grid.Row="33" Grid.Column="14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Weather, Converter={StaticResource ListContainsConverter}, ConverterParameter=8}">
+                        <Image Source="/assets/weather/Weather8Placeholder.png" />
+                    </Button>
+
+                    <!-- Display the note the user left and the image they attached -->
+                    <!-- Headers -->
+                    <TextBlock Grid.Row="36" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" Style="{StaticResource FullLogHeaderText}" Text="Here is the note you left:" />
+                    <TextBlock Grid.Row="36" Grid.Column="10" Grid.ColumnSpan="10" HorizontalAlignment="Center" Style="{StaticResource FullLogHeaderText}" Text="Here is the image you attached:" />
+                    
+                    <!-- TextBox for the note -->
+                    <TextBox Grid.Row="37" Grid.Column="0" Grid.ColumnSpan="10" VerticalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="2" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Style="{StaticResource NormalTextBox}" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+
+                    <!-- Image button and the "No Image Attached!" overlay border -->
+                    <Border Grid.Row="37" Grid.Column="10" Grid.ColumnSpan="10" BorderBrush="LightGray" BorderThickness="2" Margin="10">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FullLogHeaderText}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NullToVisibilityConverter}}" Text="No Image Attached!" />
+                    </Border>
+                    <Button Grid.Row="37" Grid.Column="10" Grid.ColumnSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding ViewImageCommand}" Visibility="{Binding AttachedImagePath, Converter={StaticResource NotNullToVisibilityConverter}}" Margin="10" Background="White">
+                        <Image Source="{Binding AttachedImagePath}" Stretch="Uniform" />
+                    </Button>
+                    
+                    <!-- View journal entry button, spanning the full width -->
+                    <Button Grid.Row="38" Grid.Column="0" Grid.ColumnSpan="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding ViewJournalCommand}" CommandParameter="{Binding TodaysEntry}" Margin="10">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource HeaderText2}" Text="View today's journal..." />
+                        </Button.Content>
+                    </Button>
+
+                </Grid>
 
             </Grid>
 
