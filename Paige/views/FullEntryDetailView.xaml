@@ -1225,7 +1225,7 @@
                     <TextBlock Grid.Row="36" Grid.Column="10" Grid.ColumnSpan="10" HorizontalAlignment="Center" Style="{StaticResource FullLogHeaderText}" Text="Here is the image you attached:" />
                     
                     <!-- TextBox for the note -->
-                    <TextBox Grid.Row="37" Grid.Column="0" Grid.ColumnSpan="10" VerticalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="2" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Style="{StaticResource NormalTextBox}" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+                    <TextBox Grid.Row="37" Grid.Column="0" Grid.ColumnSpan="10" BorderBrush="LightGray" BorderThickness="2" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" Style="{StaticResource NormalTextBox}" Text="{Binding SavedNote, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
 
                     <!-- Image button and the "No Image Attached!" overlay border -->
                     <Border Grid.Row="37" Grid.Column="10" Grid.ColumnSpan="10" BorderBrush="LightGray" BorderThickness="2" Margin="10">
