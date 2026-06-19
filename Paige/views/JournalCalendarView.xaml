@@ -60,7 +60,7 @@
                         </Grid.RowDefinitions>
 
                         <!-- Make each item a button to allow you to go to view the detailed look at the log. Use a stackpanel to summarize the info -->
-                        <Button Grid.Row="0" Command="{Binding DataContext.EntryButtonCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                        <Button Grid.Row="0" Command="{Binding DataContext.JournalEntryButtonCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                             <Button.Content>
                                 <StackPanel HorizontalAlignment="Left">
                                     <TextBlock Style="{StaticResource NormalText}" FontWeight="Bold" Text="{Binding FirstEdited, StringFormat='Journal entry from {0:MMMM, dd, yyyy}'}" />
