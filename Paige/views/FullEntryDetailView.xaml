@@ -996,16 +996,16 @@
                     <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=1}">
                         <Image Source="/assets/mood/Mood1Placeholder.png" />
                     </Button>
-                    <Button Grid.Row="1" Grid.Column="2" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
+                    <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=2}">
                         <Image Source="/assets/mood/Mood2Placeholder.png" />
                     </Button>
-                    <Button Grid.Row="1" Grid.Column="4" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
+                    <Button Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=3}">
                         <Image Source="/assets/mood/Mood3Placeholder.png" />
                     </Button>
-                    <Button Grid.Row="1" Grid.Column="6" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
+                    <Button Grid.Row="1" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=4}">
                         <Image Source="/assets/mood/Mood4Placeholder.png" />
                     </Button>
-                    <Button Grid.Row="1" Grid.Column="8" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
+                    <Button Grid.Row="1" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding CurrentMood, Converter={StaticResource SelectedValueToColourConverter}, ConverterParameter=5}">
                         <Image Source="/assets/mood/Mood5Placeholder.png" />
                     </Button>
 
