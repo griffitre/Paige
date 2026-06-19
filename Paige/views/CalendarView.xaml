@@ -10,16 +10,16 @@
 
         <!-- Create a padding column on the left and two actual columns on the right, with one of size auto (for the button -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="40*" />
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
         <!-- Same thing as above, but with rows -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="40*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!-- Create a back button -->
@@ -28,6 +28,9 @@
                 <TextBlock Style="{StaticResource NormalText}" Text="Back" />
             </Button.Content>
         </Button>
+
+        <!-- Create a hidden textblock at the top left that mimics the exact same size of the back button -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource NormalText}" Text="Back" Opacity="0" />
 
         <!-- Create a ListBox for the entries using a binding -->
         <ListBox Grid.Row="1" Grid.Column="1" BorderBrush="Transparent" ItemsSource="{Binding Entries}" HorizontalContentAlignment="Stretch" >
