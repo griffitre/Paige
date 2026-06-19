@@ -33,7 +33,7 @@
 
 
             <!-- Load logo (which is a placeholder for now) to the correct cell -->
-            <Image Grid.Row="1" Grid.Column="2" Stretch="Fill" Source="/assets/logo/LogoPlaceholderCat.jpg" />
+            <Image Grid.Row="1" Grid.Column="2" Stretch="Uniform" Source="/assets/logo/LogoPlaceholderCat.jpg" />
 
         </Grid>
 
