@@ -1,8 +1,5 @@
-﻿using System;
-using System.Threading;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Paige.viewmodels
 {
@@ -12,9 +9,21 @@ namespace Paige.viewmodels
         // Constructor
         public SavedMenuViewModel(ICommand updateViewCommand)
         {
-            // Wait 3 seconds, then send the user back to the main menu
-            Thread.Sleep(3000);
-            updateViewCommand.Execute("main");
+            // Create a timer that fires off every 2 seconds
+            DispatcherTimer timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(2)
+            };
+
+            // Once the timer fires off once, stop it and navigate back to the main menu
+            timer.Tick += (sender, e) =>
+            {
+                timer.Stop();
+                updateViewCommand.Execute("main");
+            };
+
+            // Start the timer
+            timer.Start();
         }
     }
 }
