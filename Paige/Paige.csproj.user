@@ -2,9 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="views\SavedMenuView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="views\CalendarView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +27,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="views\MainMenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="views\SavedMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="views\ShortEntryDetailView.xaml.cs">
