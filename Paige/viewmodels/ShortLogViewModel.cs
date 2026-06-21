@@ -144,7 +144,7 @@ namespace Paige.viewmodels
             _dataService.Save(userEntry);
 
             // Send the user back to the main menu
-            updateViewCommand.Execute("main");
+            updateViewCommand.Execute("saved");
         }
 
         // AttachImage method

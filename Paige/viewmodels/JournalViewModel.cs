@@ -63,7 +63,7 @@ namespace Paige.viewmodels
         public JournalViewModel(ICommand updateViewCommand)
         {
             // Define ExitCommand
-            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("main"));
+            ExitCommand = new RelayCommand(() => updateViewCommand.Execute("saved"));
 
             // Define DoneCommand
             DoneCommand = new RelayCommand(() => Done(updateViewCommand), () => CanSave());
