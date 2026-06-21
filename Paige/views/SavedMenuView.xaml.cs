@@ -11,15 +11,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Paige.viewmodels
+namespace Paige.views
 {
-    /// <summary>
-    /// Interaction logic for SavedMenuView.xaml
-    /// </summary>
     public partial class SavedMenuView : UserControl
     {
         public SavedMenuView()
         {
+            // Initialize
             InitializeComponent();
         }
     }
