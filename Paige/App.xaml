@@ -54,6 +54,11 @@
             <views:JournalDetailView />
         </DataTemplate>
         
+        <!-- Saved menu data template -->
+        <DataTemplate DataType="{x:Type viewmodels:SavedMenuViewModel}">
+            <views:SavedMenuView />
+        </DataTemplate>
+
         <!-- End of data template definitions -->
 
         
