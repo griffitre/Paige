@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:Paige.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="White">
             
+        <!-- Display text in the middle of the screen informing the user that their log was saved -->
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderText1}" Text="Log saved!" />
+
     </Grid>
 </UserControl>
