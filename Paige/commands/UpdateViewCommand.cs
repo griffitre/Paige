@@ -61,6 +61,10 @@ namespace Paige.commands
             {
                 _mainWindowViewModel.ActiveMenu = new JournalCalendarViewModel(this);
             }
+            if (parameter.ToString() == "saved")
+            {
+                _mainWindowViewModel.ActiveMenu = new SavedMenuViewModel(this);
+            }
         }
 
         // Default implementation of CanExecuteChanged from ICommand interface
